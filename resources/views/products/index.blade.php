@@ -3,7 +3,7 @@
 
 <head>
 
-	<?php include "../layouts/head.template.php"; ?>
+	@include('layouts.head')
 
     <!-- nouisliderribute css -->
     <link rel="stylesheet" href="{{asset('libs/nouislider/nouislider.min.css')}}">
@@ -17,16 +17,17 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-    	<?php include "../layouts/nav.template.php"; ?>
+    	@include('layouts.nav')
         
         <!-- ========== App Menu ========== -->
-        <?php include "../layouts/sidebar.template.php"; ?>
+        @include('layouts.sidebar')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
 
-            <?php include "../layouts/bread.template.php"; ?>
+            
+            @include('layouts.bread')
 
             <!-- End Page-content -->
 
@@ -94,8 +95,8 @@
             <!-- End Page-content -->
 
 
-
-            <?php include "../layouts/footer.template.php"; ?>
+            @include('layouts.footer')
+           
         </div>
         <!-- end main content-->
 
@@ -120,7 +121,8 @@
     </div>
  
 
-    <?php include "../layouts/scripts.template.php"; ?>
+    
+    @include('layouts.scripts')
 
     <!-- nouisliderribute js -->
     <script src="{{asset(('libs/nouislider/nouislider.min.js'))}}"></script>
