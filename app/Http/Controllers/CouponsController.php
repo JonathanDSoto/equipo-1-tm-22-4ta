@@ -7,14 +7,14 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request as RequestGuzzle;
 use Illuminate\Auth\RequestGuard;
 
-class TagsController extends Controller
+class CouponsController extends Controller
 {
-    public function getAllTags(){
+    public function getAllCoupons(){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. $_SESSION['token']
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/tags', $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons', $headers);
         $response = $client->sendAsync($request)->wait();
 
         $response = json_decode($response->getBody()->getContents());
@@ -25,13 +25,12 @@ class TagsController extends Controller
             return view('index')->with("Error","Datos incorrectos");
         }
     }
-
-    public function getSpecificTag(Request $request){
+    public function getSpecificCoupon(Request $request){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. $_SESSION['token']
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/tags/'.$request->tag, $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons/'.$request->coupon, $headers);
         $response = $client->sendAsync($request)->wait();
 
         $response = json_decode($response->getBody()->getContents());
@@ -41,8 +40,6 @@ class TagsController extends Controller
         }else{
             return view('index')->with("Error","Datos incorrectos");
         }
+
     }
-
-
-
 }

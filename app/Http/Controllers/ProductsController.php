@@ -43,7 +43,7 @@ class ProductsController extends Controller
         }
     }
 
-    public function getProductBySlug (Request $request){
+    public function getProductBySlug(Request $request){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. $_SESSION['token']
