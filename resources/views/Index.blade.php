@@ -61,6 +61,7 @@
                         <div class="card mt-4">
 
                             <div class="card-body p-4">
+
                                 <div class="text-center mt-2">
                                     <h5 class="text-secondary">¡Bienvenido!</h5>
                                     <p class="text-muted">Ingrese sus datos para iniciar sesión</p>
@@ -81,9 +82,15 @@
                                             </div>
                                         </div>
 
+                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                            <i class="ri-error-warning-line me-2 align-middle fs-18"></i><strong>Error al iniciar sesión</strong>
+                                            Datos incorrectos
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+
                                         <div class="mt-4">
                                             <button class="btn btn-success w-100" type="">Iniciar sesión</button>
-                                            
+
                                         </div>
                                     </form>
                                 </div>
@@ -106,7 +113,9 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0 text-muted">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Exámen. Creado por Equipo #1
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Exámen. Creado por Equipo #1
                             </p>
                         </div>
                     </div>
