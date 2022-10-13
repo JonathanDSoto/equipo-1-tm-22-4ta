@@ -3,7 +3,7 @@
 
 <head>
 
-	@include('layouts.head')
+    @include('layouts.head')
 
     <!-- nouisliderribute css -->
     <link rel="stylesheet" href="{{asset('libs/nouislider/nouislider.min.css')}}">
@@ -17,8 +17,8 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-    	@include('layouts.nav')
-        
+        @include('layouts.nav')
+
         <!-- ========== App Menu ========== -->
         @include('layouts.sidebar')
         <!-- ============================================================== -->
@@ -26,19 +26,18 @@
         <!-- ============================================================== -->
         <div class="main-content">
 
-            
             @include('layouts.bread')
 
             <!-- End Page-content -->
 
-            <div class="row"> 
+            <div class="row">
 
                 <div class="col-xl-12 col-lg-12">
                     <div>
                         <div class="card">
                             <div class="card-header border-0">
                                 <div class="row g-4">
-                                    
+
                                     <div class="col-sm">
                                         <div class="d-flex justify-content-sm-start">
                                             <div class="search-box ms-2">
@@ -47,7 +46,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-sm-auto">
                                         <div div class="d-flex justify-content-sm-end">
                                             <a href="apps-ecommerce-add-product.html" class="btn btn-success" id="addproduct-btn"><i class="ri-add-line align-bottom me-1"></i> Add Product</a>
@@ -56,7 +55,7 @@
                                 </div>
                             </div>
 
-                            
+
                             <!-- end card header -->
                             <div class="card-body">
 
@@ -96,7 +95,7 @@
 
 
             @include('layouts.footer')
-           
+
         </div>
         <!-- end main content-->
 
@@ -119,9 +118,9 @@
             </div>
         </div>
     </div>
- 
 
-    
+
+
     @include('layouts.scripts')
 
     <!-- nouisliderribute js -->
@@ -138,4 +137,4 @@
 </body>
 
 
-</html>
+</html> -->
