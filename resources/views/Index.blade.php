@@ -82,6 +82,7 @@
                                             </div>
                                         </div>
 
+                                        <!-- Boton con el alert por error al iniciar sesion -->
                                         <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
                                             <i class="ri-error-warning-line me-2 align-middle fs-18"></i><strong>Error al iniciar sesión</strong>
                                             Datos incorrectos
