@@ -39,6 +39,18 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
+                                        <!-- Boton con el alert por error al iniciar sesion -->
+                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                            - El registro no se pudo completar, datos incorrectos
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        <!-- Success Alert -->
+                                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                            <i class="ri-check-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+
                                         <div div class="d-flex justify-content-sm-end">
 
 
@@ -69,7 +81,7 @@
                                                                             <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
                                                                         </div>
                                                                     </div>
-                                                                    
+
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
@@ -128,7 +140,7 @@
 
 
                                 <!-- Tables Without Borders -->
-                                <table class="table table-borderless table-nowrap">
+                                <table class="table table-borderless table-nowrap align-middle">
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
@@ -149,15 +161,15 @@
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
                                                     <!-- Grids in modals -->
                                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                    <i class="ri-edit-2-line"></i>
+                                                        <i class="ri-edit-2-line"></i>
                                                     </button>
-                                                
+
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
                                                         <i class="ri-eye-line"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger">
-                                                    <i class="ri-delete-bin-5-line"></i>
+                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
@@ -173,15 +185,15 @@
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
                                                     <!-- Grids in modals -->
                                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                    <i class="ri-edit-2-line"></i>
+                                                        <i class="ri-edit-2-line"></i>
                                                     </button>
-                                                
+
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
                                                         <i class="ri-eye-line"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger">
-                                                    <i class="ri-delete-bin-5-line"></i>
+                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
@@ -197,15 +209,15 @@
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
                                                     <!-- Grids in modals -->
                                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                    <i class="ri-edit-2-line"></i>
+                                                        <i class="ri-edit-2-line"></i>
                                                     </button>
-                                                
+
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
                                                         <i class="ri-eye-line"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger">
-                                                    <i class="ri-delete-bin-5-line"></i>
+                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
@@ -221,15 +233,399 @@
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
                                                     <!-- Grids in modals -->
                                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                    <i class="ri-edit-2-line"></i>
+                                                        <i class="ri-edit-2-line"></i>
                                                     </button>
-                                                
+
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
                                                         <i class="ri-eye-line"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger">
-                                                    <i class="ri-delete-bin-5-line"></i>
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Annette </td>
+                                            <td>González</td>
+                                            <td>anttg@gmail.com</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Bessie Cooper</td>
+                                            <td>Graphic Designer</td>
+                                            <td>13, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Leslie Alexander</td>
+                                            <td>Product Manager</td>
+                                            <td>17, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Lenora Sandoval</td>
+                                            <td>Applications Engineer</td>
+                                            <td>25, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Annette </td>
+                                            <td>González</td>
+                                            <td>anttg@gmail.com</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Bessie Cooper</td>
+                                            <td>Graphic Designer</td>
+                                            <td>13, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Leslie Alexander</td>
+                                            <td>Product Manager</td>
+                                            <td>17, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Lenora Sandoval</td>
+                                            <td>Applications Engineer</td>
+                                            <td>25, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Annette </td>
+                                            <td>González</td>
+                                            <td>anttg@gmail.com</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Bessie Cooper</td>
+                                            <td>Graphic Designer</td>
+                                            <td>13, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Leslie Alexander</td>
+                                            <td>Product Manager</td>
+                                            <td>17, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Lenora Sandoval</td>
+                                            <td>Applications Engineer</td>
+                                            <td>25, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Annette </td>
+                                            <td>González</td>
+                                            <td>anttg@gmail.com</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Bessie Cooper</td>
+                                            <td>Graphic Designer</td>
+                                            <td>13, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Leslie Alexander</td>
+                                            <td>Product Manager</td>
+                                            <td>17, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Lenora Sandoval</td>
+                                            <td>Applications Engineer</td>
+                                            <td>25, Nov 2021</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
+                                                    <!-- Grids in modals -->
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                                                        <i class="ri-edit-2-line"></i>
+                                                    </button>
+
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
