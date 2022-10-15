@@ -4,7 +4,7 @@
                 <!-- Dark Logo-->
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{asset('images/logo-eshop.png')}}" alt="" height="22">
+                        <img src="{{asset('images/logo-eshop.png')}}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
                         <img src="{{asset('images/online-shop-ecommerce-eshop.png')}}" alt="" height="50">
@@ -13,7 +13,7 @@
                 <!-- Light Logo-->
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{asset('images/logo-eshop.png')}}" alt="" height="22">
+                        <img src="{{asset('images/logo-eshop.png')}}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
                         <img src="{{asset('images/online-shop-ecommerce-eshop.png')}}" alt="" height="50">

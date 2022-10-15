@@ -8,3 +8,13 @@
 
     <!-- App js -->
     <script src="{{asset('js/app.js')}}"></script>
+
+    <!-- nouisliderribute js -->
+    <script src="{{asset(('libs/nouislider/nouislider.min.js'))}}"></script>
+    <script src="{{asset('libs/wnumb/wNumb.min.js')}}"></script>
+
+    <!-- gridjs js -->
+    <script src="{{asset('libs/gridjs/gridjs.umd.js')}}"></script>
+    <script src="../../../../unpkg.com/gridjs%405.1.0/plugins/selection/dist/selection.umd.js"></script>
+    <!-- ecommerce product list -->
+    <script src="{{asset('js/pages/ecommerce-product-list.init.js')}}"></script>

@@ -5,11 +5,7 @@
 
 	@include('layouts.head')
 
-    <!-- nouisliderribute css -->
-    <link rel="stylesheet" href="{{asset('libs/nouislider/nouislider.min.css')}}">
 
-    <!-- gridjs css -->
-    <link rel="stylesheet" href="{{asset('libs/gridjs/theme/mermaid.min.css')}}">
 </head>
 
 <body>
