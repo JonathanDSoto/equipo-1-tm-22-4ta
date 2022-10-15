@@ -47,7 +47,7 @@
                                         </div>
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-check-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
+                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
 
