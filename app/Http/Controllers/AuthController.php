@@ -24,21 +24,23 @@ class AuthController extends Controller
             'contents' => $request->password
             ]
         ]];
+
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/login');
-        $response = $client->sendAsync($request, $options)->wait();
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+            return redirect()->view('products.index');
 
-        $response = json_decode($response->getBody()->getContents());
-
-        if(isset($response->code) && $response->code > 0){
             session_start();
             $_SESSION['name'] = $response->data->name;
             $_SESSION['lastname'] = $response->data->lastname;
             $_SESSION['avatar'] = $response->data->avatar;
             $_SESSION['token'] = $response->data->token;
 
-            return view('welcome');
-        }else{
-            return view('login')->with("Error","Datos incorrectos");
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            return ($responseBodyAsString);
         }
     }
 
