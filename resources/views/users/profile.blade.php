@@ -103,7 +103,7 @@
                                                         <div class="d-flex justify-content-sm-center">
                                                             <div class="flex-shrink-0">
                                                                 <!-- <a href="pages-profile-settings.html" data-bs-toggle="modal" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a> -->
-                                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</button>
+                                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid"><i class="ri-edit-box-line align-bottom"></i> Editar Perfil</button>
                                                                 <div class="modal fade modal-lg" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                                     <div class="modal-dialog">
                                                                         <div class="modal-content">
