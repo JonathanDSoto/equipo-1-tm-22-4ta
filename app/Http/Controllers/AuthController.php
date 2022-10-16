@@ -9,19 +9,19 @@ use Illuminate\Auth\RequestGuard;
 
 class AuthController extends Controller
 {
-    public function login(Request $request){
+    public function login(Request $request2){
         $client = new Client();
         $options = [
         'multipart' => [
             [
             'name' => 'email',
             //'contents' => 'abdiel2_19@alu.uabcs.mx'
-            'contents' => $request->email
+            'contents' => $request2->email
             ],
             [
             'name' => 'password',
             //'contents' => '41htT%pYl0I6kZ'
-            'contents' => $request->password
+            'contents' => $request2->password
             ]
         ]];
 
@@ -29,13 +29,14 @@ class AuthController extends Controller
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
-            return redirect()->view('products.index');
 
-            session_start();
-            $_SESSION['name'] = $response->data->name;
-            $_SESSION['lastname'] = $response->data->lastname;
-            $_SESSION['avatar'] = $response->data->avatar;
-            $_SESSION['token'] = $response->data->token;
+            session(['name' => $response->data->name]);
+            session(['lastname' => $response->data->lastname]);
+            session(['email' => $request2->email]);
+            session(['avatar' => $response->data->avatar]);
+            session(['token' => $response->data->token]);
+
+            return view('products.index');
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
@@ -44,26 +45,29 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request){
+    public function logout(){
         $client = new Client();
         $options = [
         'multipart' => [
             [
             'name' => 'email',
-            'contents' => $request->email
+            'contents' => session('email')
             ]
         ]];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/logout');
-        $response = $client->sendAsync($request, $options)->wait();
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+            session()->forget('name');
+            session()->forget('lastname');
+            session()->forget('email');
+            session()->forget('avatar');
+            session()->forget('token');
+            return redirect()->route('login');
 
-        $response = json_decode($response->getBody()->getContents());
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
 
-        if(isset($response->code) && $response->code > 0){
-            session_destroy();
-
-            return view('welcome');
-        }else{
-            return view('welcome')->with("Error","Datos incorrectos");
         }
+        return 'hola';
     }
 }
