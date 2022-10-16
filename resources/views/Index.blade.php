@@ -4,12 +4,12 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Sign In | Velzon - Admin & Dashboard Template</title>
+    <title>Sign In | E-Shop-Center - Equipo #1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('images/logo-eshop.png')}}">
     <!-- Layout config Js -->
     <script src="{{asset('js/layout.js')}}"></script>
     <!-- Bootstrap Css -->
@@ -45,10 +45,10 @@
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
                                 <a class="d-inline-block auth-logo">
-                                    <h1 style="color: white;">Exámen</h1>
+                                    <h1 style="color: white;">E-Shop-Center</h1>
                                 </a>
                             </div>
-                            <p class="mt-3 fs-15 fw-medium">Equipo #1</p>
+                            <p class="mt-3 fs-15 fw-medium">Examen Equipo #1</p>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                             <p class="mb-0 text-muted">&copy;
                                 <script>
                                     document.write(new Date().getFullYear())
-                                </script> Exámen. Creado por Equipo #1
+                                </script> Examen. Creado por Equipo #1
                             </p>
                         </div>
                     </div>
