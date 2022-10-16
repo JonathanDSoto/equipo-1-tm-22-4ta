@@ -149,12 +149,6 @@
                                             <td>anttg@gmail.com</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
-
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
                                                         <i class="ri-eye-line"></i>
@@ -174,10 +168,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -198,10 +189,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -222,10 +210,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -246,10 +231,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -270,10 +252,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -294,10 +273,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -318,10 +294,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -342,10 +315,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -366,10 +336,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -390,10 +357,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -414,10 +378,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -438,10 +399,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -462,10 +420,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -486,10 +441,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -510,10 +462,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -534,10 +483,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -558,10 +504,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -582,10 +525,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -606,10 +546,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    <!-- Grids in modals -->
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </button>
+                                                    
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
