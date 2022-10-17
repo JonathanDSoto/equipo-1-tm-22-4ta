@@ -15,15 +15,19 @@ class ProductsController extends Controller
             'Authorization' => 'Bearer '. $_SESSION['token']
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products', $headers);
-        $response = $client->sendAsync($request)->wait();
 
-        $response = json_decode($response->getBody()->getContents());
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        if(isset($response->code) && $response->code > 0){
             return view('index',compact('response'));
-        }else{
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
             return view('index')->with("Error","Datos incorrectos");
         }
+
     }
 
     public function getEspecificProduct(Request $request){
