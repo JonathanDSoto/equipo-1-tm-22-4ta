@@ -57,7 +57,7 @@
                                         <div class="col">
                                             <div class="p-2">
                                                 <h3 class="text-white mb-1">Annette Adame González</h3>
-                                                <p class="text-white-75">Founder</p>
+                                                <!-- <p class="text-white-75">Founder</p> -->
                                             </div>
                                         </div>
 
@@ -76,12 +76,12 @@
                                                                     <table class="table table-borderless mb-0">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <th class="ps-0" scope="row">Nombre(s): </th>
-                                                                                <td class="text-muted">Annette</td>
+                                                                                <th class="ps-0" scope="row">Nombre: </th>
+                                                                                <td class="text-muted">Annette Adame González</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <th class="ps-0" scope="row">Apellidos: </th>
-                                                                                <td class="text-muted">Adame González</td>
+                                                                                <th class="ps-0" scope="row">Nivel de suscripción: </th>
+                                                                                <td class="text-muted">1</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th class="ps-0" scope="row">No. Celular:</th>
@@ -91,10 +91,7 @@
                                                                                 <th class="ps-0" scope="row">Correo Electrónico: </th>
                                                                                 <td class="text-muted">anttg@gmail.com</td>
                                                                             </tr>
-                                                                            <tr>
-                                                                                <th class="ps-0" scope="row">Se unió en: </th>
-                                                                                <td class="text-muted">24 Nov 2021</td>
-                                                                            </tr>
+
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -102,12 +99,12 @@
                                                                 <div class="d-flex justify-content-sm-center">
                                                                     <div class="flex-shrink-0">
                                                                         <!-- <a href="pages-profile-settings.html" data-bs-toggle="modal" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a> -->
-                                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid"><i class="ri-edit-box-line align-bottom"></i> Editar Perfil</button>
-                                                                        <div class="modal fade modal-lg" id="exampleModalgrid" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#profileClientModal"><i class="ri-edit-box-line align-bottom"></i> Editar Perfil</button>
+                                                                        <div class="modal fade modal-lg" id="profileClientModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="exampleModalgridLabel">Editar usuario</h5>
+                                                                                        <h5 class="modal-title" id="profileClientModal">Editar usuario</h5>
                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </div>
                                                                                     <div class="modal-body">
@@ -120,25 +117,11 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
-                                                                                                    </div>
-                                                                                                </div>
 
-                                                                                                <!--end col-->
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label for="emailInput" class="form-label">Correo</label>
                                                                                                         <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                                                        <input type="password" class="form-control" id="passwordInput" placeholder="************">
                                                                                                     </div>
                                                                                                 </div>
 
@@ -172,22 +155,73 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeImgModal"><i class="ri-edit-box-line align-bottom"></i> Cambiar foto de perfil</button>
-                                                                        <div class="modal fade modal-lg" id="changeImgModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">+ Añadir una nueva dirección</button>
+                                                                        <div class="modal fade modal-lg" id="addAddressModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="exampleModalgridLabel">Cambiar imagen de usuario</h5>
+                                                                                        <h5 class="modal-title" id="exampleModalgridLabel">Añadir una nueva dirección</h5>
                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </div>
                                                                                     <div class="modal-body">
                                                                                         <form action="javascript:void(0);">
                                                                                             <div class="row g-3">
 
-                                                                                                <div class="col-xxl-15">
-                                                                                                    <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                                                    <input name="cover" type="file" class="form-control">
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Nombre(s)</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el nombre">
+                                                                                                    </div>
                                                                                                 </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Apellidos</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Calle y No. #</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese la calle y su No.">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Código postal</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el código postal">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Ciudad</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese la ciudad">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Estado</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el estado">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label for="lastName" class="form-label">Número celular</label>
+                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
 
                                                                                                 <div class="col-lg-12">
                                                                                                     <div class="hstack gap-2 justify-content-end">
@@ -211,9 +245,87 @@
 
                                                         </div><!-- end card -->
 
+
+
                                                     </div><!-- end row -->
                                                 </div>
                                                 <!--end col-->
+
+                                                <div class="card-body">
+
+
+
+                                                    <!-- Tables Without Borders -->
+                                                    <table class="table table-borderless table-nowrap align-middle">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Id</th>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Calle y No. #</th>
+                                                                <th scope="col">Código postal</th>
+                                                                <th scope="col">Ciudad</th>
+                                                                <th scope="col">Estado</th>
+                                                                <th scope="col">No. Cel.</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>Annette González</td>
+                                                                <td>Calle articulo 743, 123</td>
+                                                                <td>23088</td>
+                                                                <td>La Paz</td>
+                                                                <td>Baja California Sur</td>
+                                                                <td>6121369008</td>
+
+                                                                <td>
+                                                                    <div class="hstack gap-3 fs-15">
+                                                                        <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                                        <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
+                                                                            <i class="ri-edit-box-line"></i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger">
+                                                                            <i class="ri-delete-bin-5-line"></i>
+                                                                        </button>
+                                                                        <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                    <!-- end tab content -->
+
+                                                </div>
+
+                                                <div class="col-xl-3 col-md-6">
+                                                    <!-- card -->
+                                                    <div class="card card-animate bg-info">
+                                                        <div class="card-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-grow-1">
+                                                                    <p class="text-uppercase fw-medium text-white-50 mb-0">Ordenes</p>
+                                                                </div>
+                                                                <div class="avatar-sm flex-shrink-0">
+                                                                    <span class="avatar-title bg-soft-light rounded fs-3 shadow">
+                                                                        <i class="bx bx-shopping-bag text-white"></i>
+                                                                    </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                                                <div>
+                                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="10">0</span></h4>
+                                                                    <a href="#" class="text-decoration-underline text-white-50">Ver todas las ordenes</a>
+                                                                </div>
+
+                                                            </div>
+                                                        </div><!-- end card body -->
+                                                    </div><!-- end card -->
+                                                </div><!-- end col -->
+
                                             </div>
                                             <!--end tab-content-->
                                         </div>
