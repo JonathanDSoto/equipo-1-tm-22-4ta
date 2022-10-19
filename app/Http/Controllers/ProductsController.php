@@ -12,7 +12,7 @@ class ProductsController extends Controller
     public function getAllProducts(){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products', $headers);
 
@@ -33,7 +33,7 @@ class ProductsController extends Controller
     public function getEspecificProduct(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/'.$request->id, $headers);
 
@@ -53,7 +53,7 @@ class ProductsController extends Controller
     public function getProductBySlug(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/slug/'.$request->slug, $headers);
 
@@ -73,7 +73,7 @@ class ProductsController extends Controller
     public function getProductByCategory(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/categories/'.$request->category, $headers);
         try {

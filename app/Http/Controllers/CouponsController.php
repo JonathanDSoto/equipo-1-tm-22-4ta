@@ -12,7 +12,7 @@ class CouponsController extends Controller
     public function getAllCoupons(){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons', $headers);
         $response = $client->sendAsync($request)->wait();
@@ -28,7 +28,7 @@ class CouponsController extends Controller
     public function getSpecificCoupon(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons/'.$request->coupon, $headers);
         $response = $client->sendAsync($request)->wait();

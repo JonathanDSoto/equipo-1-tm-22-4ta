@@ -12,7 +12,7 @@ class TagsController extends Controller
     public function getAllTags(){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/tags', $headers);
         $response = $client->sendAsync($request)->wait();
@@ -29,7 +29,7 @@ class TagsController extends Controller
     public function getSpecificTag(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/tags/'.$request->tag, $headers);
         $response = $client->sendAsync($request)->wait();
