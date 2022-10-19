@@ -4,7 +4,7 @@
 <head>
 
     @include('layouts.head')
-    
+
 </head>
 
 <body>
@@ -63,13 +63,7 @@
                                                         <div class="modal-body">
                                                             <form action="javascript:void(0);">
                                                                 <div class="row g-3">
-                                                                    <div class="col-xxl-6">
-                                                                        <div>
-                                                                            <label for="firstName" class="form-label">Nombre Completo</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre completo">
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--end col-->
+
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
@@ -80,9 +74,38 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
+                                                                            <label for="passwordInput" class="form-label">Contraseña</label>
+                                                                            <input type="password" class="form-control" id="passwordInput" placeholder="************">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label for="firstName" class="form-label">Nombre Completo</label>
+                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre completo">
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
                                                                             <label for="lastName" class="form-label">Número celular</label>
                                                                             <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
                                                                         </div>
+                                                                    </div>
+
+                                                                    <!-- Select -->
+                                                                    <div class="input-group">
+                                                                        <label class="input-group-text" for="inputGroupSelect01">Suscripción</label>
+                                                                        <select class="form-select" id="inputGroupSelect01">
+                                                                            <!-- <option selected>Nivel...</option> -->
+                                                                            <option value="1">Normal</option>
+                                                                            <option value="2">Premium</option>
+                                                                            <option value="3">VIP</option>
+                                                                        </select>
                                                                     </div>
 
                                                                     <!--end col-->
@@ -144,7 +167,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
 

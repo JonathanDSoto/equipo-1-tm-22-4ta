@@ -66,7 +66,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <div>
+                                            <br>
                                                 <div class="d-flex justify-content-sm-start">
                                                     <div class="col-xxl-5">
                                                         <div class="card">
@@ -251,98 +251,189 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="card-body">
+                                                <!-- end col -->
+                                        </div>
+                                        <!--end tab-content-->
+                                    </div>
+                                </div>
 
+                                <!--end col-->
+                            </div>
 
+                            <!-- Mis Direcciones -->
+                            <div class="col-lg-8" style="width: 95%; padding:2%">
+                                <div class="card card-height-100">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Mis direcciones</h4>
+                                    </div><!-- end card header -->
 
-                                                    <!-- Tables Without Borders -->
-                                                    <table class="table table-borderless table-nowrap align-middle">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Id</th>
-                                                                <th scope="col">Nombre</th>
-                                                                <th scope="col">Calle y No. #</th>
-                                                                <th scope="col">Código postal</th>
-                                                                <th scope="col">Ciudad</th>
-                                                                <th scope="col">Estado</th>
-                                                                <th scope="col">No. Cel.</th>
-                                                                <th scope="col"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Annette González</td>
-                                                                <td>Calle articulo 743, 123</td>
-                                                                <td>23088</td>
-                                                                <td>La Paz</td>
-                                                                <td>Baja California Sur</td>
-                                                                <td>6121369008</td>
+                                    <div class="card-body">
+                                        <!-- Tables Without Borders -->
+                                        <table class="table table-borderless table-nowrap align-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Calle y No. #</th>
+                                                    <th scope="col">Código postal</th>
+                                                    <th scope="col">Ciudad</th>
+                                                    <th scope="col">Estado</th>
+                                                    <th scope="col">No. Cel.</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Annette González</td>
+                                                    <td>Calle articulo 743, 123</td>
+                                                    <td>23088</td>
+                                                    <td>La Paz</td>
+                                                    <td>Baja California Sur</td>
+                                                    <td>6121369008</td>
 
-                                                                <td>
-                                                                    <div class="hstack gap-3 fs-15">
-                                                                        <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                                        <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
-                                                                            <i class="ri-edit-box-line"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-danger">
-                                                                            <i class="ri-delete-bin-5-line"></i>
-                                                                        </button>
-                                                                        <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                    <td>
+                                                        <div class="hstack gap-3 fs-15">
+                                                            <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
+                                                                <i class="ri-edit-box-line"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger">
+                                                                <i class="ri-delete-bin-5-line"></i>
+                                                            </button>
+                                                            <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                        </div>
+                                                    </td>
+                                                </tr>
 
-                                                        </tbody>
-                                                    </table>
+                                            </tbody>
+                                        </table>
 
-                                                    <!-- end tab content -->
+                                        <!-- end tab content -->
 
-                                                </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div>
 
-                                                <div class="col-xl-3 col-md-6">
-                                                    <!-- card -->
-                                                    <div class="card card-animate bg-info">
-                                                        <div class="card-body">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">
-                                                                    <p class="text-uppercase fw-medium text-white-50 mb-0">Ordenes</p>
-                                                                </div>
-                                                                <div class="avatar-sm flex-shrink-0">
-                                                                    <span class="avatar-title bg-soft-light rounded fs-3 shadow">
-                                                                        <i class="bx bx-shopping-bag text-white"></i>
-                                                                    </span>
-                                                                </div>
+                            <div class="d-flex align-items-center px-5 ms-xl-4">
 
-                                                            </div>
-                                                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                                                <div>
-                                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="10">0</span></h4>
-                                                                    <a href="#" class="text-decoration-underline text-white-50">Ver todas las ordenes</a>
-                                                                </div>
+                                <!-- card -->
+                                <div class="card card-animate bg-info" style="margin-left: 30%;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <p class="fw-medium text-white-50 mb-0">Ordenes Totales</p>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-soft-light rounded fs-3 shadow">
+                                                    <i class="bx bx-shopping-bag text-white"></i>
+                                                </span>
+                                            </div>
 
-                                                            </div>
-                                                        </div><!-- end card body -->
-                                                    </div><!-- end card -->
-                                                </div><!-- end col -->
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="10">0</span></h4>
 
                                             </div>
-                                            <!--end tab-content-->
+
                                         </div>
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
-                            </div><!-- container-fluid -->
-                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+
+                                <div class="card card-animate bg-success" style="margin-left: 5%;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <p class="fw-medium text-white-50 mb-0">Total en compras</p>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-soft-light rounded fs-3 shadow">
+                                                    <i class="bx bx-shopping-bag text-white"></i>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="5000">0</span></h4>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+
+                                <!-- end col -->
+                            </div>
+
+
+
+                            <!-- Mis pedidos -->
+                            <div class="col-lg-8" style="width: 95%; padding:2%">
+                                <div class="card card-height-100">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Mis ordenes</h4>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <!-- Tables Without Borders -->
+                                        <table class="table table-borderless table-nowrap align-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Calle y No. #</th>
+                                                    <th scope="col">Código postal</th>
+                                                    <th scope="col">Ciudad</th>
+                                                    <th scope="col">Estado</th>
+                                                    <th scope="col">No. Cel.</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Annette González</td>
+                                                    <td>Calle articulo 743, 123</td>
+                                                    <td>23088</td>
+                                                    <td>La Paz</td>
+                                                    <td>Baja California Sur</td>
+                                                    <td>6121369008</td>
+
+                                                    <td>
+                                                        <div class="hstack gap-3 fs-15">
+                                                            <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
+                                                                <i class="ri-edit-box-line"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger">
+                                                                <i class="ri-delete-bin-5-line"></i>
+                                                            </button>
+                                                            <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                        <!-- end tab content -->
+
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div>
+
+                            <!--end row-->
+                        </div><!-- container-fluid -->
                     </div>
                 </div>
-
             </div>
 
-            @include('layouts.footer')
-
         </div>
+
+        @include('layouts.footer')
+
+    </div>
 
 
     </div><!-- End Page-content -->
