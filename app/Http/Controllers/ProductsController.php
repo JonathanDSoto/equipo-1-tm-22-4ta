@@ -36,14 +36,17 @@ class ProductsController extends Controller
             'Authorization' => 'Bearer '. $_SESSION['token']
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/'.$request->id, $headers);
-        $response = $client->sendAsync($request)->wait();
 
-        $response = json_decode($response->getBody()->getContents());
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        if(isset($response->code) && $response->code > 0){
             return view('details',compact('response'));
-        }else{
-            return view('index')->with("Error","Datos incorrectos");
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            return view('details')->with("Error","Datos incorrectos");
         }
     }
 
@@ -53,14 +56,17 @@ class ProductsController extends Controller
             'Authorization' => 'Bearer '. $_SESSION['token']
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/slug/'.$request->slug, $headers);
-        $response = $client->sendAsync($request)->wait();
 
-        $response = json_decode($response->getBody()->getContents());
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        if(isset($response->code) && $response->code > 0){
             return view('details',compact('response'));
-        }else{
-            return view('index')->with("Error","Datos incorrectos");
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            return view('details')->with("Error","Datos incorrectos");
         }
     }
 
@@ -70,14 +76,16 @@ class ProductsController extends Controller
             'Authorization' => 'Bearer '. $_SESSION['token']
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/categories/'.$request->category, $headers);
-        $response = $client->sendAsync($request)->wait();
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        $response = json_decode($response->getBody()->getContents());
+            //return view('details',compact('response'));
 
-        if(isset($response->code) && $response->code > 0){
-            return view('details',compact('response'));
-        }else{
-            return view('index')->with("Error","Datos incorrectos");
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('details')->with("Error","Datos incorrectos");
         }
     }
 
