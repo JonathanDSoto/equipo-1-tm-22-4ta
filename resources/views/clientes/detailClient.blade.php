@@ -48,11 +48,11 @@
                                 </div>
                                 <div class="pt-4 mb-4 mb-lg-3 pb-lg-4">
                                     <div class="row g-4">
-                                        <div class="col-auto">
+                                        <!-- <div class="col-auto">
                                             <div class="avatar-lg">
                                                 <img src="{{asset('images/users/avatar-1.jpg')}}" alt="user-img" class="img-thumbnail rounded-circle" />
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!--end col -->
                                         <div class="col">
                                             <div class="p-2">
@@ -67,191 +67,191 @@
                                     <div class="row">
                                         <div class="col-lg-8">
                                             <br>
-                                                <div class="d-flex justify-content-sm-start">
-                                                    <div class="col-xxl-5">
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title mb-3">Información Personal</h5>
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-borderless mb-0">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <th class="ps-0" scope="row">Nombre: </th>
-                                                                                <td class="text-muted">Annette Adame González</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th class="ps-0" scope="row">Nivel de suscripción: </th>
-                                                                                <td class="text-muted">1</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th class="ps-0" scope="row">No. Celular:</th>
-                                                                                <td class="text-muted">6125085004</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th class="ps-0" scope="row">Correo Electrónico: </th>
-                                                                                <td class="text-muted">anttg@gmail.com</td>
-                                                                            </tr>
+                                            <div class="d-flex justify-content-sm-start">
+                                                <div class="col-xxl-5">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mb-3">Información Personal</h5>
+                                                            <div class="table-responsive">
+                                                                <table class="table table-borderless mb-0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th class="ps-0" scope="row">Nombre: </th>
+                                                                            <td class="text-muted">Annette Adame González</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th class="ps-0" scope="row">Nivel de suscripción: </th>
+                                                                            <td class="text-muted">1</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th class="ps-0" scope="row">No. Celular:</th>
+                                                                            <td class="text-muted">6125085004</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th class="ps-0" scope="row">Correo Electrónico: </th>
+                                                                            <td class="text-muted">anttg@gmail.com</td>
+                                                                        </tr>
 
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
 
-                                                                <div class="d-flex justify-content-sm-center">
-                                                                    <div class="flex-shrink-0">
-                                                                        <!-- <a href="pages-profile-settings.html" data-bs-toggle="modal" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a> -->
-                                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#profileClientModal"><i class="ri-edit-box-line align-bottom"></i> Editar Perfil</button>
-                                                                        <div class="modal fade modal-lg" id="profileClientModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
-                                                                            <div class="modal-dialog">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="profileClientModal">Editar usuario</h5>
-                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <form action="javascript:void(0);">
-                                                                                            <div class="row g-3">
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                                        <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
-                                                                                                    </div>
+                                                            <div class="d-flex justify-content-sm-center">
+                                                                <div class="flex-shrink-0">
+                                                                    <!-- <a href="pages-profile-settings.html" data-bs-toggle="modal" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a> -->
+                                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#profileClientModal"><i class="ri-edit-box-line align-bottom"></i> Editar Perfil</button>
+                                                                    <div class="modal fade modal-lg" id="profileClientModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="profileClientModal">Editar usuario</h5>
+                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form action="javascript:void(0);">
+                                                                                        <div class="row g-3">
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="firstName" class="form-label">Nombre(s)</label>
+                                                                                                    <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
                                                                                                 </div>
-                                                                                                <!--end col-->
+                                                                                            </div>
+                                                                                            <!--end col-->
 
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="emailInput" class="form-label">Correo</label>
-                                                                                                        <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
-                                                                                                    </div>
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="emailInput" class="form-label">Correo</label>
+                                                                                                    <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
                                                                                                 </div>
+                                                                                            </div>
 
-                                                                                                <!--end col-->
+                                                                                            <!--end col-->
 
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Número celular</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
-                                                                                                    </div>
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Número celular</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
                                                                                                 </div>
+                                                                                            </div>
 
-                                                                                                <!--end col-->
+                                                                                            <!--end col-->
 
-                                                                                                <!-- <div class="col-xxl-6">
+                                                                                            <!-- <div class="col-xxl-6">
                                                                                                 <label for="formFile" class="form-label">Imagen Avatar</label>
                                                                                                 <input name="cover" type="file" class="form-control">
                                                                                             </div> -->
 
-                                                                                                <div class="col-lg-12">
-                                                                                                    <div class="hstack gap-2 justify-content-end">
-                                                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                                                        <button type="submit" class="btn btn-success">Guardar</button>
-                                                                                                    </div>
+                                                                                            <div class="col-lg-12">
+                                                                                                <div class="hstack gap-2 justify-content-end">
+                                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                                    <button type="submit" class="btn btn-success">Guardar</button>
                                                                                                 </div>
-                                                                                                <!--end col-->
                                                                                             </div>
-                                                                                            <!--end row-->
-                                                                                        </form>
-                                                                                    </div>
+                                                                                            <!--end col-->
+                                                                                        </div>
+                                                                                        <!--end row-->
+                                                                                    </form>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">+ Añadir una nueva dirección</button>
-                                                                        <div class="modal fade modal-lg" id="addAddressModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
-                                                                            <div class="modal-dialog">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="exampleModalgridLabel">Añadir una nueva dirección</h5>
-                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <form action="javascript:void(0);">
-                                                                                            <div class="row g-3">
+                                                                    </div>
+                                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">+ Añadir una nueva dirección</button>
+                                                                    <div class="modal fade modal-lg" id="addAddressModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalgridLabel">Añadir una nueva dirección</h5>
+                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form action="javascript:void(0);">
+                                                                                        <div class="row g-3">
 
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Nombre(s)</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el nombre">
-                                                                                                    </div>
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Nombre(s)</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el nombre">
                                                                                                 </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Calle y No. #</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese la calle y su No.">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Código postal</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el código postal">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Ciudad</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese la ciudad">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Estado</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el estado">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-xxl-6">
-                                                                                                    <div>
-                                                                                                        <label for="lastName" class="form-label">Número celular</label>
-                                                                                                        <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--end col-->
-
-                                                                                                <div class="col-lg-12">
-                                                                                                    <div class="hstack gap-2 justify-content-end">
-                                                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                                                        <button type="submit" class="btn btn-success">Guardar</button>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <!--end col-->
                                                                                             </div>
-                                                                                            <!--end row-->
-                                                                                        </form>
-                                                                                    </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Apellidos</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Calle y No. #</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese la calle y su No.">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Código postal</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el código postal">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Ciudad</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese la ciudad">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Estado</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el estado">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-xxl-6">
+                                                                                                <div>
+                                                                                                    <label for="lastName" class="form-label">Número celular</label>
+                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end col-->
+
+                                                                                            <div class="col-lg-12">
+                                                                                                <div class="hstack gap-2 justify-content-end">
+                                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <!--end col-->
+                                                                                        </div>
+                                                                                        <!--end row-->
+                                                                                    </form>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
 
-                                                            </div><!-- end card body -->
+                                                        </div><!-- end card body -->
 
-                                                        </div><!-- end card -->
+                                                    </div><!-- end card -->
 
 
 
-                                                    </div><!-- end row -->
-                                                </div>
-                                                <!--end col-->
+                                                </div><!-- end row -->
+                                            </div>
+                                            <!--end col-->
 
-                                                <!-- end col -->
+                                            <!-- end col -->
                                         </div>
                                         <!--end tab-content-->
                                     </div>
@@ -381,33 +381,32 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Id</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Calle y No. #</th>
-                                                    <th scope="col">Código postal</th>
-                                                    <th scope="col">Ciudad</th>
-                                                    <th scope="col">Estado</th>
-                                                    <th scope="col">No. Cel.</th>
+                                                    <th scope="col">Folio</th>
+                                                    <th scope="col">Enviar a</th>
+                                                    <th scope="col">Estado de la orden</th>
+                                                    <th scope="col">Producto</th>
+                                                    <th scope="col">Cantidad</th>
+                                                    <th scope="col">Precio</th>
+                                                    <th scope="col">Total</th>
                                                     <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <th scope="row">1</th>
-                                                    <td>Annette González</td>
-                                                    <td>Calle articulo 743, 123</td>
-                                                    <td>23088</td>
-                                                    <td>La Paz</td>
-                                                    <td>Baja California Sur</td>
-                                                    <td>6121369008</td>
+                                                    <th>82712</th>
+                                                    <td>Annette González - CP 23088</td>
+                                                    <td>Entregado</td>
+                                                    <td>Comedor Miguel con 4 Sillas</td>
+                                                    <td>1</td>
+                                                    <td>$ 8999.98</td>
+                                                    <td>$ 8999.98</td>
 
                                                     <td>
                                                         <div class="hstack gap-3 fs-15">
                                                             <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
-                                                                <i class="ri-edit-box-line"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger">
-                                                                <i class="ri-delete-bin-5-line"></i>
+                                                            <button type="button" class="btn btn-primary">
+                                                                <i class="ri-eye-line"></i>
                                                             </button>
                                                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                         </div>
