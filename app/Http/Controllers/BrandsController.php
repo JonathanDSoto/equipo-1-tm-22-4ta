@@ -12,16 +12,19 @@ class BrandsController extends Controller
     public function getAllBrands(){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/brands', $headers);
-        $response = $client->sendAsync($request)->wait();
 
-        $response = json_decode($response->getBody()->getContents());
+        try{
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        if(isset($response->code) && $response->code > 0){
             return $response;
-        }else{
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
             return view('index')->with("Error","Datos incorrectos");
         }
     }
@@ -29,13 +32,19 @@ class BrandsController extends Controller
     public function getSpecificBrand(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. $_SESSION['token']
+            'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/brands/'.$request->brand_id, $headers);
-        $response = $client->sendAsync($request)->wait();
-        if(isset($response->code) && $response->code > 0){
+
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
             return $response;
-        }else{
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
             return view('index')->with("Error","Datos incorrectos");
         }
     }

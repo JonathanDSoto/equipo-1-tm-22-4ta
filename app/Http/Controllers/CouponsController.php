@@ -15,13 +15,16 @@ class CouponsController extends Controller
             'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons', $headers);
-        $response = $client->sendAsync($request)->wait();
 
-        $response = json_decode($response->getBody()->getContents());
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        if(isset($response->code) && $response->code > 0){
             return $response;
-        }else{
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
             return view('index')->with("Error","Datos incorrectos");
         }
     }
@@ -31,13 +34,16 @@ class CouponsController extends Controller
             'Authorization' => 'Bearer '. session('token')
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons/'.$request->coupon, $headers);
-        $response = $client->sendAsync($request)->wait();
 
-        $response = json_decode($response->getBody()->getContents());
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
-        if(isset($response->code) && $response->code > 0){
             return $response;
-        }else{
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
             return view('index')->with("Error","Datos incorrectos");
         }
 
