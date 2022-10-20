@@ -158,9 +158,9 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-success">Editar</a>
-                                                <a href="#" class="btn btn-danger">Eliminar</a>
-                                                <a href="#" class="btn btn-secondary">Ver detalles</a>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">Editar</button>
+                                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                                <button type="button" class="btn btn-secondary">Ver detalles</button>
                                             </div>
                                         </div>
                                     </div>
