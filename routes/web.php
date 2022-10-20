@@ -37,7 +37,6 @@ Route::get('log-out',[AuthController::class, 'logout'])->name('log-out');
 //     Route::get('/detail-client', function () {
 //         return view('clientes.detailClient');
 //     });
-
 // });
 
 Route::get('/products', function () {
@@ -54,4 +53,13 @@ Route::get('/clients', function () {
 });
 Route::get('/detail-client', function () {
     return view('clientes.detailClient');
+});
+Route::get('/categories', function () {
+    return view('catalogs.categories');
+});
+Route::get('/brand', function () {
+    return view('catalogs.brand');
+});
+Route::get('/tags', function () {
+    return view('catalogs.tags');
 });
