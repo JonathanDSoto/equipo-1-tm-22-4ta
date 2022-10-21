@@ -45,16 +45,15 @@
 
                                         <div div class="d-flex justify-content-sm-end">
 
-
                                             <!-- Grids in modals -->
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgridClient">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCategory">
                                                 + Añadir una categoría
                                             </button>
-                                            <div class="modal fade modal-lg" id="exampleModalgridClient" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                            <div class="modal fade modal-lg" id="addCategory" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalgridClient">Formulario usuario</h5>
+                                                            <h5 class="modal-title" id="exampleModalgridClient">Categorías</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -63,25 +62,8 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--end col-->
-
-                                                                    <div class="col-xxl-6">
-                                                                        <div>
-                                                                            <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" placeholder="************">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!--end col-->
-
-                                                                    <div class="col-xxl-6">
-                                                                        <div>
-                                                                            <label for="firstName" class="form-label">Nombre Completo</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre completo">
+                                                                            <label for="firstName" class="form-label">Nombre Categoría</label>
+                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -89,27 +71,17 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="lastName" class="form-label">Número celular</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                            <label for="lastName" class="form-label">Descripción</label>
+                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese la decripción">
                                                                         </div>
                                                                     </div>
-
-                                                                    <!-- Select -->
-                                                                    <div class="input-group">
-                                                                        <label class="input-group-text" for="inputGroupSelect01">Suscripción</label>
-                                                                        <select class="form-select" id="inputGroupSelect01">
-                                                                            <!-- <option selected>Nivel...</option> -->
-                                                                            <option value="1">Normal</option>
-                                                                            <option value="2">Premium</option>
-                                                                            <option value="3">VIP</option>
-                                                                        </select>
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Slug</label>
+                                                                            <input type="text" class="form-control" placeholder="Slug">
+                                                                        </div>
                                                                     </div>
-
                                                                     <!--end col-->
-                                                                    <!-- <div class="col-xxl-6">
-                                                                        <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                        <input name="cover" type="file" class="form-control">
-                                                                    </div> -->
 
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
@@ -140,21 +112,21 @@
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Nivel</th>
-                                            <th scope="col">Correo Electrónico</th>
+                                            <th scope="col">Categoría</th>
+                                            <th scope="col">Descripción</th>
                                             <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Annette González</td>
-                                            <td>1</td>
-                                            <td>anttg@gmail.com</td>
+                                            <td>Dulces y caramelo</td>
+                                            <td>Dulces y caramelo</td>
+                                            <td>malisiosos viscos</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addCategory" class="btn btn-secondary">
                                                         <i class="ri-edit-box-line"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger">
@@ -204,3 +176,4 @@
     @include('layouts.scripts')
 
 </body>
+</html>
