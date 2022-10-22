@@ -47,29 +47,29 @@
                         <!-- Productos -->
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="widgets.html">
-                                <i class="mdi mdi-puzzle-outline"></i> <span data-key="t-widgets">Productos</span>
+                                <i class="ri-shopping-bag-3-line"></i> <span data-key="t-widgets">Productos</span>
                             </a>
                         </li>
                         <!-- Catalogos -->
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaps">
-                                <i class="ri-price-tag-3-line"></i> <span data-key="t-maps">Catálogos</span>
+                                <i class="bx bxs-layer"></i> <span data-key="t-maps">Catálogos</span>
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarMaps">
-                                <ul class="nav nav-sm flex-column">
+                                <ul>
                                     <li class="nav-item">
-                                        <a href="maps-google.html" class="nav-link" data-key="t-google">
-                                            Categorías
+                                        <a href="maps-leaflet.html" class="nav-link" data-key="t-leaflet">
+                                            <i class="bx bx-category"></i> Categorías
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="maps-vector.html" class="nav-link" data-key="t-vector">
-                                            Marcas
+                                        <i class="bx bxl-dribbble"></i> Marcas
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="maps-leaflet.html" class="nav-link" data-key="t-leaflet">
-                                            Etiquetas
+                                            <i class="ri-price-tag-3-line"></i> Etiquetas
                                         </a>
                                     </li>
                                 </ul>
@@ -78,7 +78,7 @@
                         <!-- Cupones -->
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="widgets.html">
-                                <i class="ri-coupon-2-line"></i> <span data-key="t-widgets">Cupones</span>
+                                <i class="ri-pantone-line"></i> <span data-key="t-widgets">Cupones</span>
                             </a>
                         </li>
                         <!-- Ordenes -->

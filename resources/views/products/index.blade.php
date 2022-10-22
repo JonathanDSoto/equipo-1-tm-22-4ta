@@ -23,8 +23,6 @@
 
             @include('layouts.bread')
 
-            <!-- End Page-content -->
-
             <div class="row">
 
                 <div class="col-xl-12 col-lg-12">
@@ -32,13 +30,12 @@
                         <div class="card">
                             <div class="card-header border-0">
                                 <div class="row g-4">
-                                    <div class="col-sm-end">
-                                        <div div class="d-flex justify-content-sm-end">
-
-                                            <!-- Grids in modals -->
+                                    <div class="d-flex justify-content-sm-end">
+                                        <div>
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">
                                                 <i class="ri-add-line align-bottom me-1"></i>Añadir un producto
                                             </button>
+
                                             <div class="modal fade modal-lg" id="createProductModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -96,7 +93,7 @@
                                                                     </div>
 
                                                                     <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
                                                                         <label class="form-check-label" for="formCheck1">
                                                                             Línea blanca
                                                                         </label>
@@ -112,14 +109,14 @@
                                                                     </div>
 
                                                                     <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
                                                                         <label class="form-check-label" for="formCheck1">
                                                                             Hogar
                                                                         </label>
                                                                     </div>
 
                                                                     <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
                                                                         <label class="form-check-label" for="formCheck1">
                                                                             Baño
                                                                         </label>
@@ -140,31 +137,94 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
-
-
-
 
                             <!-- end card header -->
                             <div class="card-body">
 
-                                <div class="col-10">
-                                    <div class="row">
-                                        <div class="card col-4" style="padding-left: 2%;">
-                                            <img class="card-img-top" src="{{asset('images/logIslandSofa.png')}}" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">Editar</button>
-                                                <button type="button" class="btn btn-danger">Eliminar</button>
-                                                <button type="button" class="btn btn-secondary">Ver detalles</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- Tables Without Borders -->
+                                <table class="table table-borderless table-nowrap align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Ordenes de este producto</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td data-column-id="product" class="">
+                                                <span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                            <p class="text-muted mb-0">Categoria : <span class="fw-medium">Hogar y Muebles</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </td>
+                                            <td>$ 8999.98 </td>
+                                            <td>50</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td data-column-id="product" class="">
+                                                <span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                            <p class="text-muted mb-0">Categoria : <span class="fw-medium">Hogar y Muebles</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </td>
+                                            <td>$ 8999.98 </td>
+                                            <td>50</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
 
                             </div>
                             <!-- end card body -->
@@ -174,8 +234,6 @@
                 </div>
                 <!-- end col -->
             </div>
-            <!-- end row -->
-
             <!-- End Page-content -->
 
 
@@ -215,3 +273,9 @@
 
 
 </html>
+
+
+<!-- Grids in modals -->
+<!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">
+                                                <i class="ri-add-line align-bottom me-1"></i>Añadir un producto
+                                            </button> -->

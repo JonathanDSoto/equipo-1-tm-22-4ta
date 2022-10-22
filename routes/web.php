@@ -42,6 +42,9 @@ Route::get('log-out',[AuthController::class, 'logout'])->name('log-out');
 Route::get('/products', function () {
     return view('products.index');
 });
+Route::get('/detail-product', function () {
+    return view('products.details');
+});
 Route::get('/users', function () {
     return view('users.index');
 });
