@@ -142,6 +142,11 @@
                                 <!-- end tab content -->
 
                             </div>
+                            <div class="d-flex justify-content-sm-end">
+                                <h3>
+                                    Monto total: $10000
+                                </h3> 
+                            </div>
                             <!-- end card body -->
                         </div>
                         <!-- end card -->
