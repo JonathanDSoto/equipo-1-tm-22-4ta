@@ -18,3 +18,9 @@
     <script src="../../../../unpkg.com/gridjs%405.1.0/plugins/selection/dist/selection.umd.js"></script>
     <!-- ecommerce product list -->
     <script src="{{asset('js/pages/ecommerce-product-list.init.js')}}"></script>
+
+    <!--Swiper slider js-->
+    <script src="{{asset('libs/swiper/swiper-bundle.min.js')}}"></script>
+
+    <!-- ecommerce product details init -->
+    <script src="{{asset('js/pages/ecommerce-product-details.init.js')}}"></script>

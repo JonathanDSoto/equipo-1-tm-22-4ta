@@ -66,3 +66,9 @@ Route::get('/brand', function () {
 Route::get('/tags', function () {
     return view('catalogs.tags');
 });
+Route::get('/orders', function () {
+    return view('orders.index');
+});
+Route::get('/detail-order', function () {
+    return view('orders.detailOrder');
+});
