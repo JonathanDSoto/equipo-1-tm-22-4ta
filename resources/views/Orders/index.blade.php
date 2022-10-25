@@ -34,26 +34,26 @@
                                         <!-- Boton con el alert por error al iniciar sesion -->
                                         <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
                                             <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                            - El registro no se pudo completar, la etiqueta no se pudo agregar
+                                            - El registro no se pudo completar, la orden no se pudo agregar
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Etiqueta agregada
+                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - orden agregada
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
 
                                         <div div class="d-flex justify-content-sm-end">
 
                                             <!-- Grids in modals -->
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addTags">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addOrder">
                                                 + Añadir una orden
                                             </button>
-                                            <div class="modal fade modal-lg" id="addTags" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                            <div class="modal fade modal-lg" id="addOrder" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalgridClient">Etiquetas</h5>
+                                                            <h5 class="modal-title" id="exampleModalgridClient">Nueva orden</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -62,22 +62,21 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="firstName" class="form-label">Nombre Etiqueta</label>
+                                                                            <label for="firstName" class="form-label">Nombre del cliente</label>
                                                                             <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
 
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="lastName" class="form-label">Descripción</label>
+                                                                            <label for="lastName" class="form-label">Producto</label>
                                                                             <input type="text" class="form-control" id="lastName" placeholder="Ingrese la decripción">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label class="form-label">Slug</label>
+                                                                            <label class="form-label">Cupón</label>
                                                                             <input type="text" class="form-control" placeholder="Slug">
                                                                         </div>
                                                                     </div>
@@ -129,11 +128,8 @@
                                             <td>Presentación 1</td>
                                             <td> <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addTags" class="btn btn-secondary">
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addOrder" class="btn btn-secondary">
                                                         <i class="ri-edit-box-line"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div></td>
@@ -152,11 +148,8 @@
                                             <td> 
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addTags" class="btn btn-secondary">
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addOrder" class="btn btn-secondary">
                                                         <i class="ri-edit-box-line"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>

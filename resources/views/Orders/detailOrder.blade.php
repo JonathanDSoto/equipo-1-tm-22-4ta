@@ -47,7 +47,22 @@
                                     <div class="col-sm">
 
                                         <h1>
-                                            Estado de la orden: <span class="badge bg-success">Paid</span>
+                                            Estado de la orden: <span class="badge bg-danger">Cancelada</span>
+                                        </h1>
+                                        <h1>
+                                            Estado de la orden: <span class="badge bg-success">Pagada</span>
+                                        </h1>
+                                        <h1>
+                                            Estado de la orden: <span class="badge bg-success">Enviada</span>
+                                        </h1>
+                                        <h1>
+                                            Estado de la orden: <span class="badge bg-danger">Abandonada</span>
+                                        </h1>
+                                        <h1>
+                                            Estado de la orden: <span class="badge bg-warning">Pendiente de enviar</span>
+                                        </h1>
+                                        <h1>
+                                            Estado de la orden: <span class="badge bg-warning">Pendiente de pago</span>
                                         </h1>
 
                                         <div class="d-flex justify-content-sm-end">
