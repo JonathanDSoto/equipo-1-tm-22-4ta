@@ -30,47 +30,10 @@
                             <div class="row gx-lg-5">
                                 <div class="col-xl-4 col-md-8 mx-auto">
                                     <div class="product-img-slider sticky-side-div">
-                                        <div class="swiper product-thumbnail-slider p-2 rounded bg-light">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                <!-- {{asset('images/bardotTable.png')}} -->
+                                        <div class="product-thumbnail-slider p-2 rounded bg-light">
+                                            <div>
+                                                <div>
                                                     <img src="{{asset('images/products/img-8.png')}}" alt="" class="img-fluid d-block" />
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <img src="{{asset('images/products/img-6.png')}}" alt="" class="img-fluid d-block" />
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <img src="{{asset('images/products/img-1.png')}}" alt="" class="img-fluid d-block" />
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <img src="{{asset('images/products/img-8.png')}}" alt="" class="img-fluid d-block" />
-                                                </div>
-                                            </div>
-                                            <div class="swiper-button-next bg-white shadow"></div>
-                                            <div class="swiper-button-prev bg-white shadow"></div>
-                                        </div>
-                                        <!-- end swiper thumbnail slide -->
-                                        <div class="swiper product-nav-slider mt-2">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="nav-slide-item">
-                                                        <img src="{{asset('images/products/img-8.png')}}" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="nav-slide-item">
-                                                        <img src="{{asset('images/products/img-6.png')}}" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="nav-slide-item">
-                                                        <img src="{{asset('images/products/img-1.png')}}" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="nav-slide-item">
-                                                        <img src="{{asset('images/products/img-8.png')}}" alt="" class="img-fluid d-block" />
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,34 +46,122 @@
                                     <div class="mt-xl-0 mt-5">
                                         <div class="d-flex">
                                             <div class="flex-grow-1">
-                                                <h4>Full Sleeve Sweatshirt for Men (Pink)</h4>
+                                                <h4>Comedor Miguel con 4 Sillas</h4>
                                                 <div class="hstack gap-3 flex-wrap">
-                                                    <div><a href="#" class="text-primary d-block">Tommy Hilfiger</a></div>
+                                                    <div class="text-muted">Slug: <span class="text-body fw-medium">comedor-miguel-con-4-sillas</span></div>
                                                     <div class="vr"></div>
-                                                    <div class="text-muted">Seller : <span class="text-body fw-medium">Zoetic Fashion</span></div>
+                                                    <div class="text-muted">Marca: <span class="text-body fw-medium">Zoetic Fashion</span></div>
                                                     <div class="vr"></div>
-                                                    <div class="text-muted">Published : <span class="text-body fw-medium">26 Mar, 2021</span></div>
+                                                    <div class="text-muted">Categorias: <span class="text-body fw-medium">Hogar y Muebles</span></div>
                                                 </div>
                                             </div>
+                                            <!-- Boton editar -->
                                             <div class="flex-shrink-0">
                                                 <div>
-                                                    <a href="apps-ecommerce-add-product.html" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProductModal">
+                                                        <i class="ri-add-line align-bottom me-1"></i>Añadir un producto
+                                                    </button>
+                                                    <div class="modal fade modal-lg" id="editProductModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="editProductModal">Edotar Producto</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="javascript:void(0);">
+                                                                        <div class="row g-3">
+
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Nombre del producto</label>
+                                                                                    <input type="email" class="form-control" placeholder="playera azul">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Descripción</label>
+                                                                                    <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Slug</label>
+                                                                                    <input type="text" class="form-control" placeholder="Slug">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Características</label>
+                                                                                    <input type="text" class="form-control" placeholder="La lavadora cuenta con capacidad de lavado de 18 kg...">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Base Example -->
+                                                                            <label for="formFile" class="form-label">Categorías</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                                <label class="form-check-label" for="formCheck1">
+                                                                                    Hogar y Muebles
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                                <label class="form-check-label" for="formCheck1">
+                                                                                    Línea blanca
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <!-- Base Example -->
+                                                                            <label for="formFile" class="form-label">Tags</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                                <label class="form-check-label" for="formCheck1">
+                                                                                    Muebles
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                                <label class="form-check-label" for="formCheck1">
+                                                                                    Hogar
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                                <label class="form-check-label" for="formCheck1">
+                                                                                    Baño
+                                                                                </label>
+                                                                            </div>
+
+
+                                                                            <div class="col-lg-12">
+                                                                                <div class="hstack gap-2 justify-content-end">
+                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-wrap gap-2 align-items-center mt-3">
-                                            <div class="text-muted fs-16">
-                                                <span class="mdi mdi-star text-warning"></span>
-                                                <span class="mdi mdi-star text-warning"></span>
-                                                <span class="mdi mdi-star text-warning"></span>
-                                                <span class="mdi mdi-star text-warning"></span>
-                                                <span class="mdi mdi-star text-warning"></span>
-                                            </div>
-                                            <div class="text-muted">( 5.50k Customer Review )</div>
-                                        </div>
-
-                                        <div class="row mt-4">
+                                        <!-- <div class="row mt-4">
                                             <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded">
                                                     <div class="d-flex align-items-center">
@@ -120,14 +171,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">Price :</p>
+                                                            <p class="text-muted mb-1">Precio:</p>
                                                             <h5 class="mb-0">$120.40</h5>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-3 col-sm-6">
+                                            </div> -->
+                                        <!-- end col -->
+                                        <!-- <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded">
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-sm me-2">
@@ -136,14 +187,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">No. of Orders :</p>
+                                                            <p class="text-muted mb-1">No. de ordenes:</p>
                                                             <h5 class="mb-0">2,234</h5>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-3 col-sm-6">
+                                            </div> -->
+                                        <!-- end col -->
+                                        <!-- <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded">
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-sm me-2">
@@ -152,14 +203,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">Available Stocks :</p>
+                                                            <p class="text-muted mb-1">Nímero de stocks:</p>
                                                             <h5 class="mb-0">1,230</h5>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-3 col-sm-6">
+                                            </div> -->
+                                        <!-- end col -->
+                                        <!-- <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded">
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-sm me-2">
@@ -168,112 +219,31 @@
                                                             </div>
                                                         </div>
                                                         <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">Total Revenue :</p>
-                                                            <h5 class="mb-0">$60,645</h5>
+                                                            <p class="text-muted mb-1">Peso en gramos:</p>
+                                                            <h5 class="mb-0">645g</h5>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <div class="mt-4">
-                                                    <h5 class="fs-14">Sizes :</h5>
-                                                    <div class="d-flex flex-wrap gap-2">
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1" disabled>
-                                                            <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio1">S</label>
-                                                        </div>
-
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio2">
-                                                            <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio2">M</label>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="06 Items Available">
-                                                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio3">
-                                                            <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio3">L</label>
-                                                        </div>
-
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio4" disabled>
-                                                            <label class="btn btn-soft-primary avatar-xs rounded-circle p-0 d-flex justify-content-center align-items-center" for="productsize-radio4">XL</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-
-                                            <div class="col-xl-6">
-                                                <div class=" mt-4">
-                                                    <h5 class="fs-14">Colors :</h5>
-                                                    <div class="d-flex flex-wrap gap-2">
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Out of Stock">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-primary" disabled>
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-secondary">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-success">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="02 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-info">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="01 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-warning">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-danger">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="03 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-light">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="04 Items Available">
-                                                            <button type="button" class="btn avatar-xs p-0 d-flex align-items-center justify-content-center border rounded-circle fs-20 text-dark">
-                                                                <i class="ri-checkbox-blank-circle-fill"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                        <!-- end row -->
+                                            </div> -->
+                                        <!-- end col -->
+                                        <!-- </div> -->
 
                                         <div class="mt-4 text-muted">
-                                            <h5 class="fs-14">Description :</h5>
+                                            <h5 class="fs-14">Descripción:</h5>
                                             <p>Tommy Hilfiger men striped pink sweatshirt. Crafted with cotton. Material composition is 100% organic cotton. This is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of classic American cool style, featuring preppy with a twist designs.</p>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="mt-3">
-                                                    <h5 class="fs-14">Features :</h5>
+                                                    <h5 class="fs-14">Etiquetas :</h5>
                                                     <ul class="list-unstyled">
-                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Full Sleeve</li>
-                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Cotton</li>
-                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> All Sizes available</li>
-                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> 4 Different Color</li>
+                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Muebles</li>
+                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Hogar</li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <!-- <div class="col-sm-6">
                                                 <div class="mt-3">
                                                     <h5 class="fs-14">Services :</h5>
                                                     <ul class="list-unstyled product-desc-list">
@@ -281,19 +251,108 @@
                                                         <li class="py-1">Cash on Delivery available</li>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
 
-
                                         <div class="product-content mt-5">
-                                            <h5 class="fs-14 mb-3">Product Description :</h5>
+
+                                            <label>Presentaciones del producto</label>
+                                            <div class="d-flex justify-content-sm-end">
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createPresentationModal">
+                                                    <i class="ri-add-line align-bottom me-1"></i>Añadir una presentación
+                                                </button>
+                                            </div>
+
+                                            <div class="modal fade modal-lg" id="createPresentationModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="createPresentationModal">Nueva presentación</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="javascript:void(0);">
+                                                                <div class="row g-3">
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Código</label>
+                                                                            <input type="email" class="form-control" placeholder="comi01">
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Descripción</label>
+                                                                            <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Peso en gramos</label>
+                                                                            <input type="text" class="form-control" placeholder="5000">
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-6">
+                                                                        <label for="formFile" class="form-label">Imagen del producto</label>
+                                                                        <input name="cover" type="file" class="form-control">
+                                                                    </div>
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Stock</label>
+                                                                            <input type="text" class="form-control" placeholder="10">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Stock mínimo</label>
+                                                                            <input type="text" class="form-control" placeholder="1">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Stock máximo</label>
+                                                                            <input type="text" class="form-control" placeholder="10">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-xxl-6">
+                                                                        <div>
+                                                                            <label class="form-label">Precio</label>
+                                                                            <input type="text" class="form-control" placeholder="1000">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-12">
+                                                                        <div class="hstack gap-2 justify-content-end">
+                                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+                                                                </div>
+                                                                <!--end row-->
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <nav>
                                                 <ul class="nav nav-tabs nav-tabs-custom nav-success" id="nav-tab" role="tablist">
                                                     <li class="nav-item">
-                                                        <a class="nav-link active" id="nav-speci-tab" data-bs-toggle="tab" href="#nav-speci" role="tab" aria-controls="nav-speci" aria-selected="true">Specification</a>
+                                                        <a class="nav-link active" id="nav-speci-tab" data-bs-toggle="tab" href="#nav-speci" role="tab" aria-controls="nav-speci" aria-selected="true">Presentación 1</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" id="nav-detail-tab" data-bs-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="false">Details</a>
+                                                        <a class="nav-link" id="nav-detail-tab" data-bs-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="false">Presentación 2</a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -303,315 +362,108 @@
                                                         <table class="table mb-0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <th scope="row" style="width: 200px;">Category</th>
-                                                                    <td>T-Shirt</td>
+                                                                    <th scope="row" style="width: 200px;">Id</th>
+                                                                    <td>1</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Brand</th>
-                                                                    <td>Tommy Hilfiger</td>
+                                                                    <th scope="row" style="width: 200px;">Descripción</th>
+                                                                    <td>Comedor Miguel con 4 Sillas</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Color</th>
-                                                                    <td>Blue</td>
+                                                                    <th scope="row">Código</th>
+                                                                    <td>comi01</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Material</th>
-                                                                    <td>Cotton</td>
+                                                                    <th scope="row">Peso en gramos</th>
+                                                                    <td>5000</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Weight</th>
-                                                                    <td>140 Gram</td>
+                                                                    <th scope="row">Estado</th>
+                                                                    <td>Activo</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Imagen del producto</th>
+                                                                    <td>
+                                                                        <div class="flex-shrink-0 me-3">
+                                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock</th>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock mínimo</th>
+                                                                    <td>1</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock máximo</th>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Precio</th>
+                                                                    <td>5699.98</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
-                                                    <div>
-                                                        <h5 class="font-size-16 mb-3">Tommy Hilfiger Sweatshirt for Men (Pink)</h5>
-                                                        <p>Tommy Hilfiger men striped pink sweatshirt. Crafted with cotton. Material composition is 100% organic cotton. This is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of classic American cool style, featuring preppy with a twist designs.</p>
-                                                        <div>
-                                                            <p class="mb-2"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Machine Wash</p>
-                                                            <p class="mb-2"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Fit Type: Regular</p>
-                                                            <p class="mb-2"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> 100% Cotton</p>
-                                                            <p class="mb-0"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Long sleeve</p>
-                                                        </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table mb-0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row" style="width: 200px;">Id</th>
+                                                                    <td>1</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row" style="width: 200px;">Descripción</th>
+                                                                    <td>Comedor Miguel con 4 Sillas</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Código</th>
+                                                                    <td>comi01</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Peso en gramos</th>
+                                                                    <td>5000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Estado</th>
+                                                                    <td>Activo</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Imagen del producto</th>
+                                                                    <td>
+                                                                        <div class="flex-shrink-0 me-3">
+                                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock</th>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock mínimo</th>
+                                                                    <td>1</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock máximo</th>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Precio</th>
+                                                                    <td>5699.98</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- product-content -->
-
-                                        <div class="mt-5">
-                                            <div>
-                                                <h5 class="fs-14 mb-3">Ratings & Reviews</h5>
-                                            </div>
-                                            <div class="row gy-4 gx-0">
-                                                <div class="col-lg-4">
-                                                    <div>
-                                                        <div class="pb-3">
-                                                            <div class="bg-light px-3 py-2 rounded-2 mb-2">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-grow-1">
-                                                                        <div class="fs-16 align-middle text-warning">
-                                                                            <i class="ri-star-fill"></i>
-                                                                            <i class="ri-star-fill"></i>
-                                                                            <i class="ri-star-fill"></i>
-                                                                            <i class="ri-star-fill"></i>
-                                                                            <i class="ri-star-half-fill"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="flex-shrink-0">
-                                                                        <h6 class="mb-0">4.5 out of 5</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <div class="text-muted">Total <span class="fw-medium">5.50k</span> reviews
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="mt-3">
-                                                            <div class="row align-items-center g-2">
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0">5 star</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="p-2">
-                                                                        <div class="progress bg-soft-success animated-progress progress-sm">
-                                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50.16%" aria-valuenow="50.16" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0 text-muted">2758</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- end row -->
-
-                                                            <div class="row align-items-center g-2">
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0">4 star</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="p-2">
-                                                                        <div class="progress bg-soft-success animated-progress progress-sm">
-                                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 19.32%" aria-valuenow="19.32" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0 text-muted">1063</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- end row -->
-
-                                                            <div class="row align-items-center g-2">
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0">3 star</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="p-2">
-                                                                        <div class="progress bg-soft-success animated-progress progress-sm">
-                                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 18.12%" aria-valuenow="18.12" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0 text-muted">997</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- end row -->
-
-                                                            <div class="row align-items-center g-2">
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0">2 star</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="p-2">
-                                                                        <div class="progress bg-soft-warning animated-progress progress-sm">
-                                                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 7.42%" aria-valuenow="7.42" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0 text-muted">408</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- end row -->
-
-                                                            <div class="row align-items-center g-2">
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0">1 star</h6>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="p-2">
-                                                                        <div class="progress bg-soft-danger animated-progress progress-sm">
-                                                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 4.98%" aria-valuenow="4.98" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div class="p-2">
-                                                                        <h6 class="mb-0 text-muted">274</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- end row -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- end col -->
-
-                                                <div class="col-lg-8">
-                                                    <div class="ps-lg-4">
-                                                        <div class="d-flex flex-wrap align-items-start gap-3">
-                                                            <h5 class="fs-14">Reviews: </h5>
-                                                        </div>
-
-                                                        <div class="me-lg-n3 pe-lg-4" data-simplebar style="max-height: 225px;">
-                                                            <ul class="list-unstyled mb-0">
-                                                                <li class="py-2">
-                                                                    <div class="border border-dashed rounded p-3">
-                                                                        <div class="d-flex align-items-start mb-3">
-                                                                            <div class="hstack gap-3">
-                                                                                <div class="badge rounded-pill bg-success mb-0">
-                                                                                    <i class="mdi mdi-star"></i> 4.2
-                                                                                </div>
-                                                                                <div class="vr"></div>
-                                                                                <div class="flex-grow-1">
-                                                                                    <p class="text-muted mb-0"> Superb sweatshirt. I loved it. It is for winter.</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="d-flex flex-grow-1 gap-2 mb-3">
-                                                                            <a href="#" class="d-block">
-                                                                                <img src="assets/images/small/img-12.jpg" alt="" class="avatar-sm shadow rounded object-cover">
-                                                                            </a>
-                                                                            <a href="#" class="d-block">
-                                                                                <img src="assets/images/small/img-11.jpg" alt="" class="avatar-sm shadow rounded object-cover">
-                                                                            </a>
-                                                                            <a href="#" class="d-block">
-                                                                                <img src="assets/images/small/img-10.jpg" alt="" class="avatar-sm shadow rounded object-cover">
-                                                                            </a>
-                                                                        </div>
-
-                                                                        <div class="d-flex align-items-end">
-                                                                            <div class="flex-grow-1">
-                                                                                <h5 class="fs-14 mb-0">Henry</h5>
-                                                                            </div>
-
-                                                                            <div class="flex-shrink-0">
-                                                                                <p class="text-muted fs-13 mb-0">12 Jul, 21</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="py-2">
-                                                                    <div class="border border-dashed rounded p-3">
-                                                                        <div class="d-flex align-items-start mb-3">
-                                                                            <div class="hstack gap-3">
-                                                                                <div class="badge rounded-pill bg-success mb-0">
-                                                                                    <i class="mdi mdi-star"></i> 4.0
-                                                                                </div>
-                                                                                <div class="vr"></div>
-                                                                                <div class="flex-grow-1">
-                                                                                    <p class="text-muted mb-0"> Great at this price, Product quality and look is awesome.</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="d-flex align-items-end">
-                                                                            <div class="flex-grow-1">
-                                                                                <h5 class="fs-14 mb-0">Nancy</h5>
-                                                                            </div>
-
-                                                                            <div class="flex-shrink-0">
-                                                                                <p class="text-muted fs-13 mb-0">06 Jul, 21</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-
-                                                                <li class="py-2">
-                                                                    <div class="border border-dashed rounded p-3">
-                                                                        <div class="d-flex align-items-start mb-3">
-                                                                            <div class="hstack gap-3">
-                                                                                <div class="badge rounded-pill bg-success mb-0">
-                                                                                    <i class="mdi mdi-star"></i> 4.2
-                                                                                </div>
-                                                                                <div class="vr"></div>
-                                                                                <div class="flex-grow-1">
-                                                                                    <p class="text-muted mb-0">Good product. I am so happy.</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="d-flex align-items-end">
-                                                                            <div class="flex-grow-1">
-                                                                                <h5 class="fs-14 mb-0">Joseph</h5>
-                                                                            </div>
-
-                                                                            <div class="flex-shrink-0">
-                                                                                <p class="text-muted fs-13 mb-0">06 Jul, 21</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-
-                                                                <li class="py-2">
-                                                                    <div class="border border-dashed rounded p-3">
-                                                                        <div class="d-flex align-items-start mb-3">
-                                                                            <div class="hstack gap-3">
-                                                                                <div class="badge rounded-pill bg-success mb-0">
-                                                                                    <i class="mdi mdi-star"></i> 4.1
-                                                                                </div>
-                                                                                <div class="vr"></div>
-                                                                                <div class="flex-grow-1">
-                                                                                    <p class="text-muted mb-0">Nice Product, Good Quality.</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="d-flex align-items-end">
-                                                                            <div class="flex-grow-1">
-                                                                                <h5 class="fs-14 mb-0">Jimmy</h5>
-                                                                            </div>
-
-                                                                            <div class="flex-shrink-0">
-                                                                                <p class="text-muted fs-13 mb-0">24 Jun, 21</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- end col -->
-                                            </div>
-                                            <!-- end Ratings & Reviews -->
-                                        </div>
-                                        <!-- end card body -->
                                     </div>
                                 </div>
                                 <!-- end col -->
