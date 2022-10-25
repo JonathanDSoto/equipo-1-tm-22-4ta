@@ -75,3 +75,6 @@ Route::get('/detail-order', function () {
 Route::get('/coupons', function () {
     return view('coupons.index');
 });
+Route::get('/detail-coupon', function () {
+    return view('coupons.detailCoupon');
+});

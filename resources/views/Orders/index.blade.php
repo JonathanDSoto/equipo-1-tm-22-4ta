@@ -68,15 +68,16 @@
                                                                     </div>
                                                                     <!--end col-->
 
+
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="lastName" class="form-label">Producto</label>
+                                                                            <label for="lastName" class="form-label">Descripción</label>
                                                                             <input type="text" class="form-control" id="lastName" placeholder="Ingrese la decripción">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label class="form-label">Cupón</label>
+                                                                            <label class="form-label">Slug</label>
                                                                             <input type="text" class="form-control" placeholder="Slug">
                                                                         </div>
                                                                     </div>
@@ -126,13 +127,14 @@
                                             <td>$ 5000</td>
                                             <td>5</td>
                                             <td>Presentación 1</td>
-                                            <td> <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addOrder" class="btn btn-secondary">
-                                                        <i class="ri-edit-box-line"></i>
+                                            <td> 
+                                                <div class="hstack gap-3 fs-15">
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div></td>
+                                                </div>
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -147,9 +149,8 @@
                                             <td>Presentación 2</td>
                                             <td> 
                                                 <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addOrder" class="btn btn-secondary">
-                                                        <i class="ri-edit-box-line"></i>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>

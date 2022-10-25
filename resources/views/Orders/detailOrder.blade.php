@@ -160,7 +160,7 @@
                             <div class="d-flex justify-content-sm-end">
                                 <h3>
                                     Monto total: $10000
-                                </h3> 
+                                </h3>
                             </div>
                             <!-- end card body -->
                         </div>
@@ -244,7 +244,7 @@
                                             <th scope="row">Estado de pago</th>
                                             <td>$ 5000</td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
 
@@ -256,26 +256,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- End Page-content -->
-            @include('layouts.footer')
+    <!-- End Page-content -->
+    @include('layouts.footer')
 
-            <!--start back-to-top-->
-            <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-                <i class="ri-arrow-up-line"></i>
-            </button>
-            <!--end back-to-top-->
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
 
-            <!--preloader-->
-            <div id="preloader">
-                <div id="status">
-                    <div class="spinner-border text-primary avatar-sm" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
+        </div>
+    </div>
 
-            @include('layouts.scripts')
+    @include('layouts.scripts')
 
 </body>
 
