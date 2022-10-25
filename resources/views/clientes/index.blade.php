@@ -138,7 +138,7 @@
 
 
                                 <!-- Tables Without Borders -->
-                                <table class="table table-borderless table-nowrap align-middle">
+                                <table class="table nowrap dt-responsive align-middle table-hover table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
@@ -157,7 +157,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" class="btn btn-primary">
+                                                    <button type="button" class="btn btn-primary" href="{{ route('clientes.detailClient') }}">
                                                         <i class="ri-eye-line"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-danger">
