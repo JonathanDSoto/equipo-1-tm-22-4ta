@@ -39,42 +39,42 @@ Route::get('log-out',[AuthController::class, 'logout'])->name('log-out');
 //     });
 // });
 
-Route::get('/products', function () {
+Route::get('products/', function () {
     return view('products.index');
-});
-Route::get('/detail-product', function () {
+})->name('products.index');
+Route::get('/products/detail-product', function () {
     return view('products.details');
-});
-Route::get('/users', function () {
+})->name('products.details');
+Route::get('users/', function () {
     return view('users.index');
-});
-Route::get('/profile', function () {
+})->name('users.index');
+Route::get('/users/profile', function () {
     return view('users.profile');
-});
-Route::get('/clients', function () {
+})->name('users.profile');
+Route::get('clients/', function () {
     return view('clientes.index');
-});
-Route::get('/detail-client', function () {
+})->name('clientes.index');
+Route::get('/clients/detail-client', function () {
     return view('clientes.detailClient');
-});
-Route::get('/categories', function () {
+})->name('clientes.detailClient');
+Route::get('/catalogs/categories', function () {
     return view('catalogs.categories');
-});
-Route::get('/brand', function () {
-    return view('catalogs.brand');
-});
-Route::get('/tags', function () {
+})->name('catalogs.categories');
+Route::get('/catalogs/brands', function () {
+    return view('catalogs.brands');
+})->name('catalogs.brands');
+Route::get('/catalogs/tags', function () {
     return view('catalogs.tags');
-});
-Route::get('/orders', function () {
+})->name('catalogs.tags');
+Route::get('orders/', function () {
     return view('orders.index');
-});
-Route::get('/detail-order', function () {
+})->name('orders.index');
+Route::get('/orders/detail-order', function () {
     return view('orders.detailOrder');
-});
-Route::get('/coupons', function () {
+})->name('orders.detailOrder');
+Route::get('coupons/', function () {
     return view('coupons.index');
-});
-Route::get('/detail-coupon', function () {
+})->name('coupons.index');
+Route::get('/coupons/detail-coupon', function () {
     return view('coupons.detailCoupon');
-});
+})->name('coupons.detailCoupon');

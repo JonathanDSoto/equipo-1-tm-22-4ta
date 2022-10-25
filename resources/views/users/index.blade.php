@@ -131,7 +131,7 @@
 
 
                                 <!-- Tables Without Borders -->
-                                <table class="table table-borderless table-nowrap align-middle">
+                                <table class="table nowrap dt-responsive align-middle table-hover table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>

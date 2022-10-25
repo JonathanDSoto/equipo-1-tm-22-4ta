@@ -11,7 +11,7 @@
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="index.html" class="logo logo-light">
+                <a href="{{ route('products.index') }}" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="{{asset('images/logo-eshop.png')}}" alt="" height="30">
                     </span>
@@ -34,19 +34,19 @@
 
                         <!-- Usuarios -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
+                            <a class="nav-link menu-link" href="{{ route('users.index') }}">
                                 <i class="ri-team-fill"></i> <span data-key="t-widgets">Usuarios</span>
                             </a>
                         </li>
                         <!-- Clientes -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
+                            <a class="nav-link menu-link" href="{{ route('clientes.index') }}">
                                 <i class="ri-user-3-line"></i> <span data-key="t-widgets">Clientes</span>
                             </a>
                         </li>
                         <!-- Productos -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
+                            <a class="nav-link menu-link" href="{{ route('products.index') }}">
                                 <i class="ri-shopping-bag-3-line"></i> <span data-key="t-widgets">Productos</span>
                             </a>
                         </li>
@@ -58,17 +58,17 @@
                             <div class="collapse menu-dropdown" id="sidebarMaps">
                                 <ul>
                                     <li class="nav-item">
-                                        <a href="maps-leaflet.html" class="nav-link" data-key="t-leaflet">
+                                        <a href="{{ route('catalogs.categories') }}" class="nav-link" data-key="t-leaflet">
                                             <i class="bx bx-category"></i> Categorías
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="maps-vector.html" class="nav-link" data-key="t-vector">
+                                        <a href="{{ route('catalogs.brands') }}" class="nav-link" data-key="t-vector">
                                         <i class="bx bxl-dribbble"></i> Marcas
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="maps-leaflet.html" class="nav-link" data-key="t-leaflet">
+                                        <a href="{{ route('catalogs.tags') }}" class="nav-link" data-key="t-leaflet">
                                             <i class="ri-price-tag-3-line"></i> Etiquetas
                                         </a>
                                     </li>
@@ -77,13 +77,13 @@
                         </li>
                         <!-- Cupones -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
+                            <a class="nav-link menu-link" href="{{ route('coupons.index') }}">
                                 <i class="ri-pantone-line"></i> <span data-key="t-widgets">Cupones</span>
                             </a>
                         </li>
                         <!-- Ordenes -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
+                            <a class="nav-link menu-link" href="{{ route('orders.index') }}">
                                 <i class="ri-order-play-line"></i> <span data-key="t-widgets">Ordenes</span>
                             </a>
                         </li>
