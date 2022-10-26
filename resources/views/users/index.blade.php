@@ -4,7 +4,7 @@
 <head>
 
     @include('layouts.head')
-    
+
 </head>
 
 <body>
@@ -131,7 +131,7 @@
 
 
                                 <!-- Tables Without Borders -->
-                                <table class="table nowrap dt-responsive align-middle table-hover table-bordered" style="width:100%">
+                                <table class="dataTables-example" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
@@ -168,7 +168,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -189,7 +189,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -210,7 +210,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -231,7 +231,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -252,7 +252,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -273,7 +273,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -294,7 +294,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -315,7 +315,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -336,7 +336,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -357,7 +357,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -378,7 +378,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -399,7 +399,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -420,7 +420,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -441,7 +441,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -462,7 +462,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -483,7 +483,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -504,7 +504,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -525,7 +525,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -546,7 +546,7 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-                                                    
+
 
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" class="btn btn-primary">
@@ -608,3 +608,59 @@
 
 
 </html>
+
+<script>
+    $('#dataTables-example').DataTable({
+        pageLength: 10,
+        responsive: true,
+        dom: '<"html5buttons"B>lTfgitp',
+        buttons: [{
+                extend: 'copy'
+            },
+            {
+                extend: 'csv'
+            },
+            {
+                extend: 'excel',
+                title: 'ExampleFile'
+            },
+            {
+                extend: 'pdf',
+                title: 'ExampleFile'
+            },
+
+            {
+                extend: 'print',
+                customize: function(win) {
+                    $(win.document.body).addClass('white-bg');
+                    $(win.document.body).css('font-size', '10px');
+
+                    $(win.document.body).find('table')
+                        .addClass('compact')
+                        .css('font-size', 'inherit');
+                }
+            }
+        ],
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+
+    });
+</script>

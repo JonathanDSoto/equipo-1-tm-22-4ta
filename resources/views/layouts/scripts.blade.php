@@ -24,3 +24,6 @@
 
     <!-- ecommerce product details init -->
     <script src="{{asset('js/pages/ecommerce-product-details.init.js')}}"></script>
+
+    <!-- data table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>

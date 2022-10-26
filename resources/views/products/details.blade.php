@@ -59,13 +59,13 @@
                                             <div class="flex-shrink-0">
                                                 <div>
                                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProductModal">
-                                                        <i class="ri-add-line align-bottom me-1"></i>Añadir un producto
+                                                        <i class="ri-add-line align-bottom me-1"></i>Editar producto
                                                     </button>
                                                     <div class="modal fade modal-lg" id="editProductModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editProductModal">Edotar Producto</h5>
+                                                                    <h5 class="modal-title" id="editProductModal">Editar Producto</h5>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
@@ -381,14 +381,14 @@
                                                                     <th scope="row">Estado</th>
                                                                     <td>Activo</td>
                                                                 </tr>
-                                                                <tr>
+                                                                <!-- <tr>
                                                                     <th scope="row">Imagen del producto</th>
                                                                     <td>
                                                                         <div class="flex-shrink-0 me-3">
                                                                             <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
                                                                         </div>
                                                                     </td>
-                                                                </tr>
+                                                                </tr> -->
                                                                 <tr>
                                                                     <th scope="row">Stock</th>
                                                                     <td>10</td>
@@ -404,6 +404,130 @@
                                                                 <tr>
                                                                     <th scope="row">Precio</th>
                                                                     <td>5699.98</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>
+                                                                        <!-- modal editar presentación -->
+                                                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPresentacionModal">
+                                                                            <i class="ri-edit-box-line"></i> Editar presentación
+                                                                        </button>
+
+
+                                                                        <div class="modal fade modal-lg" id="editPresentacionModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="editPresentacionModal">Editar presentación</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <form action="javascript:void(0);">
+                                                                                            <div class="row g-3">
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Código</label>
+                                                                                                        <input type="email" class="form-control" placeholder="comi01">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Descripción</label>
+                                                                                                        <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Peso en gramos</label>
+                                                                                                        <input type="text" class="form-control" placeholder="5000">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <!-- <div class="col-xxl-6">
+                                                                                                    <label for="formFile" class="form-label">Imagen del producto</label>
+                                                                                                    <input name="cover" type="file" class="form-control">
+                                                                                                </div> -->
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Stock</label>
+                                                                                                        <input type="text" class="form-control" placeholder="10">
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Stock mínimo</label>
+                                                                                                        <input type="text" class="form-control" placeholder="1">
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Stock máximo</label>
+                                                                                                        <input type="text" class="form-control" placeholder="10">
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-lg-12">
+                                                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+                                                                                            </div>
+                                                                                            <!--end row-->
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <td>
+                                                                        <!-- modal editar precio presentación -->
+                                                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPrecioModal">
+                                                                            <i class="ri-edit-box-line"></i> Editar el precio de la presentación
+                                                                        </button>
+                                                                        <div class="modal fade modal-lg" id="editPrecioModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="editPrecioModal">Editar presentación</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <form action="javascript:void(0);">
+                                                                                            <div class="row g-3">
+
+                                                                                                <div class="col-xxl-6">
+                                                                                                    <div>
+                                                                                                        <label class="form-label">Precio nuevo</label>
+                                                                                                        <input type="email" class="form-control" placeholder="10000">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+
+                                                                                                <div class="col-lg-12">
+                                                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--end col-->
+                                                                                            </div>
+                                                                                            <!--end row-->
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -433,14 +557,14 @@
                                                                     <th scope="row">Estado</th>
                                                                     <td>Activo</td>
                                                                 </tr>
-                                                                <tr>
+                                                                <!-- <tr>
                                                                     <th scope="row">Imagen del producto</th>
                                                                     <td>
                                                                         <div class="flex-shrink-0 me-3">
                                                                             <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
                                                                         </div>
                                                                     </td>
-                                                                </tr>
+                                                                </tr> -->
                                                                 <tr>
                                                                     <th scope="row">Stock</th>
                                                                     <td>10</td>

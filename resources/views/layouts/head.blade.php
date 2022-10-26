@@ -22,3 +22,6 @@
 
     <!-- gridjs css -->
     <link rel="stylesheet" href="{{asset('libs/gridjs/theme/mermaid.min.css')}}">
+
+    <!-- data table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
