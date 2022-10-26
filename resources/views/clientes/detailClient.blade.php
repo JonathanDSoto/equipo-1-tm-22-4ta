@@ -315,6 +315,7 @@
                                 </div><!-- end card -->
                             </div>
 
+                            <!-- widgets -->
                             <div class="d-flex align-items-center px-5 ms-xl-4">
 
                                 <!-- card -->

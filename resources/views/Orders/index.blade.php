@@ -127,8 +127,11 @@
                                             <td>$ 5000</td>
                                             <td>5</td>
                                             <td>Presentación 1</td>
-                                            <td> 
+                                            <td>
                                                 <div class="hstack gap-3 fs-15">
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
                                                     <button type="button" class="btn btn-danger">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>
@@ -147,8 +150,11 @@
                                             <td>$ 5000</td>
                                             <td>5</td>
                                             <td>Presentación 2</td>
-                                            <td> 
+                                            <td>
                                                 <div class="hstack gap-3 fs-15">
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
                                                     <button type="button" class="btn btn-danger">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>

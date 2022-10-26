@@ -290,6 +290,82 @@
 
                             </div>
                             <!-- end card body -->
+
+                            <!-- Cupones -->
+                            <div class="d-flex align-items-center px-5 ms-xl-4">
+
+                                <!-- card -->
+                                <div class="card card-animate bg-info" style="margin-left: 30%;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <p class="fw-medium text-white-50 mb-0">Usos Totales</p>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-soft-light rounded fs-3 shadow">
+                                                    <i class="bx bx-shopping-bag text-white"></i>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="10">0</span></h4>
+
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+
+                                <div class="card card-animate bg-success" style="margin-left: 5%;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <p class="fw-medium text-white-50 mb-0">Cantidad descontada en compras</p>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-soft-light rounded fs-3 shadow">
+                                                    <i class="bx bx-shopping-bag text-white"></i>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="5000">0</span></h4>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                                <!-- end card -->
+
+                                <div class="card card-animate bg-primary" style="margin-left: 5%;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <p class="fw-medium text-white-50 mb-0">Usos restantes</p>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-soft-light rounded fs-3 shadow">
+                                                    <i class="bx bx-shopping-bag text-white"></i>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="15">0</span></h4>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                                <!-- end card -->
+
+                                <!-- end col -->
+                            </div>
                         </div>
                         <!-- end card -->
                     </div>
