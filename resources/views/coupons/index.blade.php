@@ -186,10 +186,11 @@
                                             <td>2023-09-01</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" class="btn btn-primary">
-                                                        <i class="ri-eye-line"></i>
-                                                    </button>
+                                                    <a href="{{ route('coupons.detailCoupon') }}" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
                                                     <button type="button" class="btn btn-danger">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>

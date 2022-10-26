@@ -156,10 +156,11 @@
                                             <td>anttg@gmail.com</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" class="btn btn-primary" href="{{ route('clientes.detailClient') }}">
-                                                        <i class="ri-eye-line"></i>
-                                                    </button>
+                                                    <a href="{{ route('clientes.detailClient') }}" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
                                                     <button type="button" class="btn btn-danger">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>

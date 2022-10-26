@@ -191,10 +191,11 @@
                                             <td>50</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" class="btn btn-primary">
-                                                        <i class="ri-eye-line"></i>
-                                                    </button>
+                                                    <a href="{{ route('products.details') }}" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
                                                     <button type="button" class="btn btn-danger">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>
@@ -223,10 +224,11 @@
                                             <td>50</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" class="btn btn-primary">
-                                                        <i class="ri-eye-line"></i>
-                                                    </button>
+                                                    <a href="{{ route('products.details') }}" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
                                                     <button type="button" class="btn btn-danger">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>

@@ -256,9 +256,11 @@
                                             <td>Presentación 1</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <button type="button" class="btn btn-primary">
-                                                        <i class="ri-eye-line"></i>
-                                                    </button>
+                                                    <a href="{{ route('orders.detailOrder') }}" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -275,9 +277,11 @@
                                             <td>Presentación 2</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <button type="button" class="btn btn-primary">
-                                                        <i class="ri-eye-line"></i>
-                                                    </button>
+                                                    <a href="{{ route('orders.detailOrder') }}" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                             </td>
 
