@@ -358,7 +358,6 @@
                                             <div>
                                                 <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="15">0</span></h4>
                                             </div>
-
                                         </div>
                                     </div><!-- end card body -->
                                 </div>

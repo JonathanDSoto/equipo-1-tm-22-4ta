@@ -26,6 +26,43 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
+
+                        <!-- Boton con el alert por error al iniciar sesion -->
+                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                            - El registro no se pudo completar, el producto no se pudo actualizar
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <!-- Success Alert -->
+                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Producto actualizado
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Boton con el alert por error al iniciar sesion -->
+                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                            - El registro no se pudo completar, la presentación no se pudo actualizar
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <!-- Success Alert -->
+                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Presentación actualizada
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Boton con el alert por error al iniciar sesion -->
+                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                            - El registro no se pudo completar, la presentación no se pudo añadir
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <!-- Success Alert -->
+                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Presentación añadida
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
                         <div class="card-body">
                             <div class="row gx-lg-5">
                                 <div class="col-xl-4 col-md-8 mx-auto">

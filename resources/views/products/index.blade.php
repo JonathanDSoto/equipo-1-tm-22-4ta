@@ -29,7 +29,20 @@
                     <div>
                         <div class="card">
                             <div class="card-header border-0">
+                                <!-- Boton con el alert por error al iniciar sesion -->
+                                <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                    <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                    - El registro no se pudo completar, el producto no se pudo agregar
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <!-- Success Alert -->
+                                <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Producto agregado
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+
                                 <div class="row g-4">
+
                                     <div class="d-flex justify-content-sm-end">
                                         <div>
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">
@@ -137,7 +150,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
 
