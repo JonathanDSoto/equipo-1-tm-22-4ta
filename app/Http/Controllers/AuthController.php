@@ -41,7 +41,7 @@ class AuthController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            return ($responseBodyAsString);
+            return redirect()->back()->with('error', 'usuario o contraseña no existe');
         }
     }
 
