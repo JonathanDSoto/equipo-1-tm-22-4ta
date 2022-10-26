@@ -160,14 +160,14 @@
                             <div class="card-body">
 
                                 <!-- Tables Without Borders -->
-                                <table class="table nowrap dt-responsive align-middle table-hover table-bordered" style="width:100%">
+                                <table id="dataTables-example" name="dataTables-example"  class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Producto</th>
                                             <th scope="col">Precio</th>
                                             <th scope="col">Ordenes de este producto</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -279,17 +279,65 @@
 
 
     @include('layouts.scripts')
+    <!-- data table -->
+    <script>
+        $('#dataTables-example').DataTable({
+            pageLength: 10,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [{
+                    extend: 'copy'
+                },
+                {
+                    extend: 'csv'
+                },
+                {
+                    extend: 'excel',
+                    title: 'ExampleFile'
+                },
+                {
+                    extend: 'pdf',
+                    title: 'ExampleFile'
+                },
 
+                {
+                    extend: 'print',
+                    customize: function(win) {
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
 
+                        $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                    }
+                }
+            ],
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+
+        });
+    </script>
 
 
 </body>
 
 
 </html>
-
-
-<!-- Grids in modals -->
-<!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProductModal">
-                                                <i class="ri-add-line align-bottom me-1"></i>Añadir un producto
-                                            </button> -->
