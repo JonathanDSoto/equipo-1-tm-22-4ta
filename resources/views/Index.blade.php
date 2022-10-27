@@ -65,30 +65,32 @@
                                     <p class="text-muted">Ingrese sus datos para iniciar sesión</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="https://themesbrand.com/velzon/html/material/index.html">
-
+                                    <form action="{{route('log-in')}}" method="POST">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Correo Electrónico</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Ingrese correo electrónico">
+                                            <input type="text" name="email" class="form-control" id="username" placeholder="Ingrese correo electrónico">
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="password-input">Contraseña</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input type="password" class="form-control pe-5 password-input" placeholder="Ingrese contraseña" id="password-input">
+                                                <input type="password" name="password" class="form-control pe-5 password-input" placeholder="Ingrese contraseña" id="password-input">
                                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                             </div>
                                         </div>
 
                                         <!-- Boton con el alert por error al iniciar sesion -->
-                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                            <i class="ri-error-warning-line me-2 align-middle fs-18"></i><strong>Error al iniciar sesión</strong>
-                                            Datos incorrectos
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
+                                        @if (session('error'))
+                                            <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                                <i class="ri-error-warning-line me-2 align-middle fs-18"></i><strong>Error al iniciar sesión</strong>
+                                                Datos incorrectos
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @endif
 
                                         <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="">Iniciar sesión</button>
+                                            <button class="btn btn-success w-100" type="submit">Iniciar sesión</button>
 
                                         </div>
                                     </form>
