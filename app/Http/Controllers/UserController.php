@@ -144,6 +144,8 @@ class UserController extends Controller
             'id' => $request->id
           ]];
 
+          $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/users', $headers);
+
           try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
@@ -157,9 +159,29 @@ class UserController extends Controller
             $responseBodyAsString = $response->getBody()->getContents();
             //return view('index')->with("Error","Datos incorrectos");
         }
-
     }
 
+    public function delete(Request $request){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/users/'.$request->id, $headers);
+
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            //return redirect(route('users.index'));
+            //return view('users',compact('response'));
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
+
+    }
 
 
 

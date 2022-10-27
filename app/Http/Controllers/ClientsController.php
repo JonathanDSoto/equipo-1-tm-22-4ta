@@ -53,7 +53,7 @@ class ClientsController extends Controller
     }
 
     //Comentado
-    public function createClient(Request $request){
+    public function store(Request $request){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
@@ -104,7 +104,55 @@ class ClientsController extends Controller
             $responseBodyAsString = $response->getBody()->getContents();
             //return view('index')->with("Error","Datos incorrectos");
         }
+    }
 
+    public function update(Request $request){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+        $options = [
+            'form_params' => [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'phone_number' => $request->phone_number,
+            'is_suscribed' => $request->is_suscribed,
+            'level_id' => $request->level_id,
+            'id' => $request->id
+        ]];
+        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/clients', $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            //return $response;
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
+    }
+
+    public function delete(Request $request){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+        ];
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/clients/'.$request->id, $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            //return $response;
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
 
     }
 }
