@@ -36,7 +36,7 @@ class AuthController extends Controller
             session(['avatar' => $response->data->avatar]);
             session(['token' => $response->data->token]);
 
-            return view('products.index');
+            return redirect(route('products.index'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
