@@ -28,11 +28,11 @@ class UserController extends Controller
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users', $headers);
 
         try {
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $users = json_decode($response->getBody()->getContents());
 
             //return redirect(route('users.index'));
-            //return view('users',compact('response'));
+            return view('users',compact('users'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
@@ -42,20 +42,21 @@ class UserController extends Controller
     }
 
 
+
     public function getSpecificUser(Request $request){
 
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users/'.$request->user, $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users/'.$request->id, $headers);
 
         try {
             $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $user = json_decode($response->getBody()->getContents());
 
             //return redirect(route('users.index'));
-            //return view('users',compact('response'));
+            return view('users',compact('user'));
 
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
