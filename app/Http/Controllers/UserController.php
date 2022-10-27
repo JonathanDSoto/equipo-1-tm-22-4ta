@@ -30,10 +30,10 @@ class UserController extends Controller
         try {
             $response = $client->sendAsync($request)->wait();
             $users = json_decode($response->getBody()->getContents());
-
+            $users = $users->data;
             //return redirect(route('users.index'));
-            return view('users',compact('users'));
-
+            //return $users;
+            return view('users.index',compact('users'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -56,7 +56,7 @@ class UserController extends Controller
             $user = json_decode($response->getBody()->getContents());
 
             //return redirect(route('users.index'));
-            return view('users',compact('user'));
+            return view('users.profile',compact('user'));
 
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
