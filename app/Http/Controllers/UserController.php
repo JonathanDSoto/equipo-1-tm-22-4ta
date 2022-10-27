@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request as RequestGuzzle;
+use Illuminate\Auth\RequestGuard;
 
 class UserController extends Controller
 {
@@ -20,90 +23,48 @@ class UserController extends Controller
 
         $client = new Client();
         $headers = [
-        'Authorization' => 'Bearer 1|OafP1LnsrVjvkJzJamixf9yUFD4H0iU5pOu7bIZe'
+            'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new Request('GET', 'https://crud.jonathansoto.mx/api/users', $headers);
-        $res = $client->sendAsync($request)->wait();
-        echo $res->getBody();
-
-
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users', $headers);
 
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            return view('clients',compact('response'));
+            //return redirect(route('users.index'));
+            //return view('users',compact('response'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
             //return view('index')->with("Error","Datos incorrectos");
         }
-
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+    public function getSpecificUser(Request $request){
+
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users/'.$request->user, $headers);
+
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            //return redirect(route('users.index'));
+            //return view('users',compact('response'));
+
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
