@@ -53,7 +53,7 @@ Route::middleware(['logged'])->group(function () {
     Route::put('/catalogs/categories/{$id}', [CategoriesController::class, 'update'])->name('catalogs.categories.update');
     Route::delete('/catalogs/categories/{$id}', [CategoriesController::class, 'destroy'])->name('catalogs.categories.destroy');
 
-    Route::get('/catalogs/brands', [BrandsController::class, 'getAll'])->name('catalogs.brands');
+    Route::get('/catalogs/brands', [BrandsController::class, 'getAllBrands'])->name('catalogs.brands');
     Route::post('/catalogs/brands', [BrandsController::class, 'store'])->name('catalogs.brands.store');
     Route::put('/catalogs/brands/{$id}', [BrandsController::class, 'update'])->name('catalogs.brands.update');
     Route::delete('/catalogs/brands/{$id}', [BrandsController::class, 'destroy'])->name('catalogs.brands.destroy');
