@@ -32,13 +32,13 @@ Route::get('log-out',[AuthController::class, 'logout'])->name('log-out');
 Route::middleware(['logged'])->group(function () {
     Route::get('products/', [ProductsController::class, 'getAllProducts'])->name('products.index');
     Route::post('products/', [ProductsController::class, 'store'])->name('products.store');
-    Route::get('/products/{id}', [ProductsController::class, 'getSpecific'])->name('products.details');
+    Route::get('/products/{id}', [ProductsController::class, 'getSpecificProduct'])->name('products.details');
     Route::put('products/{id}', [ProductsController::class, 'update'])->name('products.update');
     Route::delete('products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
 
     Route::get('users/', [UserController::class, 'getAllUsers'])->name('users.index');
     Route::post('users/', [UserController::class, 'store'])->name('users.store');
-    Route::get('/users/{id}', [UserController::class, 'getSpecific'])->name('users.profile');
+    Route::get('/users/{id}', [UserController::class, 'getSpecificUser'])->name('users.profile');
     Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
     Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');    
 
