@@ -183,10 +183,13 @@
             </div>
 
         </div>
+        <br>
+        <br>
+        @include('layouts.footer')
     </div>
 
     <!-- End Page-content -->
-    @include('layouts.footer')
+    
 
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">

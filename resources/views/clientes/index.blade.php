@@ -186,7 +186,8 @@
 
             <!-- End Page-content -->
 
-
+            <br>
+            <br>
             @include('layouts.footer')
 
         </div>

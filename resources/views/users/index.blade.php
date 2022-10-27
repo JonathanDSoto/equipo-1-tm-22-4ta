@@ -148,7 +148,7 @@
                                             <td>anttg@gmail.com</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -169,7 +169,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -190,7 +190,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -211,7 +211,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -232,7 +232,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -253,7 +253,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -274,7 +274,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -295,7 +295,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -316,7 +316,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -337,7 +337,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -358,7 +358,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -379,7 +379,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -400,7 +400,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -421,7 +421,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -442,7 +442,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -463,7 +463,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -484,7 +484,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -505,7 +505,7 @@
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -527,7 +527,7 @@
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -549,7 +549,7 @@
                                                     <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
 
 
-                                                    <a href="{{ route('users.profile') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -578,11 +578,9 @@
             <!-- end row -->
 
             <!-- End Page-content -->
-
-
-            
-
         </div>
+        <br>
+        <br>
         <!-- end main content-->
         @include('layouts.footer')
 
