@@ -250,12 +250,13 @@
             </div>
             <!-- End Page-content -->
 
-            <br>
-            <br>
-            @include('layouts.footer')
+            
 
         </div>
         <!-- end main content-->
+        <br>
+        <br>
+        @include('layouts.footer')
 
     </div>
     <!-- END layout-wrapper -->
