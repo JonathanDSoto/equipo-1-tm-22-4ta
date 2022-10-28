@@ -43,7 +43,7 @@ class ClientsController extends Controller
             $response = $client->sendAsync($request)->wait();
             $client = json_decode($response->getBody()->getContents());
             $client = $client->data;
-            return view('clients',compact('response'));
+            return view('clients.detailClient',compact('response'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
