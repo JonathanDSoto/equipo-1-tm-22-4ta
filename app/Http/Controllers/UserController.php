@@ -54,7 +54,7 @@ class UserController extends Controller
         try {
             $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
-
+            $user = $user->data;
             //return redirect(route('users.index'));
             return view('users.profile',compact('user'));
 
@@ -115,11 +115,10 @@ class UserController extends Controller
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
-
             //return redirect(route('users.index'));
             //return view('users',compact('response'));
 
-
+            return $response;
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -129,6 +128,7 @@ class UserController extends Controller
     }
 
     public function update(Request $request){
+        $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
             'Content-Type' => 'application/x-www-form-urlencoded'
