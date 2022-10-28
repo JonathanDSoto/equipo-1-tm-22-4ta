@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request as RequestGuzzle;
 use Illuminate\Auth\RequestGuard;
+use GuzzleHttp\Psr7\Request as RequestGuzzle;
+use GuzzleHttp\Psr7\Utils;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
@@ -103,8 +104,8 @@ class UserController extends Controller
             ],
             [
             'name' => 'profile_photo_file',
-            'contents' => Utils::tryFopen('/C:/Users/jsoto/Downloads/avatar.jpg', 'r'),
-            'filename' => '/C:/Users/jsoto/Downloads/avatar.jpg',
+            'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
+            'filename' => $request->avatar->getRealPath(),
             'headers'  => [
                 'Content-Type' => '<Content-type header>'
             ]
@@ -122,7 +123,7 @@ class UserController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            //return view('index')->with("Error","Datos incorrectos");
+            return redirect()->back()->with('error', 'true');
         }
 
     }
@@ -160,7 +161,7 @@ class UserController extends Controller
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
             //return view('index')->with("Error","Datos incorrectos");
-            return redirect()->back()->with('success', 'false');
+            return redirect()->back()->with('error', 'true');
         }
     }
 
@@ -185,7 +186,7 @@ class UserController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            return redirect()->back()->with('success', 'false');
+            return redirect()->back()->with('error', 'true');
             //return view('index')->with("Error","Datos incorrectos");
         }
 

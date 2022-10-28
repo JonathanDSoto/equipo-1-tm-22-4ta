@@ -103,7 +103,7 @@ class ClientsController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            return redirect()->back()->with('success', 'false');
+            return redirect()->back()->with('error', 'true');
         }
     }
 
@@ -133,7 +133,7 @@ class ClientsController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            return redirect()->back()->with('success', 'false');
+            return redirect()->back()->with('error', 'true');
         }
     }
 
@@ -152,7 +152,7 @@ class ClientsController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            return redirect()->back()->with('success', 'false');
+            return redirect()->back()->with('error', 'true');
         }
 
     }
