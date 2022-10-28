@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientsController;
@@ -40,13 +41,19 @@ Route::middleware(['logged'])->group(function () {
     Route::post('users/', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/{id}', [UserController::class, 'getSpecificUser'])->name('users.profile');
     Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');    
+    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');  
+    
+    Route::put('/users/{id}/update-pic', [UserController::class, 'updateProfilePic'])->name('users.put.update-pic');
 
     Route::get('clients/', [ClientsController::class, 'getAllClients'])->name('clientes.index');
     Route::post('clients/', [ClientsController::class, 'store'])->name('clientes.store');
     Route::get('/clients/{id}', [ClientsController::class, 'getSpecificClient'])->name('clientes.detailClient');
     Route::put('clients/{id}', [ClientsController::class, 'update'])->name('clientes.update');
     Route::delete('clients/{id}', [ClientsController::class, 'destroy'])->name('clientes.destroy');
+
+    Route::post('/clients/{id}/create-address', [AddressController::class, 'store'])->name('clientes.store.address');
+    Route::put('/clients/{id}/update-address', [AddressController::class, 'update'])->name('clientes.update.address');
+    Route::delete('/clients/{id}/delete-address', [AddressController::class, 'destroy'])->name('clientes.destroy.address');
 
     Route::get('/catalogs/categories', [CategoriesController::class, 'getAllCategories'])->name('catalogs.categories');
     Route::post('/catalogs/categories', [CategoriesController::class, 'store'])->name('catalogs.categories.store');
