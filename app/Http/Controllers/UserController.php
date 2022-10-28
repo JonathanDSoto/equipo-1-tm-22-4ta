@@ -34,7 +34,6 @@ class UserController extends Controller
 
 
     public function getSpecificUser($id){
-
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
