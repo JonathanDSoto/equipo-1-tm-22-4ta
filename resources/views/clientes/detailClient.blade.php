@@ -405,7 +405,7 @@
 
                                                     <td>
                                                         <div class="hstack gap-3 fs-15">
-                                                            <a href="{{ route('orders.detailOrder') }}" class="link-primary">
+                                                            <a href="" class="link-primary">
                                                                 <button type="button" class="btn btn-primary">
                                                                     <i class="ri-eye-line"></i>
                                                                 </button>

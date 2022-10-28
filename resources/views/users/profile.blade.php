@@ -50,14 +50,14 @@
                                     <div class="row g-4">
                                         <div class="col-auto">
                                             <div class="avatar-lg">
-                                                <img src="{{asset('images/users/avatar-1.jpg')}}" alt="user-img" class="img-thumbnail rounded-circle" />
+                                                <img src="{{$user->avatar}}" alt="user-img" class="img-thumbnail rounded-circle" />
                                             </div>
                                         </div>
                                         <!--end col -->
                                         <div class="col">
                                             <div class="p-2">
-                                                <h3 class="text-white mb-1">Annette Adame González</h3>
-                                                <p class="text-white-75">Founder</p>
+                                                <h3 class="text-white mb-1">{{$user->name}} {{$user->lastname}}</h3>
+                                                <p class="text-white-75">{{$user->role}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -76,23 +76,23 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <th class="ps-0" scope="row">Nombre(s): </th>
-                                                                                <td class="text-muted">Annette</td>
+                                                                                <td class="text-muted">{{$user->name}}</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th class="ps-0" scope="row">Apellidos: </th>
-                                                                                <td class="text-muted">Adame González</td>
+                                                                                <td class="text-muted">{{$user->lastname}}</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th class="ps-0" scope="row">No. Celular:</th>
-                                                                                <td class="text-muted">6125085004</td>
+                                                                                <td class="text-muted">{{$user->phone_number}}</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th class="ps-0" scope="row">Correo Electrónico: </th>
-                                                                                <td class="text-muted">anttg@gmail.com</td>
+                                                                                <td class="text-muted">{{$user->email}}</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th class="ps-0" scope="row">Se unió en: </th>
-                                                                                <td class="text-muted">24 Nov 2021</td>
+                                                                                <td class="text-muted">{{$user->created_at}}</td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -112,19 +112,21 @@
                                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <form action="javascript:void(0);">
+                                                                                <form action="{{route('users.update', $user->id)}}" method="POST">
+                                                                                    @csrf
+                                                                                    @method('put')
                                                                                     <div class="row g-3">
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                                <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                                                                <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre" value="{{$user->name}}">
                                                                                             </div>
                                                                                         </div>
                                                                                         <!--end col-->
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                                                <input type="text" name="lastname" class="form-control"  placeholder="Ingrese los apellidos" value="{{$user->lastname}}">
                                                                                             </div>
                                                                                         </div>
 
@@ -132,14 +134,14 @@
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="emailInput" class="form-label">Correo</label>
-                                                                                                <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                                                <input type="email" name="email" class="form-control"  placeholder="Ingrese correo electrónico" value="{{$user->email}}">
                                                                                             </div>
                                                                                         </div>
                                                                                         <!--end col-->
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                                                <input type="password" class="form-control" id="passwordInput" placeholder="************">
+                                                                                                <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" value="">
                                                                                             </div>
                                                                                         </div>
 
@@ -148,7 +150,7 @@
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="lastName" class="form-label">Número celular</label>
-                                                                                                <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                                                <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$user->phone_number}}">
                                                                                             </div>
                                                                                         </div>
 

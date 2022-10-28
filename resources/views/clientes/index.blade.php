@@ -149,25 +149,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Annette González</td>
-                                            <td>1</td>
-                                            <td>anttg@gmail.com</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('clientes.detailClient') }}" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
+                                        @foreach ($clients as $client)    
+                                            <tr>
+                                                <th scope="row">{{$client->id}}</th>
+                                                <td>{{$client->name}}</td>
+                                                <td>{{$client->level_id}}</td>
+                                                <td>{{$client->email}}</td>
+                                                <td>
+                                                    <div class="hstack gap-3 fs-15">
+                                                        <a href="{{route('clientes.detailClient', $client->id)}}" class="link-primary">
+                                                            <button type="button" class="btn btn-primary">
+                                                                <i class="ri-eye-line"></i>
+                                                            </button>
+                                                        </a>
+                                                        <button type="button" class="btn btn-danger">
+                                                            <i class="ri-delete-bin-5-line"></i>
                                                         </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                        <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
                                     </tbody>
                                 </table>

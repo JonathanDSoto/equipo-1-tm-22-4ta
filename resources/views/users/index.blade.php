@@ -61,19 +61,20 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('users.store')}}" method="POST" enctype='multipart/form-data'>
+                                                                @csrf
                                                                 <div class="row g-3">
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Apellidos</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                            <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
                                                                         </div>
                                                                     </div>
 
@@ -81,14 +82,14 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" class="form-control" id="passwordInput" placeholder="************">
+                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************">
                                                                         </div>
                                                                     </div>
 
@@ -96,15 +97,15 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label for="lastName" class="form-label">Número celular</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                            <label for="phoneNumber" class="form-label">Número celular</label>
+                                                                            <input type="text" name="phone_number" class="form-control" id="phoneNumber" placeholder="Ingrese el numero celular">
                                                                         </div>
                                                                     </div>
 
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                        <input name="cover" type="file" class="form-control">
+                                                                        <input accept=".jpeg,.bmp,.png,.jpg,.gif" name="avatar" type="file" class="form-control">
                                                                     </div>
 
                                                                     <div class="col-lg-12">
@@ -135,433 +136,31 @@
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Apellido</th>
                                             <th scope="col">Correo Electrónico</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Annette </td>
-                                            <td>González</td>
-                                            <td>anttg@gmail.com</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
+                                        @foreach ($users as $user)
+                                            <tr>
+                                                <th scope="row">{{$user->id}}</th>
+                                                <td>{{$user->name}} {{$user->lastname}}</td>
+                                                <td>{{$user->email}}</td>
+                                                <td>
+                                                    <div class="hstack gap-3 fs-15">
+                                                        <a href="{{route('users.profile', $user->id)}}" class="link-primary">
+                                                            <button type="button" class="btn btn-primary">
+                                                                <i class="ri-eye-line"></i>
+                                                            </button>
+                                                        </a>
+                                                        <button type="button" class="btn btn-danger">
+                                                            <i class="ri-delete-bin-5-line"></i>
                                                         </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Bessie Cooper</td>
-                                            <td>Graphic Designer</td>
-                                            <td>13, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Leslie Alexander</td>
-                                            <td>Product Manager</td>
-                                            <td>17, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Lenora Sandoval</td>
-                                            <td>Applications Engineer</td>
-                                            <td>25, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Annette </td>
-                                            <td>González</td>
-                                            <td>anttg@gmail.com</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Bessie Cooper</td>
-                                            <td>Graphic Designer</td>
-                                            <td>13, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Leslie Alexander</td>
-                                            <td>Product Manager</td>
-                                            <td>17, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Lenora Sandoval</td>
-                                            <td>Applications Engineer</td>
-                                            <td>25, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Annette </td>
-                                            <td>González</td>
-                                            <td>anttg@gmail.com</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Bessie Cooper</td>
-                                            <td>Graphic Designer</td>
-                                            <td>13, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Leslie Alexander</td>
-                                            <td>Product Manager</td>
-                                            <td>17, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Lenora Sandoval</td>
-                                            <td>Applications Engineer</td>
-                                            <td>25, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Annette </td>
-                                            <td>González</td>
-                                            <td>anttg@gmail.com</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Bessie Cooper</td>
-                                            <td>Graphic Designer</td>
-                                            <td>13, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Leslie Alexander</td>
-                                            <td>Product Manager</td>
-                                            <td>17, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Lenora Sandoval</td>
-                                            <td>Applications Engineer</td>
-                                            <td>25, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Annette </td>
-                                            <td>González</td>
-                                            <td>anttg@gmail.com</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Bessie Cooper</td>
-                                            <td>Graphic Designer</td>
-                                            <td>13, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Leslie Alexander</td>
-                                            <td>Product Manager</td>
-                                            <td>17, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Lenora Sandoval</td>
-                                            <td>Applications Engineer</td>
-                                            <td>25, Nov 2021</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <!-- <a href="javascript:void(0);" class="link-success"><i class="ri-edit-2-line"></i></a> -->
-
-
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                        <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 

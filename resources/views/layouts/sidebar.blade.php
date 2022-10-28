@@ -42,7 +42,7 @@
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('clientes.index') }}">
                                 <i class="ri-user-3-line"></i> <span data-key="t-widgets">Clientes</span>
-                            </a>
+                            </a> 
                         </li>
                         <!-- Productos -->
                         <li class="nav-item">
