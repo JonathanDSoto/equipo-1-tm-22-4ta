@@ -91,11 +91,11 @@ class UserController extends Controller
             ],
             [
             'name' => 'created_by',
-            'contents' => $request->created_by
+            'contents' => session('name').' '.session('lastname')
             ],
             [
             'name' => 'role',
-            'contents' => $request->role
+            'contents' => 'Administrador'
             ],
             [
             'name' => 'password',

@@ -83,12 +83,12 @@ class ClientsController extends Controller
             ],
             [
             'name' => 'is_suscribed',
-            'contents' => $request->is_subscribed
+            'contents' => '1'
             //'contents' => '1'
             ],
             [
             'name' => 'level_id',
-            'contents' => $request->level_id
+            'contents' => '1'
             //'contents' => '1'
             ]
         ]];
