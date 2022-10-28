@@ -10,16 +10,6 @@ use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     public function getAllUsers(){
 
         $client = new Client();
@@ -32,8 +22,7 @@ class UserController extends Controller
             $response = $client->sendAsync($request)->wait();
             $users = json_decode($response->getBody()->getContents());
             $users = $users->data;
-            //return redirect(route('users.index'));
-            //return $users;
+
             return view('users.index',compact('users'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
@@ -56,14 +45,12 @@ class UserController extends Controller
             $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
             $user = $user->data;
-            //return redirect(route('users.index'));
-            return view('users.profile',compact('user'));
 
+            return view('users.profile',compact('user'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            //return view('index')->with("Error","Datos incorrectos");
         }
     }
 
@@ -116,13 +103,12 @@ class UserController extends Controller
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
-            //return redirect(route('users.index'));
-            //return view('users',compact('response'));
 
             return redirect()->back()->with('success', 'true');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
+
             return redirect()->back()->with('error', 'true');
         }
 
@@ -153,14 +139,10 @@ class UserController extends Controller
             $response = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
-            //return redirect(route('users.index'));
-            //return view('users',compact('response'));
-
-
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            //return view('index')->with("Error","Datos incorrectos");
+
             return redirect()->back()->with('error', 'true');
         }
     }
@@ -180,7 +162,7 @@ class UserController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            
+
             return redirect()->back()->with('error', 'true');
         }
 
