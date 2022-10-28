@@ -22,7 +22,7 @@ class ClientsController extends Controller
             $clients = json_decode($response->getBody()->getContents());
             $clients = $clients->data;
 
-            return view('clients.index',compact('clients'));
+            return view('clientes.index',compact('clients'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
@@ -43,7 +43,7 @@ class ClientsController extends Controller
             $response = $client->sendAsync($request)->wait();
             $client = json_decode($response->getBody()->getContents());
             $client = $client->data;
-            return view('clients.detailClient',compact('response'));
+            return view('clientes.detailClient',compact('response'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
