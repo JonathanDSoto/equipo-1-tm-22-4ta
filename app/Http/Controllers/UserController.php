@@ -168,6 +168,32 @@ class UserController extends Controller
 
     }
 
+    public function updateProfilePic(Request $request){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $options = [
+        'multipart' => [
+            [
+            'name' => 'id',
+            'contents' => '1'
+            ],
+            [
+            'name' => 'profile_photo_file',
+            'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
+            'filename' => '/C:/Users/jsoto/Downloads/avatar.jpg',
+            'headers'  => [
+                'Content-Type' => '<Content-type header>'
+            ]
+            ]
+        ]];
+        $request = new Request('POST', 'https://crud.jonathansoto.mx/api/users/avatar', $headers);
+        $res = $client->sendAsync($request, $options)->wait();
+        echo $res->getBody();
+
+    }
+
 
 
 
