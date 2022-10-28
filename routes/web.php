@@ -36,13 +36,13 @@ Route::middleware(['logged'])->group(function () {
     Route::post('products/', [ProductsController::class, 'store'])->name('products.store');
     Route::get('/products/{id}', [ProductsController::class, 'getSpecificProduct'])->name('products.details');
     Route::put('products/{id}', [ProductsController::class, 'update'])->name('products.update');
-    Route::delete('products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
+    Route::delete('products/{id}', [ProductsController::class, 'delete'])->name('products.delete');
 
     Route::get('users/', [UserController::class, 'getAllUsers'])->name('users.index');
     Route::post('users/', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/{id}', [UserController::class, 'getSpecificUser'])->name('users.profile');
     Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');  
+    Route::delete('users/{id}', [UserController::class, 'delete'])->name('users.delete');  
     
     Route::put('/users/{id}/update-pic', [UserController::class, 'updateProfilePic'])->name('users.put.update-pic');
 
@@ -50,32 +50,32 @@ Route::middleware(['logged'])->group(function () {
     Route::post('clients/', [ClientsController::class, 'store'])->name('clientes.store');
     Route::get('/clients/{id}', [ClientsController::class, 'getSpecificClient'])->name('clientes.detailClient');
     Route::put('clients/{id}', [ClientsController::class, 'update'])->name('clientes.update');
-    Route::delete('clients/{id}', [ClientsController::class, 'destroy'])->name('clientes.destroy');
+    Route::delete('clients/{id}', [ClientsController::class, 'delete'])->name('clientes.delete');
 
     Route::post('/clients/{id}/create-address', [AddressController::class, 'store'])->name('clientes.store.address');
     Route::put('/clients/{id}/update-address', [AddressController::class, 'update'])->name('clientes.update.address');
-    Route::delete('/clients/{id}/delete-address', [AddressController::class, 'destroy'])->name('clientes.destroy.address');
+    Route::delete('/clients/{id}/delete-address', [AddressController::class, 'delete'])->name('clientes.delete.address');
 
     Route::get('/catalogs/categories', [CategoriesController::class, 'getAllCategories'])->name('catalogs.categories');
     Route::post('/catalogs/categories', [CategoriesController::class, 'store'])->name('catalogs.categories.store');
     Route::put('/catalogs/categories/{id}', [CategoriesController::class, 'update'])->name('catalogs.categories.update');
-    Route::delete('/catalogs/categories/{id}', [CategoriesController::class, 'destroy'])->name('catalogs.categories.destroy');
+    Route::delete('/catalogs/categories/{id}', [CategoriesController::class, 'delete'])->name('catalogs.categories.delete');
 
     Route::get('/catalogs/brands', [BrandsController::class, 'getAllBrands'])->name('catalogs.brands');
     Route::post('/catalogs/brands', [BrandsController::class, 'store'])->name('catalogs.brands.store');
     Route::put('/catalogs/brands/{id}', [BrandsController::class, 'update'])->name('catalogs.brands.update');
-    Route::delete('/catalogs/brands/{id}', [BrandsController::class, 'destroy'])->name('catalogs.brands.destroy');
+    Route::delete('/catalogs/brands/{id}', [BrandsController::class, 'delete'])->name('catalogs.brands.delete');
 
     Route::get('/catalogs/tags', [TagsController::class, 'getAllTags'])->name('catalogs.tags');
     Route::post('/catalogs/tags', [TagsController::class, 'store'])->name('catalogs.tags.store');
     Route::put('/catalogs/tags/{id}', [TagsController::class, 'update'])->name('catalogs.tags.update');
-    Route::delete('/catalogs/tags/{id}', [TagsController::class, 'destroy'])->name('catalogs.tags.destroy');
+    Route::delete('/catalogs/tags/{id}', [TagsController::class, 'delete'])->name('catalogs.tags.delete');
 
     // Route::get('orders/', [ClientsController::class, 'getAll'])->name('orders.index');
     // Route::post('orders/', [ClientsController::class, 'store'])->name('orders.store');
     // Route::get('/orders/{$id}', [ClientsController::class, 'getSpecific'])->name('orders.detailOrder');
     // Route::put('orders/{$id}', [ClientsController::class, 'update'])->name('orders.update');
-    // Route::delete('orders/{$id}', [ClientsController::class, 'destroy'])->name('orders.destroy');
+    // Route::delete('orders/{$id}', [ClientsController::class, 'delete'])->name('orders.delete');
 
     Route::get('orders/', function () {
         return view('orders.index');
@@ -95,6 +95,6 @@ Route::middleware(['logged'])->group(function () {
     Route::post('coupons/', [CouponsController::class, 'store'])->name('coupons.store');
     Route::get('/coupons/{id}', [CouponsController::class, 'getSpecificCoupon'])->name('coupons.detailCoupon');
     Route::put('coupons/{id}', [CouponsController::class, 'update'])->name('coupons.update');
-    Route::delete('coupons/{id}', [CouponsController::class, 'destroy'])->name('coupons.destroy');
+    Route::delete('coupons/{id}', [CouponsController::class, 'delete'])->name('coupons.delete');
 });
 
