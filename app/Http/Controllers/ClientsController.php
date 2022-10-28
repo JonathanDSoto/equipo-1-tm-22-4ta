@@ -44,10 +44,10 @@ class ClientsController extends Controller
             $client = json_decode($response->getBody()->getContents());
             $client = $client->data;
 
-            $address_controller = new AddressController;
-            $address = $address_controller->getAddress($id);
+            // $address_controller = new AddressController;
+            // $address = $address_controller->getAddress($id);
 
-            return view('clientes.detailClient',compact('client','address'));
+            return view('clientes.detailClient',compact('client'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();

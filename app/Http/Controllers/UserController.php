@@ -119,22 +119,22 @@ class UserController extends Controller
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
             'Content-Type' => 'application/x-www-form-urlencoded'
-          ];
-          $options = [
-          'form_params' => [
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'created_by' => $request->created_by,
-            'role' => $request->role,
-            'password' => $request->password,
-            'id' => $id
-          ]];
+        ];
+        $options = [
+            'form_params' => [
+                'name' => $request->name,
+                'lastname' => $request->lastname,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'created_by' => $request->created_by,
+                'role' => $request->role,
+                'password' => $request->password,
+                'id' => $id
+        ]];
 
-          $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/users', $headers);
+        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/users', $headers);
 
-          try {
+        try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
@@ -168,7 +168,7 @@ class UserController extends Controller
 
     }
 
-    public function updateProfilePic(Request $request){
+    public function updateProfilePic(Request $request, $id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
@@ -177,7 +177,7 @@ class UserController extends Controller
         'multipart' => [
             [
             'name' => 'id',
-            'contents' => $request->id
+            'contents' => $id
             ],
             [
             'name' => 'profile_photo_file',

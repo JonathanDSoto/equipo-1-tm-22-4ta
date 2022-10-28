@@ -137,8 +137,6 @@ class AddressController extends Controller
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
-            //return redirect(route('users.index'));
-            //return view('users',compact('response'));
 
             return redirect()->back()->with('success', 'true');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
@@ -167,7 +165,6 @@ class AddressController extends Controller
 
             return redirect()->back()->with('error', 'true');
         }
-
     }
 
 
