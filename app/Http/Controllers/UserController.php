@@ -130,7 +130,8 @@ class UserController extends Controller
                 'role' => $request->role,
                 'password' => $request->password,
                 'id' => $id
-        ]];
+            ]
+        ];
 
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/users', $headers);
 
@@ -185,7 +186,7 @@ class UserController extends Controller
                 'filename' => $request->avatar->getRealPath(),
                 'headers'  => [
                     'Content-Type' => '<Content-type header>'
-            ]
+                ]
             ]
         ]];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/users/avatar', $headers);
