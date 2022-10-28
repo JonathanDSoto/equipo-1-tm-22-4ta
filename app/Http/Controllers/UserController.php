@@ -177,7 +177,7 @@ class UserController extends Controller
         'multipart' => [
             [
             'name' => 'id',
-            'contents' => '1'
+            'contents' => $request->id
             ],
             [
             'name' => 'profile_photo_file',
