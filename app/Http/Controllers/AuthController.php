@@ -35,6 +35,7 @@ class AuthController extends Controller
             session(['email' => $request2->email]);
             session(['avatar' => $response->data->avatar]);
             session(['token' => $response->data->token]);
+            session(['id' => $response->data->id]);
 
             return redirect(route('products.index'));
 
