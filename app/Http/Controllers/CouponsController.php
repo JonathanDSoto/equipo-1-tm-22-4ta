@@ -125,4 +125,60 @@ class CouponsController extends Controller
             return redirect()->back()->with('error', 'true');
         }
     }
+
+    public function update(Request $request, $id){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+        $options = [
+            'form_params' => [
+                'name' => $request->name,
+                'code' => $request->code,
+                'percentage_discount' => $request->porcentage_discount,
+                'min_amount_required' => $request->min_amount_required,
+                'min_product_required' => $request->min_product_required,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'max_uses' => $request->max_uses,
+                'count_uses' => $request->count_uses,
+                'valid_only_first_purchase' => $request->valid_only_first_purchase,
+                'status' => $request->status,
+                'id' => $id
+            ]
+        ];
+        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/coupons', $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');;
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            return redirect()->back()->with('error', 'true');
+        }
+    }
+
+    public function delete($id){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+        ];
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/coupons/'.$id, $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            return redirect()->back()->with('error', 'true');
+        }
+
+    }
 }

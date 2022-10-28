@@ -119,14 +119,15 @@ class ClientsController extends Controller
         ];
         $options = [
             'form_params' => [
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            'phone_number' => $request->phone_number,
-            'is_suscribed' => $request->is_suscribed,
-            'level_id' => $request->level_id,
-            'id' => $id
-        ]];
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $request->password,
+                'phone_number' => $request->phone_number,
+                'is_suscribed' => $request->is_suscribed,
+                'level_id' => $request->level_id,
+                'id' => $id
+            ]
+        ];
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/clients', $headers);
         try {
             $response = $client->send($request, $options);
