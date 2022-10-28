@@ -28,16 +28,19 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <!-- Boton con el alert por error al iniciar sesion -->
-                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                            - Los datos no se pudieron actualizar, datos incorrectos
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <!-- Success Alert -->
-                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        @if (session('success'))
+                            <!-- Success Alert -->
+                            <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @elseif (session('error'))
+                            <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                - Los datos no se pudieron actualizar, datos incorrectos
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
 
                         <div>
                             <div class="container-fluid">
@@ -184,12 +187,14 @@
                                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <form action="javascript:void(0);">
+                                                                                <form action="{{route('users.put.update-pic', $user->id)}}" method="POST" enctype='multipart/form-data'>
+                                                                                    @method('put')
+                                                                                    @csrf
                                                                                     <div class="row g-3">
 
                                                                                         <div class="col-xxl-15">
                                                                                             <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                                            <input name="cover" type="file" class="form-control">
+                                                                                            <input accept=".jpeg,.bmp,.png,.jpg,.gif" name="avatar" type="file" class="form-control">
                                                                                         </div>
 
                                                                                         <div class="col-lg-12">

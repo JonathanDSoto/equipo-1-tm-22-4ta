@@ -35,16 +35,19 @@
 
                                     <div class="col-sm">
                                         <!-- Boton con el alert por error al iniciar sesion -->
-                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                            - El registro no se pudo completar, datos incorrectos
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                        <!-- Success Alert -->
-                                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
+                                        @if (session('success'))
+                                            <!-- Success Alert -->
+                                            <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                                <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @elseif (session('error'))
+                                            <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                                <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                                - El registro no se pudo completar, datos incorrectos
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @endif
 
                                         <div div class="d-flex justify-content-sm-end">
 
@@ -153,6 +156,7 @@
                                                                 <i class="ri-eye-line"></i>
                                                             </button>
                                                         </a>
+                                                        
                                                         <button type="button" class="btn btn-danger">
                                                             <i class="ri-delete-bin-5-line"></i>
                                                         </button>
