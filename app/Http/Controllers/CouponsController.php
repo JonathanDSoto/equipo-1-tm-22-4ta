@@ -17,35 +17,112 @@ class CouponsController extends Controller
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons', $headers);
 
         try {
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $coupons = json_decode($response->getBody()->getContents());
+            $coupons = $coupons->data;
 
-            return $response;
+            return $coupons;
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
+    }
+    public function getSpecificCoupon($id){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons/'.$id, $headers);
 
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $coupon = json_decode($response->getBody()->getContents());
+            $coupon = $coupon->data;
+
+            return $coupon;
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
             return view('index')->with("Error","Datos incorrectos");
         }
     }
-    public function getSpecificCoupon(Request $request){
+
+    public function store(Request $request){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons/'.$request->coupon, $headers);
-
+        $options = [
+            'multipart' => [
+                [
+                    'name' => 'name',
+                    'contents' => $request->name
+                    //'contents' => 'cupon OP 20%'
+                ],
+                [
+                    'name' => 'code',
+                    'contents' => $request->code
+                    //'contents' => '20PERCEN22'
+                ],
+                [
+                    'name' => 'percentage_discount',
+                    'contents' => $request->porcentage_discount
+                    //'contents' => '20'
+                ],
+                [
+                    'name' => 'min_amount_required',
+                    'contents' => $request->min_amount_required
+                    //'contents' => '100'
+                ],
+                [
+                    'name' => 'min_product_required',
+                    'contents' => $request->min_product_required
+                    //'contents' => '1'
+                ],
+                [
+                    'name' => 'start_date',
+                    'contents' => $request->start_date
+                    //'contents' => '2022-10-04'
+                ],
+                [
+                    'name' => 'end_date',
+                    'contents' => $request->end_date
+                    //'contents' => '2022-10-14'
+                ],
+                [
+                    'name' => 'max_uses',
+                    'contents' => $request->max_users
+                    //'contents' => '100'
+                ],
+                [
+                    'name' => 'count_uses',
+                    'contents' => $request->count_uses
+                    //'contents' => '0'
+                ],
+                [
+                    'name' => 'valid_only_first_purchase',
+                    'contents' => $request->valid_only_first_purchase
+                    //'contents' => '1'
+                ],
+                [
+                    'name' => 'status',
+                    'contents' => $request->status
+                    //'contents' => '1'
+                ]
+            ]
+        ];
+        $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/coupons', $headers);
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            return $response;
-
+            return redirect()->back()->with('success', 'true');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            return view('index')->with("Error","Datos incorrectos");
-        }
 
+            return redirect()->back()->with('error', 'true');
+        }
     }
 }

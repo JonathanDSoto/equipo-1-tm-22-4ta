@@ -59,44 +59,45 @@ class UserController extends Controller
             'Authorization' => 'Bearer '. session('token')
         ];
         $options = [
-        'multipart' => [
-            [
-            'name' => 'name',
-            'contents' => $request->name
-            ],
-            [
-            'name' => 'lastname',
-            'contents' => $request->lastname
-            ],
-            [
-            'name' => 'email',
-            'contents' => $request->email
-            ],
-            [
-            'name' => 'phone_number',
-            'contents' => $request->phone_number
-            ],
-            [
-            'name' => 'created_by',
-            'contents' => session('name').' '.session('lastname')
-            ],
-            [
-            'name' => 'role',
-            'contents' => 'Administrador'
-            ],
-            [
-            'name' => 'password',
-            'contents' => $request->password
-            ],
-            [
-            'name' => 'profile_photo_file',
-            'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
-            'filename' => $request->avatar->getRealPath(),
-            'headers'  => [
-                'Content-Type' => '<Content-type header>'
+            'multipart' => [
+                [
+                    'name' => 'name',
+                    'contents' => $request->name
+                ],
+                [
+                    'name' => 'lastname',
+                    'contents' => $request->lastname
+                ],
+                [
+                    'name' => 'email',
+                    'contents' => $request->email
+                ],
+                [
+                    'name' => 'phone_number',
+                    'contents' => $request->phone_number
+                ],
+                [
+                    'name' => 'created_by',
+                    'contents' => session('name').' '.session('lastname')
+                ],
+                [
+                    'name' => 'role',
+                    'contents' => 'Administrador'
+                ],
+                [
+                    'name' => 'password',
+                    'contents' => $request->password
+                ],
+                [
+                    'name' => 'profile_photo_file',
+                    'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
+                    'filename' => $request->avatar->getRealPath(),
+                    'headers'  => [
+                        'Content-Type' => '<Content-type header>'
+                    ]
+                ]
             ]
-            ]
-        ]];
+        ];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/users', $headers);
 
         try {
@@ -175,15 +176,15 @@ class UserController extends Controller
         $options = [
         'multipart' => [
             [
-            'name' => 'id',
-            'contents' => $id
+                'name' => 'id',
+                'contents' => $id
             ],
             [
-            'name' => 'profile_photo_file',
-            'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
-            'filename' => $request->avatar->getRealPath(),
-            'headers'  => [
-                'Content-Type' => '<Content-type header>'
+                'name' => 'profile_photo_file',
+                'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
+                'filename' => $request->avatar->getRealPath(),
+                'headers'  => [
+                    'Content-Type' => '<Content-type header>'
             ]
             ]
         ]];
@@ -192,7 +193,7 @@ class UserController extends Controller
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            return redirect()->route('users.update',$id);
+            return redirect()->route('users.profile',$id);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();

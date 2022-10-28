@@ -66,34 +66,34 @@ class ClientsController extends Controller
         $options = [
         'multipart' => [
             [
-            'name' => 'name',
-            'contents' => $request->name
-            //'contents' => 'jonathan soto'
+                'name' => 'name',
+                'contents' => $request->name
+                //'contents' => 'jonathan soto'
             ],
             [
-            'name' => 'email',
-            'contents' => $request->email
-            //'contents' => 'jsoto@uabcs.mx'
+                'name' => 'email',
+                'contents' => $request->email
+                //'contents' => 'jsoto@uabcs.mx'
             ],
             [
-            'name' => 'password',
-            'contents' => $request->password
-            //'contents' => 'Th3_P4ssW0rd_4nt!_h4ck_2000'
+                'name' => 'password',
+                'contents' => $request->password
+                //'contents' => 'Th3_P4ssW0rd_4nt!_h4ck_2000'
             ],
             [
-            'name' => 'phone_number',
-            'contents' => $request->phone
-            //'contents' => '6120000000'
+                'name' => 'phone_number',
+                'contents' => $request->phone
+                //'contents' => '6120000000'
             ],
             [
-            'name' => 'is_suscribed',
-            'contents' => '1'
-            //'contents' => '1'
+                'name' => 'is_suscribed',
+                'contents' => '1'
+                //'contents' => '1'
             ],
             [
-            'name' => 'level_id',
-            'contents' => '1'
-            //'contents' => '1'
+                'name' => 'level_id',
+                'contents' => '1'
+                //'contents' => '1'
             ]
         ]];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/clients', $headers);
