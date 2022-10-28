@@ -43,13 +43,13 @@ class UserController extends Controller
 
 
 
-    public function getSpecificUser(Request $request){
+    public function getSpecificUser($id){
 
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users/'.$request->id, $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users/'.$id, $headers);
 
         try {
             $response = $client->sendAsync($request)->wait();
@@ -118,7 +118,7 @@ class UserController extends Controller
             //return redirect(route('users.index'));
             //return view('users',compact('response'));
 
-            return $response;
+            return redirect()->back()->with('success', 'true');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -127,7 +127,7 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
@@ -142,7 +142,7 @@ class UserController extends Controller
             'created_by' => $request->created_by,
             'role' => $request->role,
             'password' => $request->password,
-            'id' => $request->id
+            'id' => $id
           ]];
 
           $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/users', $headers);
@@ -151,6 +151,7 @@ class UserController extends Controller
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
+            return redirect()->back()->with('success', 'true');
             //return redirect(route('users.index'));
             //return view('users',compact('response'));
 
@@ -159,20 +160,22 @@ class UserController extends Controller
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
             //return view('index')->with("Error","Datos incorrectos");
+            return redirect()->back()->with('success', 'false');
         }
     }
 
-    public function delete(Request $request){
+    public function delete($id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/users/'.$request->id, $headers);
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/users/'.$id, $headers);
 
         try {
             $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
 
+            return redirect()->back()->with('success', 'true');
             //return redirect(route('users.index'));
             //return view('users.profile',compact('user'));
 
@@ -182,6 +185,7 @@ class UserController extends Controller
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
+            return redirect()->back()->with('success', 'false');
             //return view('index')->with("Error","Datos incorrectos");
         }
 

@@ -31,13 +31,13 @@ class ClientsController extends Controller
         }
     }
 
-    public function getSpecificClient(Request $request){
+    public function getSpecificClient($id){
 
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/clients/'.$request->id, $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/clients/'.$id, $headers);
 
         try {
             $response = $client->sendAsync($request)->wait();
@@ -98,16 +98,16 @@ class ClientsController extends Controller
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            return $response;
+            return redirect()->back()->with('success', 'true');
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            //return view('index')->with("Error","Datos incorrectos");
+            return redirect()->back()->with('success', 'false');
         }
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
@@ -121,38 +121,38 @@ class ClientsController extends Controller
             'phone_number' => $request->phone_number,
             'is_suscribed' => $request->is_suscribed,
             'level_id' => $request->level_id,
-            'id' => $request->id
+            'id' => $id
         ]];
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/clients', $headers);
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            //return $response;
+            return redirect()->back()->with('success', 'true');;
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            //return view('index')->with("Error","Datos incorrectos");
+            return redirect()->back()->with('success', 'false');
         }
     }
 
-    public function delete(Request $request){
+    public function delete($id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
         ];
-        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/clients/'.$request->id, $headers);
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/clients/'.$id, $headers);
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            //return $response;
+            return redirect()->back()->with('success', 'true');
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            //return view('index')->with("Error","Datos incorrectos");
+            return redirect()->back()->with('success', 'false');
         }
 
     }
