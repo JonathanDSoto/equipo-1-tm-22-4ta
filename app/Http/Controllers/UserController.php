@@ -182,16 +182,24 @@ class UserController extends Controller
             [
             'name' => 'profile_photo_file',
             'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
-            'filename' => '/C:/Users/jsoto/Downloads/avatar.jpg',
+            'filename' => $request->avatar->getRealPath(),
             'headers'  => [
                 'Content-Type' => '<Content-type header>'
             ]
             ]
         ]];
-        $request = new Request('POST', 'https://crud.jonathansoto.mx/api/users/avatar', $headers);
-        $res = $client->sendAsync($request, $options)->wait();
-        echo $res->getBody();
+        $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/users/avatar', $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
     }
 
 
