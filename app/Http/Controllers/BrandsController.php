@@ -17,11 +17,11 @@ class BrandsController extends Controller
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/brands', $headers);
 
         try{
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $brands = json_decode($response->getBody()->getContents());
+            $brands = $brands->data;
 
-            return $response;
-
+            return view('catalogs.brands',compact('brands'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();

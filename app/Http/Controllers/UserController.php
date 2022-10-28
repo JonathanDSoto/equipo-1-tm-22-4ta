@@ -52,7 +52,7 @@ class UserController extends Controller
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/users/'.$request->id, $headers);
 
         try {
-            $response = $client->send($request, $options);
+            $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
 
             //return redirect(route('users.index'));
@@ -170,8 +170,11 @@ class UserController extends Controller
         $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/users/'.$request->id, $headers);
 
         try {
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $user = json_decode($response->getBody()->getContents());
+
+            //return redirect(route('users.index'));
+            //return view('users.profile',compact('user'));
 
             //return redirect(route('users.index'));
             //return view('users',compact('response'));
