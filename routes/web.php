@@ -31,6 +31,7 @@ Route::post('log-in',[AuthController::class, 'login'])->name('log-in');
 Route::get('log-out',[AuthController::class, 'logout'])->name('log-out');
 
 Route::middleware(['logged'])->group(function () {
+
     Route::get('products/', [ProductsController::class, 'getAllProducts'])->name('products.index');
     Route::post('products/', [ProductsController::class, 'store'])->name('products.store');
     Route::get('/products/{id}', [ProductsController::class, 'getSpecificProduct'])->name('products.details');
@@ -83,6 +84,12 @@ Route::middleware(['logged'])->group(function () {
     Route::get('/orders/detail-order', function () {
         return view('orders.detailOrder');
     })->name('orders.detailOrder');
+
+    // ruta vista añadir una orden
+    Route::get('orders/add-order', function () {
+        return view('orders.add');
+    })->name('orders.add');
+
 
     Route::get('coupons/', [CouponsController::class, 'getAllCoupons'])->name('coupons.index');
     Route::post('coupons/', [CouponsController::class, 'store'])->name('coupons.store');

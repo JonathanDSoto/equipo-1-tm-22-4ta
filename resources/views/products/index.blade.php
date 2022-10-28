@@ -98,42 +98,48 @@
 
                                                                     <!-- Base Example -->
                                                                     <label for="formFile" class="form-label">Categorías</label>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                        <label class="form-check-label" for="formCheck1">
-                                                                            Hogar y Muebles
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                        <label class="form-check-label" for="formCheck1">
-                                                                            Línea blanca
-                                                                        </label>
+                                                                    <div class="list-checkbox">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Hogar y Muebles
+                                                                            </label>
+                                                                        </div>
+    
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Línea blanca
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
 
                                                                     <!-- Base Example -->
                                                                     <label for="formFile" class="form-label">Tags</label>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                        <label class="form-check-label" for="formCheck1">
-                                                                            Muebles
-                                                                        </label>
+                                                                    <div class="list-checkbox">
+
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Muebles
+                                                                            </label>
+                                                                        </div>
+    
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Hogar
+                                                                            </label>
+                                                                        </div>
+    
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Baño
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
 
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                        <label class="form-check-label" for="formCheck1">
-                                                                            Hogar
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                        <label class="form-check-label" for="formCheck1">
-                                                                            Baño
-                                                                        </label>
-                                                                    </div>
 
 
                                                                     <div class="col-lg-12">
@@ -343,3 +349,10 @@
 
 
 </html>
+<style>
+    .list-checkbox{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+    }
+</style>
