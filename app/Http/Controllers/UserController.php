@@ -193,7 +193,7 @@ class UserController extends Controller
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
 
-            return redirect()->back()->with('success', 'true');
+            return redirect()->route('users.update',$id);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -201,8 +201,4 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'true');
         }
     }
-
-
-
-
 }
