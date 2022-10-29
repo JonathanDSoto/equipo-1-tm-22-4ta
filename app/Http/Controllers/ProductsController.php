@@ -21,7 +21,7 @@ class ProductsController extends Controller
             $products = json_decode($response->getBody()->getContents());
             $products = $products->data;
 
-            return view('index',compact('products'));
+            return view('products.index',compact('products'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
@@ -42,7 +42,7 @@ class ProductsController extends Controller
             $response = $client->sendAsync($request)->wait();
             $response = json_decode($response->getBody()->getContents());
 
-            return view('details',compact('response'));
+            return view('products.details',compact('response'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
