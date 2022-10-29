@@ -31,15 +31,15 @@ class ProductsController extends Controller
 
     }
 
-    public function getEspecificProduct(Request $request){
+    public function getSpecificProduct($id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/'.$request->id, $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/'.$id, $headers);
 
         try {
-            $response = $client->send($request, $options);
+            $response = $client->sendAsync($request)->wait();
             $response = json_decode($response->getBody()->getContents());
 
             return view('details',compact('response'));
@@ -59,7 +59,7 @@ class ProductsController extends Controller
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/slug/'.$request->slug, $headers);
 
         try {
-            $response = $client->send($request, $options);
+            $response = $client->sendAsync($request)->wait();
             $response = json_decode($response->getBody()->getContents());
 
             return view('details',compact('response'));
@@ -78,7 +78,7 @@ class ProductsController extends Controller
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/categories/'.$request->category, $headers);
         try {
-            $response = $client->send($request, $options);
+            $response = $client->sendAsync($request)->wait();
             $response = json_decode($response->getBody()->getContents());
 
             //return view('details',compact('response'));
