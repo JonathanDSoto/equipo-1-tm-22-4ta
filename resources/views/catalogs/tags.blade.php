@@ -31,18 +31,19 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
-                                        <!-- Boton con el alert por error al iniciar sesion -->
-                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                            - El registro no se pudo completar, la etiqueta no se pudo agregar
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
+                                        @if (session('success'))
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Etiqueta agregada
+                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
-
+                                        @elseif (session('error'))
+                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                            - El registro no se pudo completar, datos incorrectos
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
                                         <div div class="d-flex justify-content-sm-end">
 
                                             <!-- Grids in modals -->
@@ -53,17 +54,18 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalgridClient">Etiquetas</h5>
+                                                            <h5 class="modal-title" id="exampleModalgridClient">Agregar etiquetas</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('catalogs.tags.store')}}" method="POST">
+                                                                @csrf
                                                                 <div class="row g-3">
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Etiqueta</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -72,13 +74,13 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese la decripción">
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Slug</label>
-                                                                            <input type="text" class="form-control" placeholder="Slug">
+                                                                            <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -112,31 +114,86 @@
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Slug</th>
                                             <th scope="col">Descripción</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($tags as $tag)
+                                            
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>algodón</td>
-                                            <td>algodon</td>
-                                            <td>productos elaborados de algodón</td>
+                                            <th scope="row">{{$tag->id}}</th>
+                                            <td>{{$tag->name}}</td>
+                                            <td>{{$tag->description}}</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addTags" class="btn btn-secondary">
+                                                    <div class="modal fade modal-lg" id="editTags{{$tag->id}}" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalgridClient">Editar Etiquetas</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('catalogs.tags.update', $tag->id)}}" method="POST">
+                                                                        @method('put')
+                                                                        @csrf
+                                                                        <div class="row g-3">
+        
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label for="firstName" class="form-label">Nombre Etiqueta</label>
+                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" value="{{$tag->name}}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+        
+        
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label for="lastName" class="form-label">Descripción</label>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$tag->description}}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Slug</label>
+                                                                                    <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" value="{{$tag->slug}}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+        
+                                                                            <div class="col-lg-12">
+                                                                                <div class="hstack gap-2 justify-content-end">
+                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#editTags{{$tag->id}}" class="btn btn-secondary">
                                                         <i class="ri-edit-box-line"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
+                                                    <form class="form-eliminar" action="{{route('catalogs.tags.delete', $tag->id)}}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </button>
+                                                    </form>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
                                             </td>
                                         </tr>
-
+                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
 
@@ -176,6 +233,45 @@
     </div>
 
     @include('layouts.scripts')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        //delete
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                    
+                }
+                
+            })
+        });
+    </script>
+    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+    <script>
+
+    $(document).ready( function() {
+    $("#firstName").stringToSlug({
+        setEvents: 'keyup keydown blur',
+        getPut: '#slug',
+        space: '-'
+    });
+    });
+    </script>
         <!-- data table -->
         <script>
         $('#dataTables-example').DataTable({
