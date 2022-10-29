@@ -9,6 +9,26 @@ use Illuminate\Auth\RequestGuard;
 
 class TagsController extends Controller
 {
+    public function index(){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/tags', $headers);
+
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $tags = json_decode($response->getBody()->getContents());
+            $tags = $tags->data;
+
+            return view('users.tags',compact('tags'));
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
+    }
+
     public function getAllTags(){
         $client = new Client();
         $headers = [

@@ -13,7 +13,22 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        //
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/categories', $headers);
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $categories = json_decode($response->getBody()->getContents());
+            $categories = $categories->data;
+
+            return view('catalogs.categories',compact('categories'));
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
     }
 
     public function getAllCategories(){

@@ -9,6 +9,27 @@ use Illuminate\Auth\RequestGuard;
 
 class CouponsController extends Controller
 {
+
+    public function index(){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/coupons', $headers);
+
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $coupons = json_decode($response->getBody()->getContents());
+            $coupons = $coupons->data;
+
+            return view('coupons.index',compact('coupons'));
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
+    }
+
     public function getAllCoupons(){
         $client = new Client();
         $headers = [
@@ -169,8 +190,9 @@ class CouponsController extends Controller
         ];
         $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/coupons/'.$id, $headers);
         try {
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $user = json_decode($response->getBody()->getContents());
+
 
             return redirect()->back()->with('success', 'true');
 

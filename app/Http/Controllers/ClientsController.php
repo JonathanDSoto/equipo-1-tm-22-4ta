@@ -121,10 +121,10 @@ class ClientsController extends Controller
             'form_params' => [
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password,
+                //'password' => $request->password,
                 'phone_number' => $request->phone_number,
-                'is_suscribed' => $request->is_suscribed,
-                'level_id' => $request->level_id,
+                //'is_suscribed' => $request->is_suscribed,
+                //'level_id' => $request->level_id,
                 'id' => $id
             ]
         ];

@@ -141,7 +141,6 @@ class UserController extends Controller
                 'id' => $id
             ]
         ];
-
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/users', $headers);
 
         try {
