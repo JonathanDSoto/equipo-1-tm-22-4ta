@@ -38,6 +38,10 @@ Route::middleware(['logged'])->group(function () {
     Route::put('products/{id}', [ProductsController::class, 'update'])->name('products.update');
     Route::delete('products/{id}', [ProductsController::class, 'delete'])->name('products.delete');
 
+    Route::post('products/{id}/create-presentation', [PresentationsController::class, 'store'])->name('products.store.presentation');
+    Route::put('products/{id}/update-presentation', [PresentationsController::class, 'update'])->name('products.update.presentation');
+    Route::delete('products/{id}/destroy-presentation', [PresentationsController::class, 'delete'])->name('products.delete.presentation');
+
     Route::get('users/', [UserController::class, 'getAllUsers'])->name('users.index');
     Route::post('users/', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/{id}', [UserController::class, 'getSpecificUser'])->name('users.profile');
@@ -71,19 +75,19 @@ Route::middleware(['logged'])->group(function () {
     Route::put('/catalogs/tags/{id}', [TagsController::class, 'update'])->name('catalogs.tags.update');
     Route::delete('/catalogs/tags/{id}', [TagsController::class, 'delete'])->name('catalogs.tags.delete');
 
-    // Route::get('orders/', [ClientsController::class, 'getAll'])->name('orders.index');
-    // Route::post('orders/', [ClientsController::class, 'store'])->name('orders.store');
-    // Route::get('/orders/{$id}', [ClientsController::class, 'getSpecific'])->name('orders.detailOrder');
-    // Route::put('orders/{$id}', [ClientsController::class, 'update'])->name('orders.update');
-    // Route::delete('orders/{$id}', [ClientsController::class, 'delete'])->name('orders.delete');
+    Route::get('orders/', [ClientsController::class, 'getAll'])->name('orders.index');
+    Route::post('orders/', [ClientsController::class, 'store'])->name('orders.store');
+    Route::get('/orders/{$id}', [ClientsController::class, 'getSpecific'])->name('orders.detailOrder');
+    Route::put('orders/{$id}', [ClientsController::class, 'update'])->name('orders.update');
+    Route::delete('orders/{$id}', [ClientsController::class, 'delete'])->name('orders.delete');
 
-    Route::get('orders/', function () {
-        return view('orders.index');
-    })->name('orders.index');
+    // Route::get('orders/', function () {
+    //     return view('orders.index');
+    // })->name('orders.index');
 
-    Route::get('/orders/detail-order', function () {
-        return view('orders.detailOrder');
-    })->name('orders.detailOrder');
+    // Route::get('/orders/detail-order', function () {
+    //     return view('orders.detailOrder');
+    // })->name('orders.detailOrder');
 
     // ruta vista añadir una orden
     Route::get('orders/add-order', function () {
