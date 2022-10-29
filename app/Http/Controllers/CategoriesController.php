@@ -91,7 +91,7 @@ class CategoriesController extends Controller
             'name' => 'slug',
             'contents' => $request->slug
             //'contents' => 'dulces-y-caramelos'
-            ],
+            ]
             // [
             // 'name' => 'category_id',
             // 'contents' => '1'

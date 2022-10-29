@@ -493,7 +493,7 @@
                                                     
                                                 
                                                 <tr>
-                                                    <th scope="row">{{$order->id}}1</th>
+                                                    <th scope="row">{{$order->id}}</th>
                                                     <th>{{$order->folio}}</th>
                                                     <td>{{$client->name}} - {{$order->address->street_and_use_number}}</td>
                                                     <td>{{$order->order_status->name}}</td>
@@ -510,7 +510,7 @@
 
                                                     <td>
                                                         <div class="hstack gap-3 fs-15">
-                                                            <a href="" class="link-primary">
+                                                            <a href="{{route('orders.detailOrder', $order->id)}}" class="link-primary">
                                                                 <button type="button" class="btn btn-primary">
                                                                     <i class="ri-eye-line"></i>
                                                                 </button>

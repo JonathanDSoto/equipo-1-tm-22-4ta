@@ -77,7 +77,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Slug</label>
-                                                                            <input type="text" name="slug" class="form-control" placeholder="Slug" required>
+                                                                            <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug" required readonly>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -123,9 +123,56 @@
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#addCategory" class="btn btn-secondary">
+                                                    <div class="modal fade modal-lg" id="editCategory{{$category->id}}" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalgridClient">Categorías</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="{{route('catalogs.categories.update', $category->id)}}" method="POST">
+                                                                        @method('PUT')
+                                                                        @csrf
+                                                                        <div class="row g-3">
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label for="firstName" class="form-label">Nombre Categoría</label>
+                                                                                    <input type="text" name="name" class="form-control" id="nameEdit" placeholder="Ingrese el nombre de la categoría" value="{{$category->name}}" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label for="lastName" class="form-label">Descripción</label>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la descripción" value="{{$category->description}}" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Slug</label>
+                                                                                    <input type="text" name="slug" id="slugEdit" class="form-control" placeholder="Slug" value="{{$category->slug}}" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                            <div class="col-lg-12">
+                                                                                <div class="hstack gap-2 justify-content-end">
+                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#editCategory{{$category->id}}" class="btn btn-secondary">
                                                         <i class="ri-edit-box-line"></i>
                                                     </button>
+                                                    
                                                     <form class="form-eliminar" action="{{route('catalogs.categories.delete', $category->id)}}" method="post">
                                                         @method('delete')
                                                         @csrf
@@ -206,6 +253,18 @@
                 
             })
         });
+    </script>
+    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+    <script>
+
+    $(document).ready( function() {
+    $("#firstName").stringToSlug({
+        setEvents: 'keyup keydown blur',
+        getPut: '#slug',
+        space: '-'
+    });
+    });
+
     </script>
         <!-- data table -->
         <script>
