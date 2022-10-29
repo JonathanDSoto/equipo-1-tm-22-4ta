@@ -22,7 +22,7 @@ class BrandsController extends Controller
             $brands = json_decode($response->getBody()->getContents());
             $brands = $brands->data;
 
-            return view('catalogs.tags',compact('brands'));
+            return view('catalogs.brands',compact('brands'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
