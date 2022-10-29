@@ -60,36 +60,93 @@
                                                             <form action="javascript:void(0);">
                                                                 <div class="row g-3">
 
-                                                                    <div class="col-xxl-6">
+                                                                    <div class="col-xxl-3 col-md-6">
                                                                         <div>
-                                                                            <label for="firstName" class="form-label">Nombre del cliente</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta">
+                                                                            <label for="placeholderInput" class="form-label">Folio</label>
+                                                                            <input type="" class="form-control" id="placeholderInput" placeholder="Juan Perez">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
 
-
-                                                                    <div class="col-xxl-6">
-                                                                        <div>
-                                                                            <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese la decripción">
-                                                                        </div>
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <label for="exampleDataList" class="form-label">Cliente</label>
+                                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Busca el cliente...">
+                                                                        <datalist id="datalistOptions">
+                                                                            <option value="Switzerland">
+                                                                            <option value="New York">
+                                                                            <option value="France">
+                                                                            <option value="Spain">
+                                                                            <option value="Chicago">
+                                                                            <option value="Bulgaria">
+                                                                            <option value="Hong Kong">
+                                                                        </datalist>
                                                                     </div>
-                                                                    <div class="col-xxl-6">
-                                                                        <div>
-                                                                            <label class="form-label">Slug</label>
-                                                                            <input type="text" class="form-control" placeholder="Slug">
-                                                                        </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <label for="exampleDataList" class="form-label">Dirección</label>
+                                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Busca la dirección...">
+                                                                        <datalist id="datalistOptions">
+                                                                            <option value="Switzerland">
+                                                                            <option value="New York">
+                                                                            <option value="France">
+                                                                            <option value="Spain">
+                                                                            <option value="Chicago">
+                                                                            <option value="Bulgaria">
+                                                                            <option value="Hong Kong">
+                                                                        </datalist>
                                                                     </div>
                                                                     <!--end col-->
 
-                                                                    <div class="col-lg-12">
-                                                                        <div class="hstack gap-2 justify-content-end">
-                                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                            <button type="submit" class="btn btn-success">Guardar</button>
-                                                                        </div>
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <label for="exampleDataList" class="form-label">Producto</label>
+                                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Busca el producto...">
+                                                                        <datalist id="datalistOptions">
+                                                                            <option value="Switzerland">
+                                                                            <option value="New York">
+                                                                            <option value="France">
+                                                                            <option value="Spain">
+                                                                            <option value="Chicago">
+                                                                            <option value="Bulgaria">
+                                                                            <option value="Hong Kong">
+                                                                        </datalist>
                                                                     </div>
                                                                     <!--end col-->
+
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <label for="exampleDataList" class="form-label">Cupón</label>
+                                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Busca el cupón...">
+                                                                        <datalist id="datalistOptions">
+                                                                            <option value="Switzerland">
+                                                                            <option value="New York">
+                                                                            <option value="France">
+                                                                            <option value="Spain">
+                                                                            <option value="Chicago">
+                                                                            <option value="Bulgaria">
+                                                                            <option value="Hong Kong">
+                                                                        </datalist>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <!-- Base Example -->
+                                                                    <label for="formFile" class="form-label">Categorías</label>
+                                                                    <div class="list-checkbox">
+
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Hogar y Muebles
+                                                                            </label>
+                                                                        </div>
+
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
+                                                                            <label class="form-check-label" for="formCheck1">
+                                                                                Línea blanca
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
                                                                 <!--end row-->
                                                             </form>
@@ -105,7 +162,7 @@
                             <div class="card-body">
 
                                 <!-- Tables Without Borders -->
-                                <table  id="dataTables-example" name="dataTables-example"  class="display" style="width:100%">
+                                <table id="dataTables-example" name="dataTables-example" class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">Producto</th>
@@ -189,7 +246,7 @@
     </div>
 
     <!-- End Page-content -->
-    
+
 
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
@@ -207,8 +264,8 @@
     </div>
 
     @include('layouts.scripts')
-        <!-- data table -->
-        <script>
+    <!-- data table -->
+    <script>
         $('#dataTables-example').DataTable({
             pageLength: 10,
             responsive: true,
@@ -267,3 +324,11 @@
 </body>
 
 </html>
+
+<style>
+    .list-checkbox {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+    }
+</style>

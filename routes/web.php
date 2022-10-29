@@ -60,15 +60,21 @@ Route::middleware(['logged'])->group(function () {
     Route::put('/clients/{id}/update-address', [AddressController::class, 'update'])->name('clientes.update.address');
     Route::delete('/clients/{id}/delete-address', [AddressController::class, 'delete'])->name('clientes.delete.address');
 
+    Route::get('/catalogs/categories', [CategoriesController::class, 'index'])->name('catalogs.index');
+
     Route::get('/catalogs/categories', [CategoriesController::class, 'getAllCategories'])->name('catalogs.categories');
     Route::post('/catalogs/categories', [CategoriesController::class, 'store'])->name('catalogs.categories.store');
     Route::put('/catalogs/categories/{id}', [CategoriesController::class, 'update'])->name('catalogs.categories.update');
     Route::delete('/catalogs/categories/{id}', [CategoriesController::class, 'delete'])->name('catalogs.categories.delete');
 
+    Route::get('/catalogs/brands', [BrandsController::class, 'index'])->name('catalogs.inex');
+
     Route::get('/catalogs/brands', [BrandsController::class, 'getAllBrands'])->name('catalogs.brands');
     Route::post('/catalogs/brands', [BrandsController::class, 'store'])->name('catalogs.brands.store');
     Route::put('/catalogs/brands/{id}', [BrandsController::class, 'update'])->name('catalogs.brands.update');
     Route::delete('/catalogs/brands/{id}', [BrandsController::class, 'delete'])->name('catalogs.brands.delete');
+
+    Route::get('/catalogs/tags', [TagsController::class, 'index'])->name('catalogs.index');
 
     Route::get('/catalogs/tags', [TagsController::class, 'getAllTags'])->name('catalogs.tags');
     Route::post('/catalogs/tags', [TagsController::class, 'store'])->name('catalogs.tags.store');
@@ -89,13 +95,9 @@ Route::middleware(['logged'])->group(function () {
     //     return view('orders.detailOrder');
     // })->name('orders.detailOrder');
 
-    // ruta vista añadir una orden
-    Route::get('orders/add-order', function () {
-        return view('orders.add');
-    })->name('orders.add');
+    Route::get('coupons/', [CouponsController::class, 'index'])->name('coupons.index');
 
-
-    Route::get('coupons/', [CouponsController::class, 'getAllCoupons'])->name('coupons.index');
+    Route::get('coupons/', [CouponsController::class, 'getAllCoupons'])->name('coupons.getAll');
     Route::post('coupons/', [CouponsController::class, 'store'])->name('coupons.store');
     Route::get('/coupons/{id}', [CouponsController::class, 'getSpecificCoupon'])->name('coupons.detailCoupon');
     Route::put('coupons/{id}', [CouponsController::class, 'update'])->name('coupons.update');
