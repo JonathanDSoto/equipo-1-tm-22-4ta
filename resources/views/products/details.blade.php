@@ -641,6 +641,92 @@
                                         </div>
                                         <!-- product-content -->
                                     </div>
+                                    
+                                    <div class="card-body">
+
+                                        <!-- Tables Without Borders -->
+                                        <table id="dataTables-example" name="dataTables-example" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Folio</th>
+                                                    <th scope="col">Presentación</th>
+                                                    <th scope="col">Cantidad</th>
+                                                    <th scope="col">Total de la orden</th>
+                                                    <th scope="col">Cliente</th>
+                                                    <th scope="col">Estado de la oden</th>
+                                                    <th scope="col">Opciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>82713</td>
+                                                    <td data-column-id="product" class="">
+                                                        <span>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0 me-3">
+                                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                                    <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>$ 899.98 </td>
+                                                    <td>Cliente</td>
+                                                    <td>Estado de la orden</td>
+                                                    <td>
+                                                        <div class="hstack gap-3 fs-15">
+                                                            <a href="" class="link-primary">
+                                                                <button type="button" class="btn btn-primary">
+                                                                    <i class="ri-eye-line"></i>
+                                                                </button>
+                                                            </a>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>82713</td>
+                                                    <td data-column-id="product" class="">
+                                                        <span>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0 me-3">
+                                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                                    <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>$ 899.98 </td>
+                                                    <td>Cliente</td>
+                                                    <td>Estado de la orden</td>
+                                                    <td>
+                                                        <div class="hstack gap-3 fs-15">
+                                                            <a href="" class="link-primary">
+                                                                <button type="button" class="btn btn-primary">
+                                                                    <i class="ri-eye-line"></i>
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <!-- end card body -->
                                 </div>
                                 <!-- end col -->
                             </div>
@@ -685,6 +771,62 @@
 
 
     @include('layouts.scripts')
+    <!-- data table -->
+    <script>
+        $('#dataTables-example').DataTable({
+            pageLength: 10,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [{
+                    extend: 'copy'
+                },
+                {
+                    extend: 'csv'
+                },
+                {
+                    extend: 'excel',
+                    title: 'ExampleFile'
+                },
+                {
+                    extend: 'pdf',
+                    title: 'ExampleFile'
+                },
+
+                {
+                    extend: 'print',
+                    customize: function(win) {
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
+
+                        $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                    }
+                }
+            ],
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+
+        });
+    </script>
 
 
 

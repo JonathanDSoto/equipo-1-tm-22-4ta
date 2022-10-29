@@ -33,6 +33,14 @@ Route::get('log-out',[AuthController::class, 'logout'])->name('log-out');
 
 Route::middleware(['logged'])->group(function () {
 
+    // Route::get('products/', function () {
+    //     return view('products.index');
+    // })->name('products.index');
+
+    // Route::get('/products/detail-product', function () {
+    //     return view('products.details');
+    // })->name('products.details');
+
     Route::get('products/', [ProductsController::class, 'getAllProducts'])->name('products.index');
     Route::post('products/', [ProductsController::class, 'store'])->name('products.store');
     Route::get('/products/{id}', [ProductsController::class, 'getSpecificProduct'])->name('products.details');
