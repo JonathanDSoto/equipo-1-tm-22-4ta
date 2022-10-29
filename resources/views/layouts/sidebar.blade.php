@@ -58,17 +58,17 @@
                             <div class="collapse menu-dropdown" id="sidebarMaps">
                                 <ul>
                                     <li class="nav-item">
-                                        <a href="{{ route('catalogs.categories') }}" class="nav-link" data-key="t-leaflet">
+                                        <a href="{{ route('catalogs.categories.index') }}" class="nav-link" data-key="t-leaflet">
                                             <i class="bx bx-category"></i> Categorías
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('catalogs.brands') }}" class="nav-link" data-key="t-vector">
+                                        <a href="{{ route('catalogs.brands.index') }}" class="nav-link" data-key="t-vector">
                                         <i class="bx bxl-dribbble"></i> Marcas
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('catalogs.tags') }}" class="nav-link" data-key="t-leaflet">
+                                        <a href="{{ route('catalogs.tags.index') }}" class="nav-link" data-key="t-leaflet">
                                             <i class="ri-price-tag-3-line"></i> Etiquetas
                                         </a>
                                     </li>

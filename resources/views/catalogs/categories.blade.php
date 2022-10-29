@@ -31,18 +31,19 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
-                                        <!-- Boton con el alert por error al iniciar sesion -->
-                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                            - El registro no se pudo completar, la categoría no se pudo agregar
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                        <!-- Success Alert -->
-                                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Categoría agregada
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-
+                                        @if (session('success'))
+                                            <!-- Success Alert -->
+                                            <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                                <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @elseif (session('error'))
+                                            <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                                <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                                - El registro no se pudo completar, datos incorrectos
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @endif
                                         <div div class="d-flex justify-content-sm-end">
 
                                             <!-- Grids in modals -->
@@ -57,32 +58,29 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('catalogs.categories.store')}}" method="POST">
+                                                                @csrf
                                                                 <div class="row g-3">
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Categoría</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="Ingrese la decripción">
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Slug</label>
-                                                                            <input type="text" class="form-control" placeholder="Slug">
+                                                                            <input type="text" name="slug" class="form-control" placeholder="Slug" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
                                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -112,31 +110,34 @@
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Categoría</th>
                                             <th scope="col">Descripción</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($categories as $category)
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Dulces y caramelo</td>
-                                            <td>Dulces y caramelo</td>
-                                            <td>malisiosos viscos</td>
+                                            <th scope="row">{{$category->id}}</th>
+                                            <td>{{$category->name}}</td>
+                                            <td>{{$category->description}}</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
                                                     <button type="button" data-bs-toggle="modal" data-bs-target="#addCategory" class="btn btn-secondary">
                                                         <i class="ri-edit-box-line"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
+                                                    <form class="form-eliminar" action="{{route('catalogs.categories.delete', $category->id)}}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </button>
+                                                    </form>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -177,6 +178,35 @@
     </div>
 
     @include('layouts.scripts')
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        //delete
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                    
+                }
+                
+            })
+        });
+    </script>
         <!-- data table -->
         <script>
         $('#dataTables-example').DataTable({

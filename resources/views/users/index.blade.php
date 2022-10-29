@@ -156,10 +156,13 @@
                                                                 <i class="ri-eye-line"></i>
                                                             </button>
                                                         </a>
-                                                        
-                                                        <button type="button" class="btn btn-danger">
+                                                    <form class="form-eliminar" action="{{route('users.delete', $user->id)}}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">
                                                             <i class="ri-delete-bin-5-line"></i>
                                                         </button>
+                                                    </form>
                                                         <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                     </div>
                                                 </td>
@@ -208,6 +211,34 @@
 
 
     @include('layouts.scripts')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        //delete
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                    
+                }
+                
+            })
+        });
+    </script>
     <!-- data table -->
     <script>
 

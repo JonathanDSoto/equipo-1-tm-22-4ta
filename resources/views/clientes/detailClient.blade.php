@@ -28,16 +28,19 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <!-- Boton con el alert por error al iniciar sesion -->
-                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                            - Los datos no se pudieron actualizar, datos incorrectos
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <!-- Success Alert -->
-                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        @if (session('success'))
+                            <!-- Success Alert -->
+                            <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
+                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                         @elseif (session('error'))
+                             <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                - El registro no se pudo completar, datos incorrectos
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
 
                         <div>
                             <div class="container-fluid">
@@ -56,7 +59,7 @@
                                         <!--end col -->
                                         <div class="col">
                                             <div class="p-2">
-                                                <h3 class="text-white mb-1">Annette Adame González</h3>
+                                                <h3 class="text-white mb-1">{{$client->name}}</h3>
                                                 <!-- <p class="text-white-75">Founder</p> -->
                                             </div>
                                         </div>
@@ -77,19 +80,19 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <th class="ps-0" scope="row">Nombre: </th>
-                                                                            <td class="text-muted">Annette Adame González</td>
+                                                                            <td class="text-muted">{{$client->name}}</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th class="ps-0" scope="row">Nivel de suscripción: </th>
-                                                                            <td class="text-muted">1</td>
+                                                                            <td class="text-muted">{{$client->level->name}}</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th class="ps-0" scope="row">No. Celular:</th>
-                                                                            <td class="text-muted">6125085004</td>
+                                                                            <td class="text-muted">{{$client->phone_number}}</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th class="ps-0" scope="row">Correo Electrónico: </th>
-                                                                            <td class="text-muted">anttg@gmail.com</td>
+                                                                            <td class="text-muted">{{$client->email}}</td>
                                                                         </tr>
 
                                                                     </tbody>
@@ -104,16 +107,19 @@
                                                                         <div class="modal-dialog">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="profileClientModal">Editar usuario</h5>
+                                                                                    <h5 class="modal-title" id="profileClientModal">Editar cliente</h5>
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                 </div>
                                                                                 <div class="modal-body">
-                                                                                    <form action="javascript:void(0);">
+                                                                                    <form action="{{route('clientes.update',$client->id)}}" method="POST">
+                                                                                        @method('put')
+                                                                                        @csrf
+
                                                                                         <div class="row g-3">
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                                    <input type="text" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" value="{{$client->name}}">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -121,7 +127,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="emailInput" class="form-label">Correo</label>
-                                                                                                    <input type="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                                                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" value="{{$client->email}}">
                                                                                                 </div>
                                                                                             </div>
 
@@ -130,7 +136,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$client->phone_number}}">
                                                                                                 </div>
                                                                                             </div>
 
@@ -164,13 +170,14 @@
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                 </div>
                                                                                 <div class="modal-body">
-                                                                                    <form action="javascript:void(0);">
+                                                                                    <form action="{{route('clientes.store.address')}}" method="POST">
+                                                                                        @csrf
                                                                                         <div class="row g-3">
-
+                                                                                            <input type="hidden" name="client_id" value="{{$client->id}}">
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
-                                                                                                    <label for="lastName" class="form-label">Nombre(s)</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el nombre">
+                                                                                                    <label for="firstname" class="form-label">Nombre(s)</label>
+                                                                                                    <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -178,7 +185,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                                                    <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -186,7 +193,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Calle y No. #</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese la calle y su No.">
+                                                                                                    <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No.">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -194,7 +201,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Código postal</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el código postal">
+                                                                                                    <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -202,7 +209,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Ciudad</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese la ciudad">
+                                                                                                    <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -210,7 +217,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Estado</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el estado">
+                                                                                                    <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -218,9 +225,10 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
                                                                                                 </div>
                                                                                             </div>
+                                                                                            <input type="hidden" name="is_billing_address" value="1">
                                                                                             <!--end col-->
 
                                                                                             <div class="col-lg-12">
@@ -283,28 +291,116 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($client->addresses as $address)
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Annette González</td>
-                                                    <td>Calle articulo 743, 123</td>
-                                                    <td>23088</td>
-                                                    <td>La Paz</td>
-                                                    <td>Baja California Sur</td>
-                                                    <td>6121369008</td>
+                                                    <th scope="row">{{$address->id}}</th>
+                                                    <td>{{$address->first_name}} {{$address->last_name}}</td>
+                                                    <td>{{$address->street_and_use_number}}</td>
+                                                    <td>{{$address->postal_code}}</td>
+                                                    <td>{{$address->city}}</td>
+                                                    <td>{{$address->province}}</td>
+                                                    <td>{{$address->phone_number}}</td>
 
                                                     <td>
                                                         <div class="hstack gap-3 fs-15">
-                                                            <!-- <a href="javascript:void(0);" class="link-primary"></a> -->
-                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#addAddressModal" class="btn btn-secondary">
-                                                                <i class="ri-edit-box-line"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger">
-                                                                <i class="ri-delete-bin-5-line"></i>
-                                                            </button>
+                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAddress{{$address->id}}"><i class="ri-edit-box-line"></i></button>
+                                                            <div class="modal fade modal-lg" id="editAddress{{$address->id}}" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalgridLabel">Editar direccion</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="{{route('clientes.update.address', $address->id)}}" method="POST">
+                                                                                @method('PUT')
+                                                                                @csrf
+                                                                                <div class="row g-3">
+                                                                                    <input type="hidden" name="client_id" value="{{$client->id}}">
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="firstname" class="form-label">Nombre(s)</label>
+                                                                                            <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre" value="{{$address->first_name}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="lastName" class="form-label">Apellidos</label>
+                                                                                            <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos" value="{{$address->last_name}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="lastName" class="form-label">Calle y No. #</label>
+                                                                                            <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No." value="{{$address->street_and_use_number}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="lastName" class="form-label">Código postal</label>
+                                                                                            <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal" value="{{$address->postal_code}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="lastName" class="form-label">Ciudad</label>
+                                                                                            <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad" value="{{$address->city}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="lastName" class="form-label">Estado</label>
+                                                                                            <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado" value="{{$address->province}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-xxl-6">
+                                                                                        <div>
+                                                                                            <label for="lastName" class="form-label">Número celular</label>
+                                                                                            <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$address->phone_number}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <input type="hidden" name="is_billing_address" value="1">
+                                                                                    <!--end col-->
+
+                                                                                    <div class="col-lg-12">
+                                                                                        <div class="hstack gap-2 justify-content-end">
+                                                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <!--end col-->
+                                                                                </div>
+                                                                                <!--end row-->
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <form class="form-eliminar" action="{{route('clientes.delete.address', $address->id)}}" method="POST">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger">
+                                                                    <i class="ri-delete-bin-5-line"></i>
+                                                                </button>
+                                                            </form>
                                                             <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                @endforeach
 
                                             </tbody>
                                         </table>
@@ -393,15 +489,24 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($client->orders as $order)
+                                                    
+                                                
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <th>82712</th>
-                                                    <td>Annette González - CP 23088</td>
-                                                    <td>Entregado</td>
-                                                    <td>Comedor Miguel con 4 Sillas</td>
-                                                    <td>1</td>
-                                                    <td>$ 8999.98</td>
-                                                    <td>$ 8999.98</td>
+                                                    <th scope="row">{{$order->id}}1</th>
+                                                    <th>{{$order->folio}}</th>
+                                                    <td>{{$client->name}} - {{$order->address->street_and_use_number}}</td>
+                                                    <td>{{$order->order_status->name}}</td>
+                                                    <td>@foreach ($order->presentations as $presentation)
+                                                        {{$presentation->description}} <br>
+                                                    @endforeach</td>
+                                                    <td>@foreach ($order->presentations as $presentation)
+                                                        {{$presentation->pivot->quantity}} <br>
+                                                    @endforeach</td></td>
+                                                    <td>@foreach ($order->presentations as $presentation)
+                                                        {{$presentation->current_price->amount}} <br>
+                                                    @endforeach</td></td>
+                                                    <td>{{$order->total}}</td>
 
                                                     <td>
                                                         <div class="hstack gap-3 fs-15">
@@ -413,7 +518,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-
+                                                @endforeach
                                             </tbody>
                                         </table>
 
@@ -439,6 +544,35 @@
     </div><!-- End Page-content -->
 
     @include('layouts.scripts')
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        //delete
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                }
+                
+            })
+        });
+    </script>
+            
 
 </body>
 
