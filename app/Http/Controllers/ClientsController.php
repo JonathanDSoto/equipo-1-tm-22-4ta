@@ -92,7 +92,7 @@ class ClientsController extends Controller
             ],
             [
                 'name' => 'level_id',
-                'contents' => '1'
+                'contents' => $request->level_id
                 //'contents' => '1'
             ]
         ]];
@@ -149,8 +149,8 @@ class ClientsController extends Controller
         ];
         $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/clients/'.$id, $headers);
         try {
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $user = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
 

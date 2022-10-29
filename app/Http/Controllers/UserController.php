@@ -58,6 +58,15 @@ class UserController extends Controller
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
+
+        if(isset($request->avatar)){
+            $imageContent = Utils::tryFopen($request->avatar->getRealPath(), 'r');
+            $filename = $request->avatar->getRealPath();
+        }else{
+            $imageContent = "";
+            $filename = "";
+        }
+
         $options = [
             'multipart' => [
                 [
@@ -90,8 +99,8 @@ class UserController extends Controller
                 ],
                 [
                     'name' => 'profile_photo_file',
-                    'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
-                    'filename' => $request->avatar->getRealPath(),
+                    'contents' => $imageContent,
+                    'filename' => $filename,
                     'headers'  => [
                         'Content-Type' => '<Content-type header>'
                     ]
