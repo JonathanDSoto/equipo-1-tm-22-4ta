@@ -75,9 +75,9 @@ Route::middleware(['logged'])->group(function () {
     Route::put('/catalogs/tags/{id}', [TagsController::class, 'update'])->name('catalogs.tags.update');
     Route::delete('/catalogs/tags/{id}', [TagsController::class, 'delete'])->name('catalogs.tags.delete');
 
-    Route::get('orders/', [ClientsController::class, 'getAll'])->name('orders.index');
+    Route::get('orders/', [ClientsController::class, 'getAllorders'])->name('orders.index');
     Route::post('orders/', [ClientsController::class, 'store'])->name('orders.store');
-    Route::get('/orders/{$id}', [ClientsController::class, 'getSpecific'])->name('orders.detailOrder');
+    Route::get('/orders/{$id}', [ClientsController::class, 'getSpecificOrder'])->name('orders.detailOrder');
     Route::put('orders/{$id}', [ClientsController::class, 'update'])->name('orders.update');
     Route::delete('orders/{$id}', [ClientsController::class, 'delete'])->name('orders.delete');
 
