@@ -178,25 +178,33 @@ class UserController extends Controller
     }
 
     public function updateProfilePic(Request $request, $id){
+        if(isset($request->avatar)){
+            $imageContent = Utils::tryFopen($request->avatar->getRealPath(), 'r');
+            $filename = $request->avatar->getRealPath();
+        }else{
+            $imageContent = "";
+            $filename = "";
+        }
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
         $options = [
-        'multipart' => [
-            [
-                'name' => 'id',
-                'contents' => $id
-            ],
-            [
-                'name' => 'profile_photo_file',
-                'contents' => Utils::tryFopen($request->avatar->getRealPath(), 'r'),
-                'filename' => $request->avatar->getRealPath(),
-                'headers'  => [
-                    'Content-Type' => '<Content-type header>'
+            'multipart' => [
+                [
+                    'name' => 'id',
+                    'contents' => $id
+                ],
+                [
+                    'name' => 'profile_photo_file',
+                    'contents' => $imageContent,
+                    'filename' => $filename,
+                    'headers'  => [
+                        'Content-Type' => '<Content-type header>'
+                    ]
                 ]
             ]
-        ]];
+        ];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/users/avatar', $headers);
         try {
             $response = $client->send($request, $options);

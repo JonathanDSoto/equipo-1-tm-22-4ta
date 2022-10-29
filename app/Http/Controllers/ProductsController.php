@@ -17,10 +17,11 @@ class ProductsController extends Controller
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products', $headers);
 
         try {
-            $response = $client->send($request, $options);
-            $response = json_decode($response->getBody()->getContents());
+            $response = $client->sendAsync($request)->wait();
+            $products = json_decode($response->getBody()->getContents());
+            $products = $products->data;
 
-            return view('index',compact('response'));
+            return view('index',compact('products'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
