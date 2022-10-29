@@ -56,9 +56,9 @@ Route::middleware(['logged'])->group(function () {
     Route::put('clients/{id}', [ClientsController::class, 'update'])->name('clientes.update');
     Route::delete('clients/{id}', [ClientsController::class, 'delete'])->name('clientes.delete');
 
-    Route::post('/clients/{id}/create-address', [AddressController::class, 'store'])->name('clientes.store.address');
-    Route::put('/clients/{id}/update-address', [AddressController::class, 'update'])->name('clientes.update.address');
-    Route::delete('/clients/{id}/delete-address', [AddressController::class, 'delete'])->name('clientes.delete.address');
+    Route::post('/clients/create-address', [AddressController::class, 'store'])->name('clientes.store.address');
+    Route::put('/clients/update-address/{id}', [AddressController::class, 'update'])->name('clientes.update.address');
+    Route::delete('/clients/delete-address/{id}', [AddressController::class, 'delete'])->name('clientes.delete.address');
 
     Route::get('/catalogs/categories', [CategoriesController::class, 'index'])->name('catalogs.categories.index');
 
