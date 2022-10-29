@@ -97,7 +97,7 @@ Route::middleware(['logged'])->group(function () {
 
     Route::get('coupons/', [CouponsController::class, 'index'])->name('coupons.index');
 
-    Route::get('coupons//get', [CouponsController::class, 'getAllCoupons'])->name('coupons.getAll');
+    Route::get('coupons/get', [CouponsController::class, 'getAllCoupons'])->name('coupons.getAll');
     Route::post('coupons/', [CouponsController::class, 'store'])->name('coupons.store');
     Route::get('/coupons/{id}', [CouponsController::class, 'getSpecificCoupon'])->name('coupons.detailCoupon');
     Route::put('coupons/{id}', [CouponsController::class, 'update'])->name('coupons.update');
