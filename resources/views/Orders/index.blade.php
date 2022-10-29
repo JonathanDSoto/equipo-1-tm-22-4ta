@@ -39,7 +39,7 @@
                                         </div>
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - orden agregada
+                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Orden agregada
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
 
@@ -63,7 +63,7 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <div>
                                                                             <label for="placeholderInput" class="form-label">Folio</label>
-                                                                            <input type="" class="form-control" id="placeholderInput" placeholder="Juan Perez">
+                                                                            <input type="" class="form-control" id="placeholderInput" placeholder="A55023422">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -99,17 +99,34 @@
                                                                     <!--end col-->
 
                                                                     <div class="col-xxl-3 col-md-6">
-                                                                        <label for="exampleDataList" class="form-label">Producto</label>
-                                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Busca el producto...">
-                                                                        <datalist id="datalistOptions">
-                                                                            <option value="Switzerland">
-                                                                            <option value="New York">
-                                                                            <option value="France">
-                                                                            <option value="Spain">
-                                                                            <option value="Chicago">
-                                                                            <option value="Bulgaria">
-                                                                            <option value="Hong Kong">
-                                                                        </datalist>
+                                                                    <label for="exampleDataList" class="form-label">Producto</label>
+                                                                        <div class="input-group">
+                                                                            <select class="form-select" id="inputGroupSelect01">
+                                                                                <!-- <option selected>Nivel...</option> -->
+                                                                                <option value="1">Producto 1</option>
+                                                                                <option value="2">Producto 2</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                    <label for="exampleDataList" class="form-label">Presentación</label>
+                                                                        <div class="input-group">
+                                                                            <select class="form-select" id="inputGroupSelect01">
+                                                                                <!-- <option selected>Nivel...</option> -->
+                                                                                <option value="1">Producto 1</option>
+                                                                                <option value="2">Producto 2</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <div>
+                                                                            <label for="placeholderInput" class="form-label">Cantidad</label>
+                                                                            <input type="" class="form-control" id="placeholderInput" placeholder="3">
+                                                                        </div>
                                                                     </div>
                                                                     <!--end col-->
 
@@ -125,6 +142,18 @@
                                                                             <option value="Bulgaria">
                                                                             <option value="Hong Kong">
                                                                         </datalist>
+                                                                    </div>
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                    <label for="exampleDataList" class="form-label">Método de pago</label>
+                                                                        <div class="input-group">
+                                                                            <select class="form-select" id="inputGroupSelect01">
+                                                                                <!-- <option selected>Nivel...</option> -->
+                                                                                <option value="1">Producto 1</option>
+                                                                                <option value="2">Producto 2</option>
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
                                                                     <!--end col-->
 
@@ -144,6 +173,13 @@
                                                                             <label class="form-check-label" for="formCheck1">
                                                                                 Línea blanca
                                                                             </label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-12">
+                                                                        <div class="hstack gap-2 justify-content-end">
+                                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                                            <button type="submit" class="btn btn-success">Guardar</button>
                                                                         </div>
                                                                     </div>
 
