@@ -176,6 +176,14 @@
                                                                         </div>
                                                                     </div>
 
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <div>
+                                                                            <label for="placeholderInput" class="form-label">Total</label>
+                                                                            <label>$ 1500</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
+
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
                                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>

@@ -63,7 +63,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Nombre del producto</label>
-                                                                            <input type="email" class="form-control" placeholder="playera azul">
+                                                                            <input type="email" class="form-control" placeholder="Nombre del producto">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -71,7 +71,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Descripción</label>
-                                                                            <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
+                                                                            <input type="text" class="form-control" placeholder="Descripción">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -87,9 +87,21 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Características</label>
-                                                                            <input type="text" class="form-control" placeholder="La lavadora cuenta con capacidad de lavado de 18 kg...">
+                                                                            <input type="text" class="form-control" placeholder="Características">
                                                                         </div>
                                                                     </div>
+
+                                                                    <div class="col-xxl-6">
+                                                                    <label for="exampleDataList" class="form-label">Marca</label>
+                                                                        <div class="input-group">
+                                                                            <select class="form-select" id="inputGroupSelect01">
+                                                                                <!-- <option selected>Nivel...</option> -->
+                                                                                <option value="1">Marca 1</option>
+                                                                                <option value="2">Marca 2</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end col-->
 
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen del producto</label>
@@ -187,7 +199,7 @@
                                                         </div>
                                                         <div class="flex-grow-1">
                                                             <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
-                                                            <p class="text-muted mb-0">Categoria : <span class="fw-medium">Hogar y Muebles</span>
+                                                            <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -197,7 +209,7 @@
                                             <td>50</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('products.details') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -230,7 +242,7 @@
                                             <td>50</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('products.details') }}" class="link-primary">
+                                                    <a href="" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -242,7 +254,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
 

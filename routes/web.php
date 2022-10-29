@@ -10,6 +10,7 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\CouponsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,11 +82,11 @@ Route::middleware(['logged'])->group(function () {
     Route::put('/catalogs/tags/{id}', [TagsController::class, 'update'])->name('catalogs.tags.update');
     Route::delete('/catalogs/tags/{id}', [TagsController::class, 'delete'])->name('catalogs.tags.delete');
 
-    Route::get('orders/', [ClientsController::class, 'getAllorders'])->name('orders.index');
-    Route::post('orders/', [ClientsController::class, 'store'])->name('orders.store');
-    Route::get('/orders/{$id}', [ClientsController::class, 'getSpecificOrder'])->name('orders.detailOrder');
-    Route::put('orders/{$id}', [ClientsController::class, 'update'])->name('orders.update');
-    Route::delete('orders/{$id}', [ClientsController::class, 'delete'])->name('orders.delete');
+    Route::get('orders/', [OrderController::class, 'getAllOrders'])->name('orders.index');
+    Route::post('orders/', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/orders/{id}', [OrderController::class, 'getSpecificOrder'])->name('orders.detailOrder');
+    Route::put('orders/{id}', [OrderController::class, 'update'])->name('orders.update');
+    Route::delete('orders/{id}', [OrderController::class, 'delete'])->name('orders.delete');
 
     // Route::get('orders/', function () {
     //     return view('orders.index');

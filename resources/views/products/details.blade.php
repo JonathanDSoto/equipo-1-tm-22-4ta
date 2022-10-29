@@ -112,7 +112,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Nombre del producto</label>
-                                                                                    <input type="email" class="form-control" placeholder="playera azul">
+                                                                                    <input type="email" class="form-control" placeholder="Nombre del producto">
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -120,7 +120,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Descripción</label>
-                                                                                    <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
+                                                                                    <input type="text" class="form-control" placeholder="Descripción">
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -135,9 +135,22 @@
 
                                                                             <div class="col-xxl-6">
                                                                                 <div>
-                                                                                    <label class="form-label">Características</label>
-                                                                                    <input type="text" class="form-control" placeholder="La lavadora cuenta con capacidad de lavado de 18 kg...">
+                                                                                    <label class="form-label">Marca</label>
+                                                                                    <input type="text" class="form-control" placeholder="Marca">
                                                                                 </div>
+                                                                            </div>
+                                                                            <!--end col-->
+
+                                                                            <div class="col-xxl-6">
+                                                                                <div>
+                                                                                    <label class="form-label">Características</label>
+                                                                                    <input type="text" class="form-control" placeholder="Características">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-xxl-6">
+                                                                                <label for="formFile" class="form-label">Imagen del producto</label>
+                                                                                <input name="cover" type="file" class="form-control">
                                                                             </div>
 
                                                                             <!-- Base Example -->
@@ -386,10 +399,12 @@
                                             <nav>
                                                 <ul class="nav nav-tabs nav-tabs-custom nav-success" id="nav-tab" role="tablist">
                                                     <li class="nav-item">
-                                                        <a class="nav-link active" id="nav-speci-tab" data-bs-toggle="tab" href="#nav-speci" role="tab" aria-controls="nav-speci" aria-selected="true">Presentación 1</a>
+                                                        <a class="nav-link" id="nav-speci-tab" data-bs-toggle="tab" href="#nav-speci" role="tab" aria-controls="nav-speci" aria-selected="false">Presentación 1</a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link" id="nav-detail-tab" data-bs-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="false">Presentación 2</a>
+                                                    </li>
+
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -639,7 +654,7 @@
             </div>
             <!-- end row -->
 
-            
+
 
         </div>
         <!-- end main content-->
