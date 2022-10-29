@@ -21,7 +21,7 @@ class TagsController extends Controller
             $tags = json_decode($response->getBody()->getContents());
             $tags = $tags->data;
 
-            return view('users.tags',compact('tags'));
+            return view('catalogs.tags',compact('tags'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
