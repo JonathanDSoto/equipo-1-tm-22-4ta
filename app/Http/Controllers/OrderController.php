@@ -143,8 +143,17 @@ class OrderController extends Controller
             ]
         ];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/orders', $headers);
-        $res = $client->sendAsync($request, $options)->wait();
-        echo $res->getBody();
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
     }
 
     public function update(Request $request, $id){
@@ -179,7 +188,7 @@ class OrderController extends Controller
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/orders/1', $headers);
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/orders/'.$id, $headers);
         try {
             $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
