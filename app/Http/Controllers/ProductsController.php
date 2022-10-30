@@ -49,9 +49,9 @@ class ProductsController extends Controller
 
         try {
             $response = $client->sendAsync($request)->wait();
-            $response = json_decode($response->getBody()->getContents());
-
-            return view('products.details',compact('response'));
+            $product = json_decode($response->getBody()->getContents());
+            $product = $product->data;
+            return view('products.details',compact('product'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
@@ -218,6 +218,22 @@ class ProductsController extends Controller
     }
 
     public function delete($id){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/products/'.$id, $headers);
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $user = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
 
     }
 
