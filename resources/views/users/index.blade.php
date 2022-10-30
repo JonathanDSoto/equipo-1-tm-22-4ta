@@ -70,14 +70,14 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Apellidos</label>
-                                                                            <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                            <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Ingrese los apellidos" required>
                                                                         </div>
                                                                     </div>
 
@@ -85,14 +85,14 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************">
+                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" required>
                                                                         </div>
                                                                     </div>
 
