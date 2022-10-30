@@ -140,7 +140,7 @@ class BrandsController extends Controller
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new Request('DELETE', 'https://crud.jonathansoto.mx/api/brands/'.$id, $headers);
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/brands/'.$id, $headers);
 
         try {
             $response = $client->sendAsync($request)->wait();
