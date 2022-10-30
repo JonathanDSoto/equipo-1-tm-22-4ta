@@ -4,7 +4,7 @@ function soloLetras(e)
 {
         key = e.keyCode || e.which;
         tecla = String.fromCharCode(key).toLowerCase();
-        letras = "abcdefghijklmnñopqrstuvwxyz";
+        letras = " abcdefghijklmnñopqrstuvwxyz";
         especiales = ")(/&%$#°?¿áéíóú";
     
         tecla_especial = false
@@ -26,7 +26,7 @@ function solonumeros(e)
 {
         key = e.keyCode || e.which;
         tecla = String.fromCharCode(key).toLowerCase();
-        numeros = " 123456789";
+        numeros = " 1234567890";
         especiales = ")(/&%$#°?¿áéíóú";
         letras = "abcdefghijklmnñopqrstuvwxyz";
     
