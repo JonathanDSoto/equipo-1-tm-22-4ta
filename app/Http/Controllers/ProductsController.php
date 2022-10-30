@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request as RequestGuzzle;
+use GuzzleHttp\Psr7\Utils;
 use Illuminate\Auth\RequestGuard;
 
 class ProductsController extends Controller
