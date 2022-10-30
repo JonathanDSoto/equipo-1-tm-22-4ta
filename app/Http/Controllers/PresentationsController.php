@@ -174,7 +174,7 @@ class PresentationsController extends Controller
 
     }
 
-    public function updatePrice(Request $request, $id){
+    public function updatePrice(Request $request){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
@@ -187,17 +187,8 @@ class PresentationsController extends Controller
             ]
         ];
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/presentations/set_new_price', $headers);
-        try {
-            $response = $client->sendAsync($request, $options)->wait();
-            $user = json_decode($response->getBody()->getContents());
-
-            return redirect()->back()->with('success', 'true');
-        } catch (\GuzzleHttp\Exception\ClientException $e) {
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-
-            return redirect()->back()->with('error', 'true');
-        }
+        $res = $client->sendAsync($request, $options)->wait();
+        echo $res->getBody();
 
     }
 

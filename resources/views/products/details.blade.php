@@ -217,14 +217,13 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="{{route('products.store.presentation')}}" method="POST" enctype='multipart/form-data'>
-                                                                @csrf
+                                                            <form action="javascript:void(0);">
                                                                 <div class="row g-3">
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Código</label>
-                                                                            <input type="text" name="code" class="form-control" placeholder="comi01">
+                                                                            <input type="email" class="form-control" placeholder="comi01">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -232,7 +231,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
+                                                                            <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -240,44 +239,43 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Peso en gramos</label>
-                                                                            <input type="text" name="weight_in_grams" class="form-control" placeholder="5000">
+                                                                            <input type="text" class="form-control" placeholder="5000">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-                                                                    <input type="hidden" name="status" value="activo">
-                                                                    <input type="hidden" name="product_id" value="{{$product->id}}">
+
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen del producto</label>
-                                                                        <input accept=".jpeg,.bmp,.png,.jpg,.gif" name="avatar" type="file" class="form-control">
+                                                                        <input name="cover" type="file" class="form-control">
                                                                     </div>
+
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Stock</label>
-                                                                            <input type="text" name="stock" class="form-control" placeholder="10">
+                                                                            <input type="text" class="form-control" placeholder="10">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Stock mínimo</label>
-                                                                            <input type="text" name="stock_min" class="form-control" placeholder="1">
+                                                                            <input type="text" class="form-control" placeholder="1">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Stock máximo</label>
-                                                                            <input type="text" name="stock_max" class="form-control" placeholder="10">
+                                                                            <input type="text" class="form-control" placeholder="10">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Precio</label>
-                                                                            <input type="text" name="amount" class="form-control" placeholder="1000">
+                                                                            <input type="text" class="form-control" placeholder="1000">
                                                                         </div>
                                                                     </div>
-
 
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
@@ -293,100 +291,91 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <nav>
                                                 <ul class="nav nav-tabs nav-tabs-custom nav-success" id="nav-tab" role="tablist">
-                                                    @foreach ($product->presentations as $presentation)
                                                     <li class="nav-item">
-                                                        <a class="nav-link @if($loop->first) active @endif" @if ($loop->first)
-                                                            aria-selected="true"
-                                                        @else
-                                                            aria-selected="false"
-                                                        @endif id="nav-{{$presentation->id}}-tab" data-bs-toggle="tab" href="#nav-{{$presentation->id}}" role="tab" aria-controls="nav-{{$presentation->id}}" >{{$presentation->description}}</a>
+                                                        <a class="nav-link" id="nav-speci-tab" data-bs-toggle="tab" href="#nav-speci" role="tab" aria-controls="nav-speci" aria-selected="false">Presentación 1</a>
                                                     </li>
-                                                    @endforeach
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="nav-detail-tab" data-bs-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="false">Presentación 2</a>
+                                                    </li>
+
+                                                    </li>
                                                 </ul>
                                             </nav>
-
                                             <div class="tab-content border border-top-0 p-4" id="nav-tabContent">
-                                                @foreach ($product->presentations as $presentation)
-                                                <div class="tab-pane fade @if($loop->first) show active @endif" id="nav-{{$presentation->id}}" role="tabpanel" aria-labelledby="nav-{{$presentation->id}}-tab">
-
+                                                <div class="tab-pane fade show active" id="nav-speci" role="tabpanel" aria-labelledby="nav-speci-tab">
                                                     <div class="table-responsive">
                                                         <table class="table mb-0">
                                                             <tbody>
                                                                 <tr>
                                                                     <th scope="row" style="width: 200px;">Id</th>
-                                                                    <td>{{$presentation->id}}</td>
+                                                                    <td>1</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row" style="width: 200px;">Descripción</th>
-                                                                    <td>{{$presentation->description}}</td>
+                                                                    <td>Comedor Miguel con 4 Sillas</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Código</th>
-                                                                    <td>{{$presentation->code}}</td>
+                                                                    <td>comi01</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Peso en gramos</th>
-                                                                    <td>{{$presentation->weight_in_grams}}</td>
+                                                                    <td>5000</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Estado</th>
-                                                                    <td>{{$presentation->status}}</td>
+                                                                    <td>Activo</td>
                                                                 </tr>
-                                                                <tr>
+                                                                <!-- <tr>
                                                                     <th scope="row">Imagen del producto</th>
                                                                     <td>
                                                                         <div class="flex-shrink-0 me-3">
-                                                                            <div class="avatar-sm bg-light rounded p-1"><img src="https://crud.jonathansoto.mx/storage/products/{{$presentation->cover}}" alt="" class="img-fluid d-block"></div>
+                                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
                                                                         </div>
                                                                     </td>
-                                                                </tr> 
+                                                                </tr> -->
                                                                 <tr>
                                                                     <th scope="row">Stock</th>
-                                                                    <td>{{$presentation->stock}}</td>
+                                                                    <td>10</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Stock mínimo</th>
-                                                                    <td>{{$presentation->stock_min}}</td>
+                                                                    <td>1</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Stock máximo</th>
-                                                                    <td>{{$presentation->stock_max}}</td>
+                                                                    <td>10</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Precio</th>
-                                                                    <td>@foreach ($presentation->price as $price)
-                                                                        @if($price->is_current_price == 1)
-                                                                            {{$price->amount}}
-                                                                        @endif
-                                                                    @endforeach</td>
+                                                                    <td>5699.98</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>
                                                                         <!-- modal editar presentación -->
-                                                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPresentacionModal{{$presentation->id}}">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPresentacionModal">
                                                                             <i class="ri-edit-box-line"></i> Editar presentación
                                                                         </button>
 
 
-                                                                        <div class="modal fade modal-lg" id="editPresentacionModal{{$presentation->id}}" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                        <div class="modal fade modal-lg" id="editPresentacionModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="editPresentacionModal{{$presentation->id}}">Editar presentación</h5>
+                                                                                        <h5 class="modal-title" id="editPresentacionModal">Editar presentación</h5>
                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </div>
                                                                                     <div class="modal-body">
-                                                                                        <form action="{{route('products.update.presentation', $presentation->id)}}" method="POST">
-                                                                                            @method('put')
-                                                                                            @csrf
+                                                                                        <form action="javascript:void(0);">
                                                                                             <div class="row g-3">
 
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Código</label>
-                                                                                                        <input type="text" name="code" class="form-control" placeholder="comi01" value="{{$presentation->code}}">
+                                                                                                        <input type="email" class="form-control" placeholder="comi01">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
@@ -394,7 +383,7 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Descripción</label>
-                                                                                                        <input type="text" name="description" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever" value="{{$presentation->description}}">
+                                                                                                        <input type="text" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
@@ -402,32 +391,34 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Peso en gramos</label>
-                                                                                                        <input type="text" name="weight_in_grams" class="form-control" placeholder="5000" value="{{$presentation->weight_in_grams}}">
+                                                                                                        <input type="text" class="form-control" placeholder="5000">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
-                                                                                                
-                                                                                                <input type="hidden" name="status" value="activo">
-                                                                                                <input type="hidden" name="product_id" value="{{$product->id}}">
+
+                                                                                                <!-- <div class="col-xxl-6">
+                                                                                                    <label for="formFile" class="form-label">Imagen del producto</label>
+                                                                                                    <input name="cover" type="file" class="form-control">
+                                                                                                </div> -->
 
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Stock</label>
-                                                                                                        <input type="text" name="stock" class="form-control" placeholder="10" value="{{$presentation->stock}}">
+                                                                                                        <input type="text" class="form-control" placeholder="10">
                                                                                                     </div>
                                                                                                 </div>
 
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Stock mínimo</label>
-                                                                                                        <input type="text" name="stock_min" class="form-control" placeholder="1" value="{{$presentation->stock_min}}">
+                                                                                                        <input type="text" class="form-control" placeholder="1">
                                                                                                     </div>
                                                                                                 </div>
 
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Stock máximo</label>
-                                                                                                        <input type="text" name="stock_max" class="form-control" placeholder="10" value="{{$presentation->stock_max}}">
+                                                                                                        <input type="text" class="form-control" placeholder="10">
                                                                                                     </div>
                                                                                                 </div>
 
@@ -448,26 +439,24 @@
                                                                     </th>
                                                                     <td>
                                                                         <!-- modal editar precio presentación -->
-                                                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPrecioModal{{$presentation->id}}">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editPrecioModal">
                                                                             <i class="ri-edit-box-line"></i> Editar el precio de la presentación
                                                                         </button>
-                                                                        <div class="modal fade modal-lg" id="editPrecioModal{{$presentation->id}}" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+                                                                        <div class="modal fade modal-lg" id="editPrecioModal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="editPrecioModal{{$presentation->id}}">Editar precio presentación</h5>
+                                                                                        <h5 class="modal-title" id="editPrecioModal">Editar presentación</h5>
                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </div>
                                                                                     <div class="modal-body">
-                                                                                        <form action="{{route('products.update.presentation.price', $presentation->id)}}" method="POST">
-                                                                                            @method('put')
-                                                                                            @csrf
+                                                                                        <form action="javascript:void(0);">
                                                                                             <div class="row g-3">
-                                                                                                <input type="hidden" name="id" value="{{$presentation->id}}">
+
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Precio nuevo</label>
-                                                                                                        <input type="text" name="amount" class="form-control" placeholder="10000" value="@foreach($presentation->price as $price)@if($price->is_current_price==1){{$price->amount}}@endif @endforeach">
+                                                                                                        <input type="email" class="form-control" placeholder="10000">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
@@ -486,23 +475,64 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <br>
-                                                                    </td>
-                                                                    <td>
-                                                                        <form class="form-eliminar" action="{{route('products.delete.presentation', $presentation->id)}}" method="post">
-                                                                            @method('delete')
-                                                                            @csrf
-                                                                            <button type="submit" class="btn btn-danger float-left">
-                                                                                <i class="ri-delete-bin-5-line"></i>
-                                                                            </button>
-                                                                        </form>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
-                                                @endforeach
+                                                <div class="tab-pane fade" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
+                                                    <div class="table-responsive">
+                                                        <table class="table mb-0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row" style="width: 200px;">Id</th>
+                                                                    <td>1</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row" style="width: 200px;">Descripción</th>
+                                                                    <td>Comedor Miguel con 4 Sillas</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Código</th>
+                                                                    <td>comi01</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Peso en gramos</th>
+                                                                    <td>5000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Estado</th>
+                                                                    <td>Activo</td>
+                                                                </tr>
+                                                                <!-- <tr>
+                                                                    <th scope="row">Imagen del producto</th>
+                                                                    <td>
+                                                                        <div class="flex-shrink-0 me-3">
+                                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr> -->
+                                                                <tr>
+                                                                    <th scope="row">Stock</th>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock mínimo</th>
+                                                                    <td>1</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Stock máximo</th>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Precio</th>
+                                                                    <td>5699.98</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- product-content -->
@@ -520,54 +550,74 @@
                                                     <th scope="col">Cantidad</th>
                                                     <th scope="col">Total de la orden</th>
                                                     <th scope="col">Cliente</th>
+                                                    <th scope="col">Estado de la oden</th>
                                                     <th scope="col">Opciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($product->presentations as $presentation)
-                                                    @foreach ($presentation->orders as $order)
-                                                        
-                                                        <tr>
-                                                            <th scope="row">{{$order->id}}</th>
-                                                            <td>{{$order->folio}}</td>
-                                                            <td data-column-id="product" class="">
-                                                                <span>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="flex-shrink-0 me-3">
-                                                                            <div class="avatar-sm bg-light rounded p-1"><img src="https://crud.jonathansoto.mx/storage/products/{{$presentation->cover}}" alt="" class="img-fluid d-block"></div>
-                                                                        </div>
-                                                                        <div class="flex-grow-1">
-                                                                            <h5 class="fs-14 mb-1">{{$presentation->description}}</h5>
-                                                                            @foreach ($product->tags as $tag)
-                                                                                <span class="fw-medium badge text-bg-primary">{{$tag->name}}</span>
-                                                                            @endforeach
-                                                                            </p>
-                                                                            <p class="text-muted mb-0">categories: 
-                                                                            @foreach ($product->categories as $categories)
-                                                                                <span class="fw-medium badge text-bg-info">{{$categories->name}}</span>
-                                                                            @endforeach
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </span>
-                                                            </td>
-                                                            <td>{{$order->pivot->quantity}}</td>
-                                                            <td>{{$order->total}}</td>
-                                                            <td><a href="{{route('clientes.detailClient', $order->client_id)}}">Cliente {{$order->client_id}}</a></td>
-                                                            <td>
-                                                                <div class="hstack gap-3 fs-15">
-                                                                    <a href="{{route('orders.detailOrder', $order->id)}}" class="link-primary">
-                                                                        <button type="button" class="btn btn-primary">
-                                                                            <i class="ri-eye-line"></i>
-                                                                        </button>
-                                                                    </a>
-                                                                    
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>82713</td>
+                                                    <td data-column-id="product" class="">
+                                                        <span>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0 me-3">
+                                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                @endforeach
-                                            
+                                                                <div class="flex-grow-1">
+                                                                    <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                                    <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>$ 899.98 </td>
+                                                    <td>Cliente</td>
+                                                    <td>Estado de la orden</td>
+                                                    <td>
+                                                        <div class="hstack gap-3 fs-15">
+                                                            <a href="" class="link-primary">
+                                                                <button type="button" class="btn btn-primary">
+                                                                    <i class="ri-eye-line"></i>
+                                                                </button>
+                                                            </a>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>82713</td>
+                                                    <td data-column-id="product" class="">
+                                                        <span>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0 me-3">
+                                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                                    <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td>$ 899.98 </td>
+                                                    <td>Cliente</td>
+                                                    <td>Estado de la orden</td>
+                                                    <td>
+                                                        <div class="hstack gap-3 fs-15">
+                                                            <a href="" class="link-primary">
+                                                                <button type="button" class="btn btn-primary">
+                                                                    <i class="ri-eye-line"></i>
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -617,34 +667,6 @@
 
 
     @include('layouts.scripts')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-        <script type="text/javascript">
-            //delete
-            $('.form-eliminar').submit(function(e){
-                e.preventDefault();
-                Swal.fire({
-                    title: 'Estas seguro de eliminar?',
-                    text: "No podras revertir la accion!",
-                    icon: 'warning',
-                    showCancelButton: true, 
-                    confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                            'Eliminado!',
-                            'El registro ha sido eliminado.',
-                            'success'
-                            )
-                        this.submit();
-                        
-                    }
-                    
-                })
-            });
-        </script>
     <!-- data table -->
     <script>
         $('#dataTables-example').DataTable({
