@@ -186,7 +186,7 @@ class PresentationsController extends Controller
                 'amount' => $request->amount
             ]
         ];
-        $request = new Request('PUT', 'https://crud.jonathansoto.mx/api/presentations/set_new_price', $headers);
+        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/presentations/set_new_price', $headers);
         $res = $client->sendAsync($request, $options)->wait();
         echo $res->getBody();
 
@@ -194,6 +194,22 @@ class PresentationsController extends Controller
 
     public function delete($id)
     {
-        //
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('DELETE', 'https://crud.jonathansoto.mx/api/presentations/'.$id, $headers);
+
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $user = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
     }
 }
