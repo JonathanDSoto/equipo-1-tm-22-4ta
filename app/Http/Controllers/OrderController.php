@@ -59,13 +59,13 @@ class OrderController extends Controller
             //return view('index')->with("Error","Datos incorrectos");
         }
     }
-
-    public function getSpecificOrderBetweenDates($date1, $date2){
+Q
+    public function getSpecificOrderBetweenDates(Request $request){
         $client = new Client();
         $headers = [
-        'Authorization' => 'Bearer 665|cUviyAgM8QDBvMJVoLuv2zfXYWAUPuqb2qeKwXEk'
+            'Authorization' => 'Bearer '. session('token')
         ];
-        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/orders/'.$date1.'/'.$date2, $headers);
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/orders/'.$request->date1.'/'.$request->date2, $headers);
         try {
             $response = $client->sendAsync($request)->wait();
             $orders = json_decode($response->getBody()->getContents());

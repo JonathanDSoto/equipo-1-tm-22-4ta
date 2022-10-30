@@ -187,9 +187,17 @@ class PresentationsController extends Controller
             ]
         ];
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/presentations/set_new_price', $headers);
-        $res = $client->sendAsync($request, $options)->wait();
-        echo $res->getBody();
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
     }
 
     public function delete($id)
