@@ -90,6 +90,59 @@ class OrderController extends Controller
         $headers = [
             'Authorization' => 'Bearer '. session('token')
         ];
+        // $options = [
+        //     'multipart' => [
+        //         [
+        //             'name' => 'folio',
+        //             'contents' => $request->folio
+        //         ],
+        //         [
+        //             'name' => 'total',
+        //             'contents' => $request->total
+        //         ],
+        //         [
+        //             'name' => 'is_paid',
+        //             'contents' => $request->is_paid
+        //         ],
+        //         [
+        //             'name' => 'client_id',
+        //             'contents' =>$request->client_id
+        //         ],
+        //         [
+        //             'name' => 'address_id',
+        //             'contents' => $request->address_id
+        //         ],
+        //         [
+        //             'name' => 'order_status_id',
+        //             'contents' => $request->order_status_id
+        //         ],
+        //         [
+        //             'name' => 'payment_type_id',
+        //             'contents' => $request->payment_type_id
+        //         ],
+        //         [
+        //             'name' => 'coupon_id',
+        //             'contents' => $request->coupon_id
+        //         ],
+        //         [
+        //             'name' => 'presentations[0][id]',
+        //             'contents' => '1'
+        //         ],
+        //         [
+        //             'name' => 'presentations[0][quantity]',
+        //             'contents' => '2'
+        //         ],
+        //         [
+        //             'name' => 'presentations[1][id]',
+        //             'contents' => '2'
+        //         ],
+        //         [
+        //             'name' => 'presentations[1][quantity]',
+        //             'contents' => '2'
+        //         ]
+        //     ]
+        // ];
+
         $options = [
             'multipart' => [
                 [
@@ -124,24 +177,10 @@ class OrderController extends Controller
                     'name' => 'coupon_id',
                     'contents' => $request->coupon_id
                 ],
-                [
-                    'name' => 'presentations[0][id]',
-                    'contents' => '1'
-                ],
-                [
-                    'name' => 'presentations[0][quantity]',
-                    'contents' => '2'
-                ],
-                [
-                    'name' => 'presentations[1][id]',
-                    'contents' => '2'
-                ],
-                [
-                    'name' => 'presentations[1][quantity]',
-                    'contents' => '2'
-                ]
             ]
         ];
+
+    
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/orders', $headers);
         try {
             $response = $client->send($request, $options);

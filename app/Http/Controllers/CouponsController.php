@@ -113,13 +113,12 @@ class CouponsController extends Controller
                 ],
                 [
                     'name' => 'max_uses',
-                    'contents' => $request->max_users
+                    'contents' => $request->max_uses
                     //'contents' => '100'
                 ],
                 [
                     'name' => 'count_uses',
-                    'contents' => $request->count_uses
-                    //'contents' => '0'
+                    'contents' => '0'
                 ],
                 [
                     'name' => 'valid_only_first_purchase',
@@ -128,8 +127,7 @@ class CouponsController extends Controller
                 ],
                 [
                     'name' => 'status',
-                    'contents' => $request->status
-                    //'contents' => '1'
+                    'contents' => '1'
                 ]
             ]
         ];
