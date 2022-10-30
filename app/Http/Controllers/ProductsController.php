@@ -21,8 +21,16 @@ class ProductsController extends Controller
             $products = json_decode($response->getBody()->getContents());
             $products = $products->data;
 
-            return view('products.index',compact('products'));
+            $brand_controller = new BrandsController;
+            $brands = $brand_controller->getAllBrands();
 
+            $tag_controller = new TagsController;
+            $tags = $tag_controller->getAllTags();
+
+            $category_controller = new CategoriesController;
+            $categories = $category_controller->getAllCategories();
+
+            return view('products.index', compact('products', 'tags', 'categories', 'brands'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -90,62 +98,88 @@ class ProductsController extends Controller
         }
     }
 
-    // public function createProduct (){
-    //     $client = new Client();
-    //     $headers = [
-    //     'Authorization' => 'Bearer 3|JSvLL27EhMfH70onI5sSZP6ROwcdSsHQU8cm7k9X'
-    //     ];
-    //     $options = [
-    //     'multipart' => [
-    //         [
-    //         'name' => 'name',
-    //         'contents' => 'playear azul'
-    //         ],
-    //         [
-    //         'name' => 'slug',
-    //         'contents' => 'playera-azul-21-forever-312'
-    //         ],
-    //         [
-    //         'name' => 'description',
-    //         'contents' => 'hermosa playera de color azul de la marca 21 forever'
-    //         ],
-    //         [
-    //         'name' => 'features',
-    //         'contents' => 'La lavadora cuenta con capacidad de lavado de 18 kg, diseño exterior de color gris, su funcionamiento integra tecnología air bubble 4d, sistema de lavado por pulsador, 5 ciclos de lavado mas ciclo ariel , tina de acero inoxidable, 9 niveles de agua y 3 niveles de temperatura. Ofrece llenado con cascada de agua waterrfall, timer para inicio retardado y manija de apertura ez soft'
-    //         ],
-    //         [
-    //         'name' => 'brand_id',
-    //         'contents' => '1'
-    //         ],
-    //         [
-    //         'name' => 'cover',
-    //         'contents' => Utils::tryFopen('/C:/Users/jsoto/Downloads/00750101111561L.webp', 'r'),
-    //         'filename' => '/C:/Users/jsoto/Downloads/00750101111561L.webp',
-    //         'headers'  => [
-    //             'Content-Type' => '<Content-type header>'
-    //         ]
-    //         ],
-    //         [
-    //         'name' => 'categories[0]',
-    //         'contents' => '1'
-    //         ],
-    //         [
-    //         'name' => 'categories[1]',
-    //         'contents' => '2'
-    //         ],
-    //         [
-    //         'name' => 'tags[0]',
-    //         'contents' => '1'
-    //         ],
-    //         [
-    //         'name' => 'tags[1]',
-    //         'contents' => '2'
-    //         ]
-    //     ]];
-    //     $request = new RequestGuzzle('POST', 'http://127.0.0.1:8000/api/products', $headers);
-    //     $response = $client->sendAsync($request, $options)->wait();
-    //     echo $response->getBody();
-    // }
+    public function store(Request $request)
+    {
+        //return json_encode( $request->tags);
+        if (isset($request->avatar)) {
+            $imageContent = Utils::tryFopen($request->avatar->getRealPath(), 'r');
+            $filename = $request->avatar->getRealPath();
+        } else {
+            $imageContent = "";
+            $filename = "";
+        }
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer ' . session('token')
+        ];
+        $options = [
+            'multipart' => [
+                [
+                    'name' => 'name',
+                    'contents' => $request->name
+                ],
+                [
+                    'name' => 'slug',
+                    'contents' => $request->slug
+                ],
+                [
+                    'name' => 'description',
+                    'contents' => $request->description
+                ],
+                [
+                    'name' => 'features',
+                    'contents' => $request->features
+                ],
+                [
+                    'name' => 'brand_id',
+                    'contents' => $request->brand_id
+                ],
+                [
+                    'name' => 'cover',
+                    'contents' => $imageContent,
+                    'filename' => $filename,
+                    'headers'  => [
+                        'Content-Type' => '<Content-type header>'
+                    ]
+                ],
+            ]
+        ];
+        $tata = ($options['multipart']);
+        //tags
+        if (isset($request->tags)) {
+            $coot = 0;
+            foreach ($request->tags as $key) {
+                $test = [['name' => 'tags[' . $coot . ']', 'contents' => $key]];
+                $coot++;
+                $tata = array_merge(($tata), ($test));
+            }
+        }
+        //categories
+        if (isset($request->categories)) {
+
+            $coot = 0;
+            foreach ($request->categories as $key) {
+                $test = [['name' => 'categories[' . $coot . ']', 'contents' => $key]];
+                $coot++;
+                $tata = array_merge(($tata), ($test));
+            }
+        }
+
+        $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/products', $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
+
+    }
+
 
 }
 
