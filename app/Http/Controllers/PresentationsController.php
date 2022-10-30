@@ -77,7 +77,7 @@ class PresentationsController extends Controller
             'multipart' => [
                 [
                     'name' => 'description',
-                    'contents' => $request->name
+                    'contents' => $request->description
                 ],
                 [
                     'name' => 'code',
