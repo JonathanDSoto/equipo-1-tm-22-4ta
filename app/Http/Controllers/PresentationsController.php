@@ -59,7 +59,45 @@ class PresentationsController extends Controller
         }
     }
 
-    public function store(Request $request,$id){
+    public function store(Request $request){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+        $options = [
+            'form_params' => [
+                'description' => $request->description,
+                'code' => $request->code,
+                'weight_in_grams' => $request->weight_in_grams,
+                'status' => $request->status,
+                'stock' => $request->stock,
+                'stock_min' => $request->stock_min,
+                'stock_max' => $request->stock_max,
+                'product_id' => $request->product_id,
+                'id' => $request->id,
+                'amount' => $request->amount
+            ]
+        ];
+        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/presentations', $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
+
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
+
+
+    }
+
+
+    public function update(Request $request, $id)
+    {
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
@@ -92,50 +130,14 @@ class PresentationsController extends Controller
             return redirect()->back()->with('error', 'true');
         }
 
-
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function updatePrice(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete($id)
     {
         //
     }
