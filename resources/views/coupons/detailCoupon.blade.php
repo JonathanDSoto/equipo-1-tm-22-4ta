@@ -33,18 +33,19 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
-                                        <!-- Boton con el alert por error al iniciar sesion -->
-                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                            - El registro no se pudo completar, el cupón no se pudo actualizar
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
+                                        @if (session('success'))
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Cupón actualizado
+                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Registro completado
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
-
+                                        @elseif (session('error'))
+                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                            - El registro no se pudo completar, datos incorrectos
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
                                         <div div class="d-flex justify-content-sm-end">
 
                                             <!-- Grids in modals -->
@@ -65,7 +66,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Cupón</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="10% off">
+                                                                            <input type="text" class="form-control" id="firstName" placeholder="10% off" value="{{$coupon->name}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -165,52 +166,56 @@
                                         </tr>
                                         <tr class="border-top">
                                             <th scope="row">Id</th>
-                                            <td>12345</td>
+                                            <td>{{$coupon->id}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Nombre</th>
-                                            <td>10% off</td>
+                                            <td>{{$coupon->name}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Código</th>
-                                            <td>10off</td>
+                                            <td>{{$coupon->code}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Porcentaje descontado</th>
-                                            <td>10</td>
+                                            <td>{{$coupon->percentage_discount}}%</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Monto mínimo</th>
-                                            <td>$ 5000</td>
+                                            <td>${{$coupon->min_amount_required}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Cantidad mínima de productos</th>
-                                            <td>5</td>
+                                            <td>{{$coupon->min_product_required}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Válido desde el</th>
-                                            <td>2022-09-01</td>
+                                            <td>{{$coupon->start_date}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Válido hasta el</th>
-                                            <td>2022-12-01</td>
+                                            <td>{{$coupon->end_date}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Usos máximos</th>
-                                            <td>5000</td>
+                                            <td>{{$coupon->max_uses}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Número de veces usado</th>
-                                            <td>50
+                                            <td>{{$coupon->count_uses}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Válido solo en la primer compra</th>
-                                            <td>Si</td>
+                                            <td>@if ($coupon->valid_only_first_purchase == 1)
+                                                Si
+                                            @else
+                                                No
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tipo de cupón</th>
-                                            <td>Cupón de descuento</td>
+                                            <td>{{$coupon->couponable_type}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -235,28 +240,25 @@
                                 <table class="table nowrap dt-responsive align-middle table-hover table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Producto</th>
-                                            <th scope="col">Imagen</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Presentación</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">id</th>
+                                            <th scope="col">Folio</th>
+                                            <th scope="col">Descuento aplicado</th>
+                                            <th scope="col">Total sin descuento</th>
+                                            <th scope="col">Total con descuento</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($coupon->orders as $order)
+
                                         <tr>
-                                            <td>Producto 1</td>
-                                            <td>
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                </div>
-                                            </td>
-                                            <td>$ 5000</td>
-                                            <td>5</td>
-                                            <td>Presentación 1</td>
+                                            <td>{{$order->id}}</td>
+                                            <td>{{$order->folio}}</td>
+                                            <td>{{ ($order->total/ ((100-$coupon->percentage_discount)/100)) - $order->total}}</td>
+                                            <td>{{ $order->total/ ((100-$coupon->percentage_discount)/100) }}</td>
+                                            <td>${{$order->total}}</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('orders.detailOrder') }}" class="link-primary">
+                                                    <a href="{{route('orders.detailOrder', $order->id)}}" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
@@ -264,29 +266,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <td>Producto 2</td>
-                                            <td>
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                </div>
-                                            </td>
-                                            <td>$ 5000</td>
-                                            <td>5</td>
-                                            <td>Presentación 2</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('orders.detailOrder') }}" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -314,7 +294,7 @@
                                         </div>
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="10">0</span></h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="{{$coupon->count_uses}}">0</span></h4>
 
                                             </div>
 
@@ -360,7 +340,7 @@
                                         </div>
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="15">0</span></h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="{{$coupon->max_uses - $coupon->count_uses}}">0</span></h4>
                                             </div>
                                         </div>
                                     </div><!-- end card body -->
@@ -402,6 +382,34 @@
     </div>
 
     @include('layouts.scripts')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        //delete
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                    
+                }
+                
+            })
+        });
+    </script>
 
 </body>
 

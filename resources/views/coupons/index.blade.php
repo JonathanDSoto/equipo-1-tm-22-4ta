@@ -31,17 +31,19 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
-                                        <!-- Boton con el alert por error al iniciar sesion -->
-                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                            - El registro no se pudo completar, el cupón no se pudo agregar
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
+                                        @if (session('success'))
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Cupón agregado
+                                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada 
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
+                                    @elseif (session('error'))
+                                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                            - Los datos no se pudieron actualizar, datos incorrectos
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    @endif
 
                                         <div div class="d-flex justify-content-sm-end">
 
@@ -57,13 +59,14 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('coupons.store')}}" method="POST">
+                                                                @csrf
                                                                 <div class="row g-3">
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Cupón</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="10% off">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="10% off">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -72,34 +75,34 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Código del cupón</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="10off">
+                                                                            <input type="text" name="code" class="form-control" id="lastName" placeholder="10off">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Porcentaje a descontar</label>
-                                                                            <input type="text" class="form-control" placeholder="10">
+                                                                            <input type="text" name="porcentage_discount" class="form-control" placeholder="10">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Monto minimo requerido</label>
-                                                                            <input type="text" class="form-control" placeholder="200">
+                                                                            <input type="text" name="min_amount_required" class="form-control" placeholder="200">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Productos minimos requeridos</label>
-                                                                            <input type="text" class="form-control" placeholder="1">
+                                                                            <input type="text" name="min_product_required" class="form-control" placeholder="1">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Usos máximos</label>
-                                                                            <input type="text" class="form-control" placeholder="30">
+                                                                            <input type="text" name="max_uses" class="form-control" placeholder="30">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -107,7 +110,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Válido desde el</label>
-                                                                            <input type="date" class="form-control">
+                                                                            <input type="date" name="start_date" class="form-control">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -115,32 +118,21 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Válido hasta el</label>
-                                                                            <input type="date" class="form-control">
+                                                                            <input type="date" name="end_date" class="form-control">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
 
-                                                                    <div class="col-xxl-6">
-                                                                        <div class="input-group">
-                                                                            <label class="input-group-text" for="inputGroupSelect01">Tipo de cupón</label>
-                                                                            <select class="form-select" id="inputGroupSelect01">
-                                                                                <!-- <option selected>Nivel...</option> -->
-                                                                                <option value="1">Cupon de descuento</option>
-                                                                                <option value="2">Cupon de descuento fijo</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--end col-->
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Válido sólo en la primer compra</label>
                                                                             <div>
-                                                                                <input type="radio" id="si" name="primerCompra" value="si">
+                                                                                <input type="radio" id="si" name="valid_only_first_purchase" value="1">
                                                                                 <label for="si">Sí</label>
                                                                             </div>
                                                                             <div>
-                                                                                <input type="radio" id="no" name="primerCompra" value="no">
+                                                                                <input type="radio" id="no" name="valid_only_first_purchase" value="0">
                                                                                 <label for="no">No</label>
                                                                             </div>
                                                                         </div>
@@ -179,25 +171,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>10% off</td>
-                                            <td>10%off</td>
-                                            <td>2023-09-01</td>
+                                        @foreach ($coupons as $coupon)
+                                        <tr>        
+                                            <th scope="row">{{$coupon->id}}</th>
+                                            <td>{{$coupon->name}}</td>
+                                            <td>{{$coupon->code}}</td>
+                                            <td>{{$coupon->end_date}}</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="{{ route('coupons.detailCoupon') }}" class="link-primary">
+                                                    <a href="{{route('coupons.detailCoupon', $coupon->id)}}" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
                                                     </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
+                                                    <form class="form-eliminar" action="{{route('coupons.delete', $coupon->id)}}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </button>
+                                                    </form>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
                                             </td>
                                         </tr>
+                                        @endforeach
 
                                     </tbody>
                                 </table>
@@ -240,6 +238,34 @@
 
     @include('layouts.scripts')
         <!-- data table -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script type="text/javascript">
+            //delete
+            $('.form-eliminar').submit(function(e){
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Estas seguro de eliminar?',
+                    text: "No podras revertir la accion!",
+                    icon: 'warning',
+                    showCancelButton: true, 
+                    confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Eliminado!',
+                            'El registro ha sido eliminado.',
+                            'success'
+                            )
+                        this.submit();
+                        
+                    }
+                    
+                })
+            });
+        </script>
         <script>
         $('#dataTables-example').DataTable({
             pageLength: 10,

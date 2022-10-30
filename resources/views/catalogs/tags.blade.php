@@ -144,7 +144,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre Etiqueta</label>
-                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" value="{{$tag->name}}">
+                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" value="{{$tag->name}}" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -153,13 +153,13 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$tag->description}}">
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$tag->description}}" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Slug</label>
-                                                                                    <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" value="{{$tag->slug}}">
+                                                                                    <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" value="{{$tag->slug}}" required readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
