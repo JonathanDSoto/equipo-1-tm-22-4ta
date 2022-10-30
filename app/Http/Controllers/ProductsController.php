@@ -166,11 +166,11 @@ class ProductsController extends Controller
             }
         }
         $tat["multipart"] = array_merge($tata);
-
+        $a = $tat;
 
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/products', $headers);
         try {
-            $response = $client->send($request, $tat);
+            $response = $client->send($request, $a);
             $response = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
@@ -183,8 +183,38 @@ class ProductsController extends Controller
 
     }
 
-    public function update(Request $request){
+    public function update(Request $request,$id){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+        $options = [
+            'form_params' => [
+                'name' => $request->name,
+                'slug' => $request->slug,
+                'description' => $request->description,
+                'features' => $request->features,
+                'brand_id' => $request->brand_id,
+                'id' => $id,
+                'categories[0]' => '3',
+                'categories[1]' => '4',
+                'tags[0]' => '3',
+                'tags[1]' => '4'
+            ]
+        ];
+        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/products', $headers);
+        try {
+            $response = $client->send($request, $options);
+            $response = json_decode($response->getBody()->getContents());
 
+            return redirect()->back()->with('success', 'true');
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+
+            return redirect()->back()->with('error', 'true');
+        }
     }
 
     public function delete($id){
