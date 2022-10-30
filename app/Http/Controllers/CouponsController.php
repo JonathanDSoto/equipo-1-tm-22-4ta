@@ -61,7 +61,7 @@ class CouponsController extends Controller
             $coupon = json_decode($response->getBody()->getContents());
             $coupon = $coupon->data;
 
-            return $coupon;
+            return view('coupons.detailCoupon',compact('coupon'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
