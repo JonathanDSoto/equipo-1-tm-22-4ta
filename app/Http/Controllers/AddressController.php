@@ -51,49 +51,49 @@ class AddressController extends Controller
         $options = [
         'multipart' => [
             [
-            'name' => 'first_name',
-            'contents' => $request->first_name
-            //'contents' => 'juanito'
+                'name' => 'first_name',
+                'contents' => $request->first_name
+                //'contents' => 'juanito'
             ],
             [
-            'name' => 'last_name',
-            'contents' => $request->last_name
-            //'contents' => 'leon'
+                'name' => 'last_name',
+                'contents' => $request->last_name
+                //'contents' => 'leon'
             ],
             [
-            'name' => 'street_and_use_number',
-            'contents' => $request->street_and_use_number
-            //'contents' => '16 de septiembre #123'
+                'name' => 'street_and_use_number',
+                'contents' => $request->street_and_use_number
+                //'contents' => '16 de septiembre #123'
             ],
             [
-            'name' => 'postal_code',
-            'contents' => $request->postal_code
-            //'contents' => '23000'
+                'name' => 'postal_code',
+                'contents' => $request->postal_code
+                //'contents' => '23000'
             ],
             [
-            'name' => 'city',
-            'contents' => $request->city
-            //'contents' => 'La Paz'
+                'name' => 'city',
+                'contents' => $request->city
+                //'contents' => 'La Paz'
             ],
             [
-            'name' => 'province',
-            'contents' => $request->province
-            //'contents' => 'Baja California Sur'
+                'name' => 'province',
+                'contents' => $request->province
+                //'contents' => 'Baja California Sur'
             ],
             [
-            'name' => 'phone_number',
-            'contents' => $request->phone_number
-            //'contents' => '6120000000'
+                'name' => 'phone_number',
+                'contents' => $request->phone_number
+                //'contents' => '6120000000'
             ],
             [
-            'name' => 'is_billing_address',
-            'contents' => $request->is_billing_address
-            //'contents' => '1'
+                'name' => 'is_billing_address',
+                'contents' => $request->is_billing_address
+                //'contents' => '1'
             ],
             [
-            'name' => 'client_id',
-            'contents' => $request->client_id
-            //'contents' => '1'
+                'name' => 'client_id',
+                'contents' => $request->client_id
+                //'contents' => '1'
             ]
         ]];
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/addresses', $headers);
@@ -121,18 +121,19 @@ class AddressController extends Controller
             'Content-Type' => 'application/x-www-form-urlencoded'
         ];
         $options = [
-        'form_params' => [
-        'first_name' => $request->name,
-        'last_name' => $request->last_name,
-        'street_and_use_number' => $request->street_and_use_number,
-        'postal_code' => $request->postal_code,
-        'city' => $request->city,
-        'province' => $request->province,
-        'phone_number' => $request->phone_number,
-        'is_billing_address' => $request->is_billing_address,
-        'client_id' => $request->client_id,
-        'id' => $id
-        ]];
+            'form_params' => [
+                'first_name' => $request->name,
+                'last_name' => $request->last_name,
+                'street_and_use_number' => $request->street_and_use_number,
+                'postal_code' => $request->postal_code,
+                'city' => $request->city,
+                'province' => $request->province,
+                'phone_number' => $request->phone_number,
+                'is_billing_address' => $request->is_billing_address,
+                'client_id' => $request->client_id,
+                'id' => $id
+            ]
+        ];
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/addresses', $headers);
         try {
             $response = $client->send($request, $options);

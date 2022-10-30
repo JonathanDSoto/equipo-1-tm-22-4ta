@@ -77,13 +77,13 @@ class ProductsController extends Controller
         ];
         $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products/slug/'.$request->slug, $headers);
 
-        try {
+        try{
             $response = $client->sendAsync($request)->wait();
             $response = json_decode($response->getBody()->getContents());
 
             return view('details',compact('response'));
 
-        } catch (\GuzzleHttp\Exception\ClientException $e) {
+        }catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
             return view('details')->with("Error","Datos incorrectos");
@@ -124,7 +124,7 @@ class ProductsController extends Controller
             $imageContent = "";
             $filename = "";
         }
-        
+
         $options = [
             'multipart' => [
                 [
@@ -228,7 +228,6 @@ class ProductsController extends Controller
         }
         //categories
         if (isset($request->categories)) {
-
             $coot = 0;
             foreach ($request->categories as $key) {
                 $test = ['categories[' . $coot . ']' => $key];
@@ -274,4 +273,3 @@ class ProductsController extends Controller
     }
 
 }
-
