@@ -52,7 +52,7 @@ Route::middleware(['logged'])->group(function () {
     Route::put('products/update-presentation/{id}', [PresentationsController::class, 'update'])->name('products.update.presentation');
     Route::delete('products/destroy-presentation/{id}', [PresentationsController::class, 'delete'])->name('products.delete.presentation');
 
-    Route::put('products/update-presentation/price', [PresentationsController::class, 'updatePrice'])->name('products.update.presentation.price');
+    Route::put('products/update-presentation/price/{id}', [PresentationsController::class, 'updatePrice'])->name('products.update.presentation.price');
 
     Route::get('users/', [UserController::class, 'getAllUsers'])->name('users.index');
     Route::post('users/', [UserController::class, 'store'])->name('users.store');
