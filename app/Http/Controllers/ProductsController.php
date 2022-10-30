@@ -112,6 +112,11 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //return json_encode( $request->tags);
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer ' . session('token')
+        ];
+
         if (isset($request->avatar)) {
             $imageContent = Utils::tryFopen($request->avatar->getRealPath(), 'r');
             $filename = $request->avatar->getRealPath();
@@ -119,10 +124,7 @@ class ProductsController extends Controller
             $imageContent = "";
             $filename = "";
         }
-        $client = new Client();
-        $headers = [
-            'Authorization' => 'Bearer ' . session('token')
-        ];
+        
         $options = [
             'multipart' => [
                 [
@@ -236,7 +238,7 @@ class ProductsController extends Controller
         }
         $tat["form_params"] = array_merge($tata);
         $a = $tat;
-        
+
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/products', $headers);
         try {
             $response = $client->send($request, $a);
