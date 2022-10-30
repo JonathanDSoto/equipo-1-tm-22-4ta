@@ -51,7 +51,17 @@ class ProductsController extends Controller
             $response = $client->sendAsync($request)->wait();
             $product = json_decode($response->getBody()->getContents());
             $product = $product->data;
-            return view('products.details',compact('product'));
+
+            $brand_controller = new BrandsController;
+            $brands = $brand_controller->getAllBrands();
+
+            $tag_controller = new TagsController;
+            $tags = $tag_controller->getAllTags();
+
+            $category_controller = new CategoriesController;
+            $categories = $category_controller->getAllCategories();
+
+            return view('products.details',compact('products', 'tags', 'categories', 'brands'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
