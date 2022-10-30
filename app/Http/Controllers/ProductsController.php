@@ -168,7 +168,7 @@ class ProductsController extends Controller
 
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/products', $headers);
         try {
-            $response = $client->send($request, $options);
+            $response = $client->send($request, $tata);
             $response = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
