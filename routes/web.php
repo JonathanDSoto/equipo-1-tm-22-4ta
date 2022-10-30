@@ -10,6 +10,7 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\CouponsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PresentationsController;
 use App\Http\Controllers\OrderController;
 
 /*
