@@ -4,7 +4,13 @@
 <head>
 
     @include('layouts.head')
-
+    <style>
+        .list-checkbox {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,41 +33,19 @@
                 <div class="col-lg-12">
                     <div class="card">
 
-                        <!-- Boton con el alert por error al iniciar sesion -->
-                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                            - El registro no se pudo completar, el producto no se pudo actualizar
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <!-- Success Alert -->
-                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Producto actualizado
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-
-                        <!-- Boton con el alert por error al iniciar sesion -->
-                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                            - El registro no se pudo completar, la presentación no se pudo actualizar
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <!-- Success Alert -->
-                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Presentación actualizada
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-
-                        <!-- Boton con el alert por error al iniciar sesion -->
-                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                            - El registro no se pudo completar, la presentación no se pudo añadir
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <!-- Success Alert -->
-                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                            <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Presentación añadida
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        @if (session('success'))
+                            <!-- Success Alert -->
+                            <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @elseif (session('error'))
+                            <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                - Los datos no se pudieron actualizar, datos incorrectos
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
 
                         <div class="card-body">
                             <div class="row gx-lg-5">
@@ -70,7 +54,7 @@
                                         <div class="product-thumbnail-slider p-2 rounded bg-light">
                                             <div>
                                                 <div>
-                                                    <img src="{{asset('images/products/img-8.png')}}" alt="" class="img-fluid d-block" />
+                                                    <img src="{{$product->cover}}" alt="" class="img-fluid d-block" />
                                                 </div>
                                             </div>
                                         </div>
@@ -83,13 +67,15 @@
                                     <div class="mt-xl-0 mt-5">
                                         <div class="d-flex">
                                             <div class="flex-grow-1">
-                                                <h4>Comedor Miguel con 4 Sillas</h4>
+                                                <h4>{{$product->name}}</h4>
                                                 <div class="hstack gap-3 flex-wrap">
-                                                    <div class="text-muted">Slug: <span class="text-body fw-medium">comedor-miguel-con-4-sillas</span></div>
+                                                    <div class="text-muted">Slug: <span class="text-body fw-medium">{{$product->slug}}</span></div>
                                                     <div class="vr"></div>
-                                                    <div class="text-muted">Marca: <span class="text-body fw-medium">Zoetic Fashion</span></div>
+                                                    <div class="text-muted">Marca: <span class="text-body fw-medium">{{$product->brand->name}}</span></div>
                                                     <div class="vr"></div>
-                                                    <div class="text-muted">Categorias: <span class="text-body fw-medium">Hogar y Muebles</span></div>
+                                                    <div class="text-muted">Categorias: @foreach ($product->categories as $category)
+                                                        <span class="fw-medium badge text-bg-primary">{{$category->name}}</span>
+                                                    @endforeach</div>
                                                 </div>
                                             </div>
                                             <!-- Boton editar -->
@@ -106,13 +92,15 @@
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form action="javascript:void(0);">
+                                                                    <form action="{{route('products.update', $product->id)}}" method="POST">
+                                                                        @method('put')
+                                                                        @csrf
                                                                         <div class="row g-3">
 
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Nombre del producto</label>
-                                                                                    <input type="email" class="form-control" placeholder="Nombre del producto">
+                                                                                    <input type="text" name="name" class="form-control" placeholder="Nombre del producto" value="{{$product->name}}">
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -120,7 +108,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Descripción</label>
-                                                                                    <input type="text" class="form-control" placeholder="Descripción">
+                                                                                    <input type="text" name="description" class="form-control" placeholder="Descripción" value="{{$product->description}}">
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -128,7 +116,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Slug</label>
-                                                                                    <input type="text" class="form-control" placeholder="Slug">
+                                                                                    <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$product->slug}}">
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -136,7 +124,11 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Marca</label>
-                                                                                    <input type="text" class="form-control" placeholder="Marca">
+                                                                                    <select class="form-select" id="inputGroupSelect01" name="brand_id" >
+                                                                                        @foreach ($brands as $brand)
+                                                                                            <option {{( $product->brand_id == $brand->id) ? 'selected' : '' }} value="{{$brand->id}}">{{$brand->name}}</option>
+                                                                                        @endforeach
+                                                                                    </select>                                                                                
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -144,55 +136,39 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Características</label>
-                                                                                    <input type="text" class="form-control" placeholder="Características">
+                                                                                    <input type="text" name="features" class="form-control" placeholder="Características" value="{{$product->features}}">
                                                                                 </div>
                                                                             </div>
-
-                                                                            <div class="col-xxl-6">
-                                                                                <label for="formFile" class="form-label">Imagen del producto</label>
-                                                                                <input name="cover" type="file" class="form-control">
-                                                                            </div>
-
                                                                             <!-- Base Example -->
                                                                             <label for="formFile" class="form-label">Categorías</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                                <label class="form-check-label" for="formCheck1">
-                                                                                    Hogar y Muebles
-                                                                                </label>
-                                                                            </div>
-
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                                <label class="form-check-label" for="formCheck1">
-                                                                                    Línea blanca
-                                                                                </label>
+                                                                            <div class="list-checkbox">
+                                                                                @foreach ($categories as $category)
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" @foreach ($product->categories as $categoryy)
+                                                                                    {{( $category->id == $categoryy->id) ? 'checked' : '' }}
+                                                                                @endforeach name="categories[]" type="checkbox" id="formCheck2{{$category->id}}" value="{{$category->id}}">
+                                                                                    <label class="form-check-label" for="formCheck2{{$category->id}}">
+                                                                                        {{$category->name}}
+                                                                                    </label>
+                                                                                </div>
+                                                                                @endforeach
                                                                             </div>
 
                                                                             <!-- Base Example -->
                                                                             <label for="formFile" class="form-label">Tags</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                                <label class="form-check-label" for="formCheck1">
-                                                                                    Muebles
-                                                                                </label>
+                                                                            <div class="list-checkbox">
+                                                                                @foreach ($tags as $tag)
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" @foreach ($product->tags as $tagg)
+                                                                                            {{( $tag->id == $tagg->id) ? 'checked' : '' }}
+                                                                                        @endforeach  name="tags[]" value="{{$tag->id}}" type="checkbox" id="formCheck1{{$tag->id}}">
+                                                                                        <label class="form-check-label" for="formCheck1{{$tag->id}}">
+                                                                                            {{$tag->name}}
+                                                                                        </label>
+                                                                                    </div>
+                                                                                @endforeach
                                                                             </div>
-
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                                <label class="form-check-label" for="formCheck1">
-                                                                                    Hogar
-                                                                                </label>
-                                                                            </div>
-
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                                <label class="form-check-label" for="formCheck1">
-                                                                                    Baño
-                                                                                </label>
-                                                                            </div>
-
-
+                                                                            
                                                                             <div class="col-lg-12">
                                                                                 <div class="hstack gap-2 justify-content-end">
                                                                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -211,97 +187,17 @@
                                             </div>
                                         </div>
 
-                                        <!-- <div class="row mt-4">
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div class="p-2 border border-dashed rounded">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar-sm me-2">
-                                                            <div class="avatar-title rounded bg-transparent text-success fs-24">
-                                                                <i class="ri-money-dollar-circle-fill"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">Precio:</p>
-                                                            <h5 class="mb-0">$120.40</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        <!-- end col -->
-                                        <!-- <div class="col-lg-3 col-sm-6">
-                                                <div class="p-2 border border-dashed rounded">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar-sm me-2">
-                                                            <div class="avatar-title rounded bg-transparent text-success fs-24">
-                                                                <i class="ri-file-copy-2-fill"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">No. de ordenes:</p>
-                                                            <h5 class="mb-0">2,234</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        <!-- end col -->
-                                        <!-- <div class="col-lg-3 col-sm-6">
-                                                <div class="p-2 border border-dashed rounded">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar-sm me-2">
-                                                            <div class="avatar-title rounded bg-transparent text-success fs-24">
-                                                                <i class="ri-stack-fill"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">Nímero de stocks:</p>
-                                                            <h5 class="mb-0">1,230</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        <!-- end col -->
-                                        <!-- <div class="col-lg-3 col-sm-6">
-                                                <div class="p-2 border border-dashed rounded">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar-sm me-2">
-                                                            <div class="avatar-title rounded bg-transparent text-success fs-24">
-                                                                <i class="ri-inbox-archive-fill"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <p class="text-muted mb-1">Peso en gramos:</p>
-                                                            <h5 class="mb-0">645g</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        <!-- end col -->
-                                        <!-- </div> -->
-
                                         <div class="mt-4 text-muted">
                                             <h5 class="fs-14">Descripción:</h5>
-                                            <p>Tommy Hilfiger men striped pink sweatshirt. Crafted with cotton. Material composition is 100% organic cotton. This is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of classic American cool style, featuring preppy with a twist designs.</p>
+                                            <p>{{$product->description}}</p>
                                         </div>
-
                                         <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="mt-3">
-                                                    <h5 class="fs-14">Etiquetas :</h5>
-                                                    <ul class="list-unstyled">
-                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Muebles</li>
-                                                        <li class="py-1"><i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i> Hogar</li>
-                                                    </ul>
-                                                </div>
+                                            <h5 class="fs-14">Etiquetas :</h5>
+                                            <div class="list-checkbox">
+                                                @foreach ($product->tags as $tag)
+                                                    <p class="mdi mdi-circle-medium me-1 text-muted align-middle">{{$tag->name}}</p> 
+                                                @endforeach
                                             </div>
-                                            <!-- <div class="col-sm-6">
-                                                <div class="mt-3">
-                                                    <h5 class="fs-14">Services :</h5>
-                                                    <ul class="list-unstyled product-desc-list">
-                                                        <li class="py-1">10 Days Replacement</li>
-                                                        <li class="py-1">Cash on Delivery available</li>
-                                                    </ul>
-                                                </div>
-                                            </div> -->
                                         </div>
 
                                         <div class="product-content mt-5">

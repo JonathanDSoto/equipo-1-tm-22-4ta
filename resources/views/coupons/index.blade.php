@@ -31,7 +31,7 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
-                                        @if (session('success'))
+                                    @if (session('success'))
                                         <!-- Success Alert -->
                                         <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
                                             <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada 

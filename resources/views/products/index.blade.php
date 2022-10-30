@@ -29,17 +29,19 @@
                     <div>
                         <div class="card">
                             <div class="card-header border-0">
-                                <!-- Boton con el alert por error al iniciar sesion -->
-                                <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                                    <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                                    - El registro no se pudo completar, el producto no se pudo agregar
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <!-- Success Alert -->
-                                <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
-                                    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Producto agregado
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                                @if (session('success'))
+                                        <!-- Success Alert -->
+                                    <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                                    <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Actualización completada 
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @elseif (session('error'))
+                                    <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                                        <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                                        - Los datos no se pudieron actualizar, datos incorrectos
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
 
                                 <div class="row g-4">
 
@@ -57,47 +59,43 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('products.store')}}" method="POST" enctype='multipart/form-data'>
+                                                                @csrf
                                                                 <div class="row g-3">
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Nombre del producto</label>
-                                                                            <input type="email" class="form-control" placeholder="Nombre del producto">
+                                                                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del producto">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Descripción</label>
-                                                                            <input type="text" class="form-control" placeholder="Descripción">
+                                                                            <input type="text" name="description" class="form-control" placeholder="Descripción">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
-                                                                            <label class="form-label">Slug</label>
-                                                                            <input type="text" class="form-control" placeholder="Slug">
+                                                                            <label class="form-label ">Slug</label>
+                                                                            <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug">
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Características</label>
-                                                                            <input type="text" class="form-control" placeholder="Características">
+                                                                            <input type="text" name="features" class="form-control" placeholder="Características">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-xxl-6">
                                                                     <label for="exampleDataList" class="form-label">Marca</label>
                                                                         <div class="input-group">
-                                                                            <select class="form-select" id="inputGroupSelect01">
-                                                                                <!-- <option selected>Nivel...</option> -->
-                                                                                <option value="1">Marca 1</option>
-                                                                                <option value="2">Marca 2</option>
+                                                                            <select class="form-select" id="inputGroupSelect01" name="brand_id">
+                                                                                @foreach ($brands as $brand)
+                                                                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -105,55 +103,35 @@
 
                                                                     <div class="col-xxl-6">
                                                                         <label for="formFile" class="form-label">Imagen del producto</label>
-                                                                        <input name="cover" type="file" class="form-control">
+                                                                        <input accept=".jpeg,.bmp,.png,.jpg,.gif" name="avatar" type="file" class="form-control">
                                                                     </div>
 
                                                                     <!-- Base Example -->
                                                                     <label for="formFile" class="form-label">Categorías</label>
                                                                     <div class="list-checkbox">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Hogar y Muebles
-                                                                            </label>
-                                                                        </div>
-    
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Línea blanca
-                                                                            </label>
-                                                                        </div>
+                                                                        @foreach ($tags as $tag)
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" name="tags[]" value="{{$tag->id}}" type="checkbox" id="formCheck1{{$tag->id}}">
+                                                                                <label class="form-check-label" for="formCheck1{{$tag->id}}">
+                                                                                    {{$tag->name}}
+                                                                                </label>
+                                                                            </div>
+                                                                        @endforeach
                                                                     </div>
 
                                                                     <!-- Base Example -->
                                                                     <label for="formFile" class="form-label">Tags</label>
                                                                     <div class="list-checkbox">
+                                                                        @foreach ($categories as $category)
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" name="categories[]" type="checkbox" id="formCheck2{{$category->id}}" value="{{$category->id}}">
+                                                                            <label class="form-check-label" for="formCheck2{{$category->id}}">
+                                                                                {{$category->name}}
+                                                                            </label>
+                                                                        </div>
+                                                                        @endforeach
 
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Muebles
-                                                                            </label>
-                                                                        </div>
-    
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Hogar
-                                                                            </label>
-                                                                        </div>
-    
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Baño
-                                                                            </label>
-                                                                        </div>
                                                                     </div>
-
-
-
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
                                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -183,77 +161,61 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Producto</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Ordenes de este producto</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Características</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($products as $product)
+                                            
+                                       
                                         <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row">{{$product->id}}</th>
                                             <td data-column-id="product" class="">
                                                 <span>
                                                     <div class="d-flex align-items-center">
                                                         <div class="flex-shrink-0 me-3">
-                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{$product->cover}}" alt="" class="img-fluid d-block"></div>
                                                         </div>
                                                         <div class="flex-grow-1">
-                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
-                                                            <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                            <h5 class="fs-14 mb-1">{{$product->name}}</h5>
+                                                            <p class="text-muted mb-0">Tags: 
+                                                            @foreach ($product->tags as $tag)
+                                                                <span class="fw-medium badge text-bg-primary">{{$tag->name}}</span>
+                                                            @endforeach
+                                                            </p>
+                                                            <p class="text-muted mb-0">categories: 
+                                                            @foreach ($product->categories as $categories)
+                                                                <span class="fw-medium badge text-bg-info">{{$categories->name}}</span>
+                                                            @endforeach
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </span>
                                             </td>
-                                            <td>$ 8999.98 </td>
-                                            <td>50</td>
+                                            <td>{{$product->description}}</td>
+                                            <td>{{$product->features}}</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="" class="link-primary">
+                                                    <a href="{{route('products.details', $product->id)}}" class="link-primary">
                                                         <button type="button" class="btn btn-primary">
                                                             <i class="ri-eye-line"></i>
                                                         </button>
                                                     </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
+                                                    <form class="form-eliminar" action="{{route('products.delete', $product->id)}}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </button>
+                                                    </form>
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
                                             </td>
                                         </tr>
+                                        @endforeach
 
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td data-column-id="product" class="">
-                                                <span>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="flex-shrink-0 me-3">
-                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
-                                                            <p class="text-muted mb-0">Categoria : <span class="fw-medium">Hogar y Muebles</span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                            </td>
-                                            <td>$ 8999.98 </td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                    <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
-                                                </div>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -298,6 +260,45 @@
 
 
     @include('layouts.scripts')
+    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+    <script>
+
+    $(document).ready( function() {
+    $("#name").stringToSlug({
+        setEvents: 'keyup keydown blur',
+        getPut: '#slug',
+        space: '-'
+    });
+    });
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        //delete
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: "No podras revertir la accion!",
+                icon: 'warning',
+                showCancelButton: true, 
+                confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El registro ha sido eliminado.',
+                        'success'
+                        )
+                    this.submit();
+                    
+                }
+                
+            })
+        });
+    </script>
     <!-- data table -->
     <script>
         $('#dataTables-example').DataTable({
