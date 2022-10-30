@@ -207,15 +207,39 @@ class ProductsController extends Controller
                 'features' => $request->features,
                 'brand_id' => $request->brand_id,
                 'id' => $id,
-                'categories[0]' => '3',
-                'categories[1]' => '4',
-                'tags[0]' => '3',
-                'tags[1]' => '4'
+                // 'categories[0]' => '3',
+                // 'categories[1]' => '4',
+                // 'tags[0]' => '3',
+                // 'tags[1]' => '4'
             ]
         ];
+
+        $tata = ($options['multipart']);
+        //tags
+        if (isset($request->tags)) {
+            $coot = 0;
+            foreach ($request->tags as $key) {
+                $test = [['name' => 'tags[' . $coot . ']', 'contents' => $key]];
+                $coot++;
+                $tata = array_merge(($tata), ($test));
+            }
+        }
+        //categories
+        if (isset($request->categories)) {
+
+            $coot = 0;
+            foreach ($request->categories as $key) {
+                $test = [['name' => 'categories[' . $coot . ']', 'contents' => $key]];
+                $coot++;
+                $tata = array_merge(($tata), ($test));
+            }
+        }
+        $tat["multipart"] = array_merge($tata);
+        $a = $tat;
+
         $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/products', $headers);
         try {
-            $response = $client->send($request, $options);
+            $response = $client->send($request, $a);
             $response = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
