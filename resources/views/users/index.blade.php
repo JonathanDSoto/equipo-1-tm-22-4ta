@@ -70,14 +70,14 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" pattern="^[a-zA-Z\s]{2,254}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Apellidos</label>
-                                                                            <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Ingrese los apellidos" required>
+                                                                            <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Ingrese los apellidos" pattern="^[a-zA-Z\s]{2,254}" required>
                                                                         </div>
                                                                     </div>
 
@@ -101,7 +101,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="phoneNumber" class="form-label">Número celular</label>
-                                                                            <input type="text" name="phone_number" class="form-control" id="phoneNumber" placeholder="Ingrese el numero celular">
+                                                                            <input type="text" name="phone_number" class="form-control" id="phoneNumber" placeholder="Ingrese el numero celular" pattern="^[0-9]{1,9}">
                                                                         </div>
                                                                     </div>
 
