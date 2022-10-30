@@ -43,6 +43,21 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
 
+                                        <div class="d-flex justify-content-sm-start" style="gap: 50px;">
+                                            <div div class="col-xxl-2 col-md-6">
+                                                <label class="form-label">Filtrar prdenes desde el</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+
+                                            <div class="col-xxl-2 col-md-6">
+                                                <label class="form-label">Filtrar ordenes hasta el</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Aplicar</button>
+                                        </div>
+
+
                                         <div div class="d-flex justify-content-sm-end">
 
                                             <!-- Grids in modals -->
@@ -99,7 +114,7 @@
                                                                     <!--end col-->
 
                                                                     <div class="col-xxl-3 col-md-6">
-                                                                    <label for="exampleDataList" class="form-label">Producto</label>
+                                                                        <label for="exampleDataList" class="form-label">Producto</label>
                                                                         <div class="input-group">
                                                                             <select class="form-select" id="inputGroupSelect01">
                                                                                 <!-- <option selected>Nivel...</option> -->
@@ -110,77 +125,38 @@
                                                                     </div>
                                                                     <!--end col-->
 
-                                                                    <div class="col-xxl-3 col-md-6">
-                                                                    <label for="exampleDataList" class="form-label">Presentación</label>
-                                                                        <div class="input-group">
-                                                                            <select class="form-select" id="inputGroupSelect01">
-                                                                                <!-- <option selected>Nivel...</option> -->
-                                                                                <option value="1">Producto 1</option>
-                                                                                <option value="2">Producto 2</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--end col-->
-
-                                                                    <div class="col-xxl-3 col-md-6">
+                                                                    <!-- <div class="col-xxl-3 col-md-6">
                                                                         <div>
                                                                             <label for="placeholderInput" class="form-label">Cantidad</label>
                                                                             <input type="" class="form-control" id="placeholderInput" placeholder="3">
                                                                         </div>
+                                                                    </div> -->
+                                                                    <!--end col-->
+
+                                                                    <div class="col-xxl-3 col-md-6">
+                                                                        <div>
+                                                                            <label for="placeholderInput" class="form-label">Cupón</label>
+                                                                            <input type="" class="form-control" id="placeholderInput" placeholder="Cupón">
+                                                                        </div>
                                                                     </div>
                                                                     <!--end col-->
 
                                                                     <div class="col-xxl-3 col-md-6">
-                                                                        <label for="exampleDataList" class="form-label">Cupón</label>
-                                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Busca el cupón...">
-                                                                        <datalist id="datalistOptions">
-                                                                            <option value="Switzerland">
-                                                                            <option value="New York">
-                                                                            <option value="France">
-                                                                            <option value="Spain">
-                                                                            <option value="Chicago">
-                                                                            <option value="Bulgaria">
-                                                                            <option value="Hong Kong">
-                                                                        </datalist>
-                                                                    </div>
-                                                                    <!--end col-->
-
-                                                                    <div class="col-xxl-3 col-md-6">
-                                                                    <label for="exampleDataList" class="form-label">Método de pago</label>
+                                                                        <label for="exampleDataList" class="form-label">Método de pago</label>
                                                                         <div class="input-group">
                                                                             <select class="form-select" id="inputGroupSelect01">
                                                                                 <!-- <option selected>Nivel...</option> -->
-                                                                                <option value="1">Producto 1</option>
-                                                                                <option value="2">Producto 2</option>
+                                                                                <option value="1">metodo 1</option>
+                                                                                <option value="2">metodo 2</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
 
-                                                                    <!-- Base Example -->
-                                                                    <label for="formFile" class="form-label">Categorías</label>
-                                                                    <div class="list-checkbox">
-
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Hogar y Muebles
-                                                                            </label>
-                                                                        </div>
-
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="formCheck1">
-                                                                            <label class="form-check-label" for="formCheck1">
-                                                                                Línea blanca
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="col-xxl-3 col-md-6">
-                                                                        <div>
-                                                                            <label for="placeholderInput" class="form-label">Total</label>
-                                                                            <label>$ 1500</label>
-                                                                        </div>
+                                                                    <div class="col-lg-12">
+                                                                        <h3>
+                                                                            Total: $50000
+                                                                        </h3>
                                                                     </div>
                                                                     <!--end col-->
 
@@ -209,25 +185,25 @@
                                 <table id="dataTables-example" name="dataTables-example" class="display" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Producto</th>
-                                            <th scope="col">Imagen</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Presentación</th>
+                                            <th scope="col">Folio</th>
+                                            <th scope="col">Producto(s)</th>
+                                            <th scope="col">Nombre del cliente</th>
+                                            <th scope="col">Cantidad de productos</th>
+                                            <th scope="col">Estado de la orden</th>
+                                            <th scope="col">Total de la orden</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>A65165</td>
                                             <td>Producto 1</td>
                                             <td>
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                </div>
+                                                Armando Casas
                                             </td>
-                                            <td>$ 5000</td>
                                             <td>5</td>
-                                            <td>Presentación 1</td>
+                                            <td>Pagada</td>
+                                            <td>$ 5000</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <a href="{{ route('orders.detailOrder') }}" class="link-primary">
@@ -244,15 +220,14 @@
                                         </tr>
 
                                         <tr>
-                                            <td>Producto 2</td>
+                                            <td>C6515641</td>
+                                            <td>Producto 1, Producto 2, Producto 1, Producto 2</td>
                                             <td>
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                </div>
+                                                Armando Casas
                                             </td>
-                                            <td>$ 5000</td>
                                             <td>5</td>
-                                            <td>Presentación 2</td>
+                                            <td>Pagada</td>
+                                            <td>$ 5000</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
                                                     <a href="{{ route('orders.detailOrder') }}" class="link-primary">
@@ -266,7 +241,6 @@
                                                     <!-- <a href="javascript:void(0);" class="link-danger"><i class="ri-delete-bin-5-line"></i></a> -->
                                                 </div>
                                             </td>
-
                                         </tr>
 
                                     </tbody>

@@ -114,40 +114,70 @@
 
                             <div class="card-body">
                                 <!-- Tables Without Borders -->
-                                <table  id="dataTables-example" name="dataTables-example"  class="display" style="width:100%">
+                                <table id="dataTables-example" name="dataTables-example" class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th scope="col">Producto(s)</th>
-                                            <th scope="col">Imagen</th>
                                             <th scope="col">Precio</th>
                                             <th scope="col">Cantidad</th>
-                                            <th scope="col">Presentación</th>
-                                            <th scope="col"><a href="#">Más detalles</a></th>
+                                            <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Producto 1</td>
                                             <td>
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                </div>
+                                                <span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                            <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </span>
                                             </td>
                                             <td>$ 5000</td>
                                             <td>5</td>
-                                            <td>Presentación 1</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <a href="" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         </tr>
 
                                         <tr>
-                                            <td>Producto 2</td>
                                             <td>
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                </div>
+                                                <span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
+                                                            <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </span>
                                             </td>
                                             <td>$ 5000</td>
                                             <td>5</td>
-                                            <td>Presentación 1</td>
+                                            <td>
+                                                <div class="hstack gap-3 fs-15">
+                                                    <a href="" class="link-primary">
+                                                        <button type="button" class="btn btn-primary">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
 
                                         </tr>
 
@@ -263,7 +293,7 @@
     </div>
 
     <!-- End Page-content -->
-    
+
 
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
@@ -281,8 +311,8 @@
     </div>
 
     @include('layouts.scripts')
-        <!-- data table -->
-        <script>
+    <!-- data table -->
+    <script>
         $('#dataTables-example').DataTable({
             pageLength: 10,
             responsive: true,
