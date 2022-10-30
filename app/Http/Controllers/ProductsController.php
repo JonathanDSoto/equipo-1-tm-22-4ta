@@ -61,7 +61,7 @@ class ProductsController extends Controller
             $category_controller = new CategoriesController;
             $categories = $category_controller->getAllCategories();
 
-            return view('products.details',compact('products', 'tags', 'categories', 'brands'));
+            return view('products.details',compact('product', 'tags', 'categories', 'brands'));
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
