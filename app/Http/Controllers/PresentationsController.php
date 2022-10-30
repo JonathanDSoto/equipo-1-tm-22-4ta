@@ -62,24 +62,67 @@ class PresentationsController extends Controller
     public function store(Request $request){
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '. session('token'),
-            'Content-Type' => 'application/x-www-form-urlencoded'
+            'Authorization' => 'Bearer '. session('token')
         ];
+
+        if(isset($request->avatar)){
+            $imageContent = Utils::tryFopen($request->avatar->getRealPath(), 'r');
+            $filename = $request->avatar->getRealPath();
+        }else{
+            $imageContent = "";
+            $filename = "";
+        }
+
         $options = [
-            'form_params' => [
-                'description' => $request->description,
-                'code' => $request->code,
-                'weight_in_grams' => $request->weight_in_grams,
-                'status' => $request->status,
-                'stock' => $request->stock,
-                'stock_min' => $request->stock_min,
-                'stock_max' => $request->stock_max,
-                'product_id' => $request->product_id,
-                'id' => $request->id,
-                'amount' => $request->amount
+            'multipart' => [
+                [
+                    'name' => 'description',
+                    'contents' => $request->name
+                ],
+                [
+                    'name' => 'code',
+                    'contents' => $request->code,
+                ],
+                [
+                    'name' => 'weight_in_grams',
+                    'contents' => $request->weight_in_grams
+                ],
+                [
+                    'name' => 'status',
+                    'contents' => $request->status
+                ],
+                [
+                    'name' => 'cover',
+                    'contents' => $imageContent,
+                    'filename' => $filename,
+                    'headers'  => [
+                        'Content-Type' => '<Content-type header>'
+                    ]
+                ],
+                [
+                    'name' => 'stock',
+                    'contents' => $request->stock
+                ],
+                [
+                    'name' => 'stock_min',
+                    'contents' => $request->stock_min
+                ],
+                [
+                    'name' => 'stock_max',
+                    'contents' => $request->stock_max
+                ],
+                [
+                    'name' => 'product_id',
+                    'contents' => $request->product_id
+                ],
+                [
+                    'name' => 'amount',
+                    'contents' => $request->amount
+                ]
             ]
         ];
-        $request = new RequestGuzzle('PUT', 'https://crud.jonathansoto.mx/api/presentations', $headers);
+        $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/presentations', $headers);
+
         try {
             $response = $client->send($request, $options);
             $response = json_decode($response->getBody()->getContents());
@@ -96,8 +139,7 @@ class PresentationsController extends Controller
     }
 
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token'),
@@ -132,9 +174,22 @@ class PresentationsController extends Controller
 
     }
 
-    public function updatePrice(Request $request, $id)
-    {
-        //
+    public function updatePrice(Request $request){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token'),
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+        $options = [
+            'form_params' => [
+                'id' => $request->id,
+                'amount' => $request->amount
+            ]
+        ];
+        $request = new Request('PUT', 'https://crud.jonathansoto.mx/api/presentations/set_new_price', $headers);
+        $res = $client->sendAsync($request, $options)->wait();
+        echo $res->getBody();
+
     }
 
     public function delete($id)
