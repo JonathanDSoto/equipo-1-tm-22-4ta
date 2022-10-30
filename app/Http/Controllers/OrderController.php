@@ -59,7 +59,7 @@ class OrderController extends Controller
             //return view('index')->with("Error","Datos incorrectos");
         }
     }
-Q
+
     public function getSpecificOrderBetweenDates(Request $request){
         $client = new Client();
         $headers = [
@@ -188,7 +188,7 @@ Q
             $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
 
-            return redirect()->back()->with('success', 'true');
+            return redirect()->route('orders.index');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
