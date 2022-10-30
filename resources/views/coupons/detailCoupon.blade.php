@@ -60,13 +60,15 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('coupons.update', $coupon->id)}}" method="POST">
+                                                                @method('put')
+                                                                @csrf
                                                                 <div class="row g-3">
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Cupón</label>
-                                                                            <input type="text" class="form-control" id="firstName" placeholder="10% off" value="{{$coupon->name}}" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="10% off" value="{{$coupon->name}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -75,34 +77,34 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Código del cupón</label>
-                                                                            <input type="text" class="form-control" id="lastName" placeholder="10off">
+                                                                            <input type="text" name="code" class="form-control" id="lastName" placeholder="10off" value="{{$coupon->code}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Porcentaje a descontar</label>
-                                                                            <input type="text" class="form-control" placeholder="10">
+                                                                            <input type="text" name="porcentage_discount" class="form-control" placeholder="10" value="{{$coupon->percentage_discount}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Monto minimo requerido</label>
-                                                                            <input type="text" class="form-control" placeholder="200">
+                                                                            <input type="text" name="min_amount_required" class="form-control" placeholder="200" value="{{$coupon->min_amount_required}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Productos minimos requeridos</label>
-                                                                            <input type="text" class="form-control" placeholder="1">
+                                                                            <input type="text" name="min_product_required" class="form-control" placeholder="1" value="{{$coupon->min_product_required}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Usos máximos</label>
-                                                                            <input type="text" class="form-control" placeholder="30">
+                                                                            <input type="text" name="max_uses" class="form-control" placeholder="30" value="{{$coupon->max_uses}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -110,7 +112,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Válido desde el</label>
-                                                                            <input type="date" class="form-control">
+                                                                            <input type="date" name="start_date" class="form-control" value="{{$coupon->start_date}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -118,7 +120,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Válido hasta el</label>
-                                                                            <input type="date" class="form-control">
+                                                                            <input type="date" name="end_date" class="form-control" value="{{$coupon->end_date}}" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -127,11 +129,11 @@
                                                                         <div>
                                                                             <label class="form-label">Válido sólo en la primer compra</label>
                                                                             <div>
-                                                                                <input type="radio" id="si" name="primerCompra" value="si">
+                                                                                <input type="radio" id="si" name="valid_only_first_purchase" value="1" {{( $coupon->valid_only_first_purchase == 1) ? 'checked' : '' }}>
                                                                                 <label for="si">Sí</label>
                                                                             </div>
                                                                             <div>
-                                                                                <input type="radio" id="no" name="primerCompra" value="no">
+                                                                                <input type="radio" id="no" name="valid_only_first_purchase" value="0" {{( $coupon->valid_only_first_purchase == 0) ? 'checked' : '' }}>
                                                                                 <label for="no">No</label>
                                                                             </div>
                                                                         </div>
