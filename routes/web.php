@@ -99,6 +99,8 @@ Route::middleware(['logged'])->group(function () {
     Route::put('orders/{id}', [OrderController::class, 'update'])->name('orders.update');
     Route::delete('orders/{id}', [OrderController::class, 'delete'])->name('orders.delete');
 
+    Route::get('orders/{date1}/{date2}', [OrderController::class, 'getSpecificOrderBetweenDates'])->name('orders.index.date');
+
     // Route::get('orders/', function () {
     //     return view('orders.index');
     // })->name('orders.index');
