@@ -165,10 +165,12 @@ class ProductsController extends Controller
                 $tata = array_merge(($tata), ($test));
             }
         }
+        $tat["multipart"] = array_merge($tata);
+
 
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/products', $headers);
         try {
-            $response = $client->send($request, $tata);
+            $response = $client->send($request, $tat);
             $response = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
@@ -181,6 +183,13 @@ class ProductsController extends Controller
 
     }
 
+    public function update(Request $request){
+
+    }
+
+    public function delete($id){
+
+    }
 
 }
 
