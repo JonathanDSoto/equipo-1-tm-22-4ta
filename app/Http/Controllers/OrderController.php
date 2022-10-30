@@ -188,12 +188,12 @@ class OrderController extends Controller
             $response = $client->sendAsync($request)->wait();
             $user = json_decode($response->getBody()->getContents());
 
-            return redirect()->route('orders.index');
+            return redirect()->route('orders.index')->with('success', 'true');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
 
-            return redirect()->back()->with('error', 'true');
+            return redirect()->route('orders.index')->with('error', 'true');
         }
     }
 }
