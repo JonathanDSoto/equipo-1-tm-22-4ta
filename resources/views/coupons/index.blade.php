@@ -66,7 +66,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Cupón</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="10% off">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="10% off" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -75,34 +75,34 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Código del cupón</label>
-                                                                            <input type="text" name="code" class="form-control" id="lastName" placeholder="10off">
+                                                                            <input type="text" name="code" class="form-control" id="lastName" placeholder="10off"  onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Porcentaje a descontar</label>
-                                                                            <input type="text" name="porcentage_discount" class="form-control" placeholder="10">
+                                                                            <input type="text" name="porcentage_discount" class="form-control" placeholder="10" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Monto minimo requerido</label>
-                                                                            <input type="text" name="min_amount_required" class="form-control" placeholder="200">
+                                                                            <input type="text" name="min_amount_required" class="form-control" placeholder="200" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Productos minimos requeridos</label>
-                                                                            <input type="text" name="min_product_required" class="form-control" placeholder="1">
+                                                                            <input type="text" name="min_product_required" class="form-control" placeholder="1" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Usos máximos</label>
-                                                                            <input type="text" name="max_uses" class="form-control" placeholder="30">
+                                                                            <input type="text" name="max_uses" class="form-control" placeholder="30" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -239,7 +239,7 @@
     @include('layouts.scripts')
         <!-- data table -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+        <script src="public/js/app.js"></script>
         <script type="text/javascript">
             //delete
             $('.form-eliminar').submit(function(e){
