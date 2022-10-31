@@ -108,7 +108,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" placeholder="Descripción" value="{{$product->description}}" onkeypress="return soloLetras(event)" required>
+                                                                                    <input type="text" name="description" class="form-control" placeholder="Descripción" value="{{$product->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
