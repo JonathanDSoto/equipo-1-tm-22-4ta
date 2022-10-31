@@ -10,6 +10,24 @@ use Illuminate\Auth\RequestGuard;
 
 class ProductsController extends Controller
 {
+    public function getProducts(){
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/products', $headers);
+
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $products = json_decode($response->getBody()->getContents());
+            $products = $products->data;
+
+            return $products;
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+        }
+    }
     public function getAllProducts(){
         $client = new Client();
         $headers = [

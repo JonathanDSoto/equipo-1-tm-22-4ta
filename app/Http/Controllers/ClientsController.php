@@ -9,6 +9,27 @@ use Illuminate\Auth\RequestGuard;
 
 class ClientsController extends Controller
 {
+    public function getClients(){
+
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer '. session('token')
+        ];
+        $request = new RequestGuzzle('GET', 'https://crud.jonathansoto.mx/api/clients', $headers);
+
+        try {
+            $response = $client->sendAsync($request)->wait();
+            $clients = json_decode($response->getBody()->getContents());
+            $clients = $clients->data;
+
+            return $clients;
+
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            //return view('index')->with("Error","Datos incorrectos");
+        }
+    }
     public function getAllClients(){
 
         $client = new Client();

@@ -31,8 +31,14 @@ class OrderController extends Controller
             $response = $client->sendAsync($request)->wait();
             $orders = json_decode($response->getBody()->getContents());
             $orders = $orders->data;
+            $client_controller = new ClientsController;
+            $clients = $client_controller->getClients();
+            $coupon_controller = new CouponsController;
+            $coupons = $coupon_controller->getAllCoupons();
+            $product_controller = new ProductsController;
+            $products = $product_controller->getProducts();
 
-            return view('Orders.index',compact('orders'));
+            return view('Orders.index',compact('orders', 'clients', 'coupons', 'products'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -71,7 +77,14 @@ class OrderController extends Controller
             $orders = json_decode($response->getBody()->getContents());
             $orders = $orders->data;
 
-            return view('Orders.index',compact('orders'));
+            $client_controller = new ClientsController;
+            $clients = $client_controller->getClients();
+            $coupon_controller = new CouponsController;
+            $coupons = $coupon_controller->getAllCoupons();
+            $product_controller = new ProductsController;
+            $products = $product_controller->getProducts();
+
+            return view('Orders.index',compact('orders', 'clients', 'coupons', 'products'));
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
@@ -80,6 +93,8 @@ class OrderController extends Controller
     }
 
     public function store(Request $request){
+        //$stt = $request->cantidades;
+        //$test = explode(',', $stt) ;
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer '. session('token')
@@ -118,35 +133,39 @@ class OrderController extends Controller
                     'name' => 'coupon_id',
                     'contents' => $request->coupon_id
                 ],
-                [
-                    'name' => 'presentations[0][id]',
-                    'contents' => '1'
-                ],
-                [
-                    'name' => 'presentations[0][quantity]',
-                    'contents' => '2'
-                ],
-                [
-                    'name' => 'presentations[1][id]',
-                    'contents' => '2'
-                ],
-                [
-                    'name' => 'presentations[1][quantity]',
-                    'contents' => '2'
-                ]
             ]
         ];
+        $tata = ($options['multipart']);
+        if (isset($request->nombres) && isset($request->cantidades)){
+            $nombres = explode(', ',$request->nombres[0]);
+            $cantidades = explode(', ',$request->cantidades[0]);
+            $coot = 0;
+            foreach ($nombres as $key) {
+                $test = [['name' => 'presentations[' . $coot . '][id]', 'contents' => $key]];
+                $coot++;
+                $tata = array_merge(($tata), ($test));
+            }
+            $coot = 0;
+            foreach ($cantidades as $key) {
+                $test = [['name' => 'presentations[' . $coot . '][quantity]', 'contents' => $key]];
+                $coot++;
+                $tata = array_merge(($tata), ($test));
+            }
+        }
+        $tat["multipart"] = array_merge($tata);
 
+        $a = $tat;
+        //return $a;
         $request = new RequestGuzzle('POST', 'https://crud.jonathansoto.mx/api/orders', $headers);
         try {
-            $response = $client->send($request, $options);
+            $response = $client->send($request, $a);
             $response = json_decode($response->getBody()->getContents());
 
             return redirect()->back()->with('success', 'true');
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-
+            return $responseBodyAsString;
             return redirect()->back()->with('error', 'true');
         }
     }
@@ -196,5 +215,4 @@ class OrderController extends Controller
             return redirect()->route('orders.index')->with('error', 'true');
         }
     }
-
 }
