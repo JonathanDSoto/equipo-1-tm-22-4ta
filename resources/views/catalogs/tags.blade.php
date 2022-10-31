@@ -65,7 +65,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Etiqueta</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -74,13 +74,13 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción">
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Slug</label>
-                                                                            <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug">
+                                                                            <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -144,7 +144,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre Etiqueta</label>
-                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" value="{{$tag->name}}" required>
+                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" value="{{$tag->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -153,7 +153,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$tag->description}}" required>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$tag->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">
@@ -234,7 +234,7 @@
 
     @include('layouts.scripts')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="public/js/app.js"></script>
     <script type="text/javascript">
         //delete
         $('.form-eliminar').submit(function(e){

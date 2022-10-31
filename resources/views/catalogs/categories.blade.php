@@ -64,20 +64,20 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Categoría</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" required>
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Slug</label>
-                                                                            <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug" required readonly>
+                                                                            <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug" onkeypress="return soloLetras(event)" required readonly>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -138,20 +138,20 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre Categoría</label>
-                                                                                    <input type="text" name="name" class="form-control" id="nameEdit" placeholder="Ingrese el nombre de la categoría" value="{{$category->name}}" required>
+                                                                                    <input type="text" name="name" class="form-control" id="nameEdit" placeholder="Ingrese el nombre de la categoría" value="{{$category->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la descripción" value="{{$category->description}}" required>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la descripción" value="{{$category->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Slug</label>
-                                                                                    <input type="text" name="slug" id="slugEdit" class="form-control" placeholder="Slug" value="{{$category->slug}}" required>
+                                                                                    <input type="text" name="slug" id="slugEdit" class="form-control" placeholder="Slug" value="{{$category->slug}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -227,6 +227,7 @@
     @include('layouts.scripts')
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="public/js/app.js"></script>
 
     <script type="text/javascript">
         //delete

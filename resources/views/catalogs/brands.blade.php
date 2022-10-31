@@ -67,7 +67,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre de la marca</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -76,7 +76,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" required>
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
@@ -146,7 +146,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre de la marca</label>
-                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" value="{{$brand->name}}" required>
+                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" value="{{$brand->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -155,13 +155,13 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$brand->description}}" required>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$brand->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Slug</label>
-                                                                                    <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug" value="{{$brand->slug}}" required>
+                                                                                    <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug" value="{{$brand->slug}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -236,6 +236,7 @@
 
     @include('layouts.scripts')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="public/js/app.js"></script>
 
     <script type="text/javascript">
         //delete
