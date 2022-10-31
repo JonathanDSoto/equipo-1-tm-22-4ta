@@ -119,7 +119,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" value="{{$client->name}}">
+                                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" value="{{$client->name}}" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -136,7 +136,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$client->phone_number}}">
+                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)" value="{{$client->phone_number}}" required>
                                                                                                 </div>
                                                                                             </div>
 
@@ -177,7 +177,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="firstname" class="form-label">Nombre(s)</label>
-                                                                                                    <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre">
+                                                                                                    <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -185,7 +185,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                    <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos">
+                                                                                                    <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos" onkeypress="return soloLetras(event)" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -193,7 +193,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Calle y No. #</label>
-                                                                                                    <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No.">
+                                                                                                    <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No." onkeypress="return soloLetrasnumerosygato(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -201,7 +201,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Código postal</label>
-                                                                                                    <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal">
+                                                                                                    <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal" onkeypress="return solonumeros(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -209,7 +209,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Ciudad</label>
-                                                                                                    <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad">
+                                                                                                    <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad" onkeypress="return soloLetras(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -217,7 +217,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Estado</label>
-                                                                                                    <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado">
+                                                                                                    <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado" onkeypress="return soloLetras(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -225,7 +225,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <input type="hidden" name="is_billing_address" value="1">
@@ -320,7 +320,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="firstname" class="form-label">Nombre(s)</label>
-                                                                                            <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre" value="{{$address->first_name}}">
+                                                                                            <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" value="{{$address->first_name}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!--end col-->
@@ -328,7 +328,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="lastName" class="form-label">Apellidos</label>
-                                                                                            <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos" value="{{$address->last_name}}">
+                                                                                            <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos" onkeypress="return soloLetras(event)" value="{{$address->last_name}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!--end col-->
@@ -336,7 +336,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="lastName" class="form-label">Calle y No. #</label>
-                                                                                            <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No." value="{{$address->street_and_use_number}}">
+                                                                                            <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No." onkeypress="return soloLetrasnumerosygato(event)" value="{{$address->street_and_use_number}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!--end col-->
@@ -344,7 +344,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="lastName" class="form-label">Código postal</label>
-                                                                                            <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal" value="{{$address->postal_code}}">
+                                                                                            <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal" onkeypress="return solonumeros(event)" value="{{$address->postal_code}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!--end col-->
@@ -352,7 +352,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="lastName" class="form-label">Ciudad</label>
-                                                                                            <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad" value="{{$address->city}}">
+                                                                                            <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad" onkeypress="return soloLetras(event)" value="{{$address->city}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!--end col-->
@@ -360,7 +360,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="lastName" class="form-label">Estado</label>
-                                                                                            <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado" value="{{$address->province}}">
+                                                                                            <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado" onkeypress="return soloLetras(event)" value="{{$address->province}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <!--end col-->
@@ -368,7 +368,7 @@
                                                                                     <div class="col-xxl-6">
                                                                                         <div>
                                                                                             <label for="lastName" class="form-label">Número celular</label>
-                                                                                            <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$address->phone_number}}">
+                                                                                            <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)" value="{{$address->phone_number}}">
                                                                                         </div>
                                                                                     </div>
                                                                                     <input type="hidden" name="is_billing_address" value="1">
@@ -495,7 +495,7 @@
                                                 <tr>
                                                     <th scope="row">{{$order->id}}</th>
                                                     <th>{{$order->folio}}</th>
-                                                    <td>{{$client->name}} - {{$order->address->street_and_use_number}}</td>
+                                                    <td>{{$client->name}} - @if (isset($order->address->street_and_use_number)) {{$order->address->street_and_use_number}} @endif</td>
                                                     <td>{{$order->order_status->name}}</td>
                                                     <td>@foreach ($order->presentations as $presentation)
                                                         {{$presentation->description}} <br>
@@ -546,6 +546,7 @@
     @include('layouts.scripts')
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="public/js/app.js"></script>
 
     <script type="text/javascript">
         //delete

@@ -59,7 +59,7 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalgridClient">Formulario usuario</h5>
+                                                            <h5 class="modal-title" id="exampleModalgridClient">Formulario cliente</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -70,7 +70,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
+                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -78,7 +78,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************">
+                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" required>
                                                                         </div>
                                                                     </div>
 
@@ -87,7 +87,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Completo</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre completo">
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre completo" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -96,7 +96,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Número celular</label>
-                                                                            <input type="text" name="phone" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
+                                                                            <input type="text" name="phone" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)">
                                                                         </div>
                                                                     </div>
 
@@ -164,82 +164,7 @@
                                                             <button type="button" class="btn btn-primary">
                                                                 <i class="ri-eye-line"></i>
                                                             </button>
-                                                            <div class="modal fade modal-lg" id="exampleModalgridClient" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalgridClient">Formulario cliente</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form action="{{route('clientes.store')}}" method="POST">
-                                                                                @csrf
-                                                                                <div class="row g-3">
-                
-                                                                                    <div class="col-xxl-6">
-                                                                                        <div>
-                                                                                            <label for="emailInput" class="form-label">Correo</label>
-                                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!--end col-->
-                
-                                                                                    <div class="col-xxl-6">
-                                                                                        <div>
-                                                                                            <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************">
-                                                                                        </div>
-                                                                                    </div>
-                
-                                                                                    <!--end col-->
-                
-                                                                                    <div class="col-xxl-6">
-                                                                                        <div>
-                                                                                            <label for="firstName" class="form-label">Nombre Completo</label>
-                                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre completo">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!--end col-->
-                
-                
-                                                                                    <div class="col-xxl-6">
-                                                                                        <div>
-                                                                                            <label for="lastName" class="form-label">Número celular</label>
-                                                                                            <input type="text" name="phone" class="form-control" id="lastName" placeholder="Ingrese el numero celular">
-                                                                                        </div>
-                                                                                    </div>
-                
-                                                                                    <!-- Select -->
-                                                                                    <div class="input-group">
-                                                                                        <label class="input-group-text" for="inputGroupSelect01">Suscripción</label>
-                                                                                        <select class="form-select" name="level_id" id="inputGroupSelect01">
-                                                                                            <!-- <option selected>Nivel...</option> -->
-                                                                                            <option value="1">Normal</option>
-                                                                                            <option value="2">Premium</option>
-                                                                                            <option value="3">VIP</option>
-                                                                                        </select>
-                                                                                    </div>
-                
-                                                                                    <!--end col-->
-                                                                                    <!-- <div class="col-xxl-6">
-                                                                                        <label for="formFile" class="form-label">Imagen Avatar</label>
-                                                                                        <input name="cover" type="file" class="form-control">
-                                                                                    </div> -->
-                
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="hstack gap-2 justify-content-end">
-                                                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                                            <button type="submit" class="btn btn-success">Guardar</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!--end col-->
-                                                                                </div>
-                                                                                <!--end row-->
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            
                                                         </a>
                                                         <form class="form-eliminar" action="{{route('clientes.delete', $client->id)}}" method="post">
                                                             @method('delete')
@@ -301,6 +226,7 @@
     @include('layouts.scripts')
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="public/js/app.js"></script>
 
     <script type="text/javascript">
         //delete
