@@ -26,17 +26,19 @@
 
                 <div class="col-xl-12 col-lg-12">
 
-                    <!-- Boton con el alert por error al iniciar sesion -->
-                    <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
-                        <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
-                        - No se pudo actualizar la orden
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <!-- Success Alert -->
-                    <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
+                    @if (session('success'))
+                        <!-- Success Alert -->
+                        <div class="alert alert-success alert-border-left alert-dismissible fade shadow show" role="alert">
                         <i class="ri-checkbox-circle-line me-3 align-middle"></i> <strong>Éxito</strong> - Orden actualizada
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session('error'))
+                        <div class="alert alert-danger alert-border-left alert-dismissible fade shadow show mb-xl-2" role="alert">
+                            <i class="ri-error-warning-line me-3 align-middle"></i><strong>Error</strong>
+                            - No se pudo actualizar la orden
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
 
                     <div>
 
@@ -45,24 +47,8 @@
                                 <div class="row g-4">
 
                                     <div class="col-sm">
-
                                         <h1>
-                                            Estado de la orden: <span class="badge bg-danger">Cancelada</span>
-                                        </h1>
-                                        <h1>
-                                            Estado de la orden: <span class="badge bg-success">Pagada</span>
-                                        </h1>
-                                        <h1>
-                                            Estado de la orden: <span class="badge bg-success">Enviada</span>
-                                        </h1>
-                                        <h1>
-                                            Estado de la orden: <span class="badge bg-danger">Abandonada</span>
-                                        </h1>
-                                        <h1>
-                                            Estado de la orden: <span class="badge bg-warning">Pendiente de enviar</span>
-                                        </h1>
-                                        <h1>
-                                            Estado de la orden: <span class="badge bg-warning">Pendiente de pago</span>
+                                            Estado de la orden: <span class="badge bg-primary">{{$order->order_status->name}}</span>
                                         </h1>
 
                                         <div class="d-flex justify-content-sm-end">
@@ -79,16 +65,21 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="javascript:void(0);">
+                                                            <form action="{{route('orders.update', $order->id)}}" method="POST">
+                                                                @method('put')
+                                                                @csrf
                                                                 <div class="row g-3">
 
                                                                     <!-- Select -->
                                                                     <div class="input-group">
                                                                         <label class="input-group-text" for="inputGroupSelect01">Estado orden</label>
-                                                                        <select class="form-select" id="inputGroupSelect01">
-                                                                            <!-- <option selected>Nivel...</option> -->
-                                                                            <option value="1">Completado</option>
-                                                                            <option value="2">Pendiente de pago</option>
+                                                                        <select class="form-select" id="inputGroupSelect01" name="order_status_id">
+                                                                            <option @if ($order->order_status->id == 1) selected @endif value="1">Pendiente de pago</option>
+                                                                            <option @if ($order->order_status->id == 2) selected @endif value="2">Pagada</option>
+                                                                            <option @if ($order->order_status->id == 3) selected @endif value="3">Enviada</option>
+                                                                            <option @if ($order->order_status->id == 4) selected @endif value="4">Abandonado</option>
+                                                                            <option @if ($order->order_status->id == 5) selected @endif value="5">Pendiente de Enviar</option>
+                                                                            <option @if ($order->order_status->id == 6) selected @endif value="6">Cancelada</option>
                                                                         </select>
                                                                     </div>
                                                                     <!--end col-->
@@ -124,63 +115,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($order->presentations as $presentation)
                                         <tr>
                                             <td>
                                                 <span>
                                                     <div class="d-flex align-items-center">
                                                         <div class="flex-shrink-0 me-3">
-                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
+                                                            <div class="avatar-sm bg-light rounded p-1"><img src="https://crud.jonathansoto.mx/storage/products/{{$presentation->cover}}" alt="" class="img-fluid d-block"></div>
                                                         </div>
                                                         <div class="flex-grow-1">
-                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
-                                                            <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
-                                                            </p>
+                                                            <h5 class="fs-14 mb-1">{{$presentation->description}}</h5>
                                                         </div>
                                                     </div>
                                                 </span>
                                             </td>
-                                            <td>$ 5000</td>
-                                            <td>5</td>
+                                            <td>${{$presentation->current_price->amount}}</td>
+                                            <td>{{$presentation->pivot->quantity}}</td>
                                             <td>
                                                 <div class="hstack gap-3 fs-15">
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
+                                                    @if (isset($presentation->product->id))
+                                                        <a href="{{route('products.details', $presentation->product->id)}}" class="link-primary">
+                                                            <button type="button" class="btn btn-primary">
+                                                                <i class="ri-eye-line"></i>
+                                                            </button>
+                                                        </a>
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <td>
-                                                <span>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="flex-shrink-0 me-3">
-                                                            <div class="avatar-sm bg-light rounded p-1"><img src="{{asset('images/bardotTable.png')}}" alt="" class="img-fluid d-block"></div>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <h5 class="fs-14 mb-1">Comedor Miguel con 4 Sillas</h5>
-                                                            <p class="text-muted mb-0">Categoria: <span class="fw-medium">Hogar y Muebles</span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                            </td>
-                                            <td>$ 5000</td>
-                                            <td>5</td>
-                                            <td>
-                                                <div class="hstack gap-3 fs-15">
-                                                    <a href="" class="link-primary">
-                                                        <button type="button" class="btn btn-primary">
-                                                            <i class="ri-eye-line"></i>
-                                                        </button>
-                                                    </a>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -189,7 +152,7 @@
                             </div>
                             <div class="d-flex justify-content-sm-end">
                                 <h3>
-                                    Monto total: $10000
+                                    Monto total: ${{$order->total}}
                                 </h3>
                             </div>
                             <!-- end card body -->
@@ -214,65 +177,90 @@
                                     <tbody>
                                         <tr class="border-top">
                                             <th scope="row">Folio</th>
-                                            <td>12345</td>
+                                            <td>{{$order->folio}}</td>
                                         </tr>
                                         <tr class="border-top">
                                             <th scope="row">Datos del cliente</th>
+                                            
                                         </tr>
                                         <tr class="border-top">
                                             <th scope="row">Nombre del cliente</th>
-                                            <td>Juan Perez</td>
+                                            <td>@if (isset($order->client->name))
+                                                {{$order->client->name}}
+                                            @endif </td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Correo electrónico</th>
-                                            <td>jp@gmail.com</td>
+                                            <td>@if (isset($order->client->email))
+                                                {{$order->client->email}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Número de teléfono</th>
-                                            <td>6121286621</td>
+                                            <td>@if (isset($order->client->phone_number))
+                                                {{$order->client->phone_number}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Nivel</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->client->phone_number))
+                                                {{$order->client->level_id}}
+                                            @endif</td>
                                         </tr>
                                         <tr class="border-top">
                                             <th scope="row">Dirección</th>
                                         </tr>
                                         <tr class="border-top">
                                             <th scope="row">A nombre de</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->address->first_name))
+                                                {{$order->address->first_name}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Calle y número</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->address->street_and_use_number))
+                                                {{$order->address->street_and_use_number}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Código postal</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->address->postal_code))
+                                                {{$order->address->postal_code}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Estado</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->address->first_name))
+                                                {{$order->address->first_name}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Ciudad</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->address->city))
+                                                {{$order->address->city}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Número celular</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->address->phone_number))
+                                                {{$order->address->phone_number}}
+                                            @endif</td>
                                         </tr>
                                         <tr class="border-top">
                                             <th scope="row">Total de la orden</th>
-                                            <td>$ 5000</td>
+                                            <td>{{$order->total}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Cupón utilizado</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->coupon))
+                                                {{$order->coupon->code}}
+                                            @endif</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Estado de pago</th>
-                                            <td>$ 5000</td>
+                                            <td>@if (isset($order->order_status))
+                                                {{$order->order_status->name}}
+                                            @endif</td>
                                         </tr>
 
                                     </tbody>
