@@ -451,9 +451,19 @@
                                             </div>
 
                                         </div>
+                                        @php
+                                             $concat = 0;
+                                            @endphp
+                                                @foreach ($client->orders as $order)
+                                                    @php
+                                                        $concat = $concat + $order->total;
+                                                    @endphp
+                                                @endforeach
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="5000">0</span></h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="@isset($concat)
+                                                    {{$concat}}
+                                                @endisset">0</span></h4>
                                             </div>
 
                                         </div>
