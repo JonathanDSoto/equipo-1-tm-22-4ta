@@ -100,7 +100,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Nombre del producto</label>
-                                                                                    <input type="text" name="name" class="form-control" placeholder="Nombre del producto" maxlength="100" value="{{$product->name}}" onkeypress="return soloLetras(event)" required>
+                                                                                    <input type="text" name="name" class="form-control" placeholder="Nombre del producto" maxlength="100" value="{{$product->name}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
