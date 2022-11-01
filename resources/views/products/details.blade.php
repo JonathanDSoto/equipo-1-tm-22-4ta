@@ -274,7 +274,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Precio</label>
-                                                                            <input type="text" name="amount" class="form-control" placeholder="1000" maxlength="10" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" name="amount" class="form-control" placeholder="1000" maxlength="10" onkeypress="return solonumeroscondecimales(event)" required>
                                                                         </div>
                                                                     </div>
 
@@ -467,7 +467,7 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Precio nuevo</label>
-                                                                                                        <input type="text" name="amount" class="form-control" placeholder="10000" maxlength="10" value="@foreach($presentation->price as $price)@if($price->is_current_price==1){{$price->amount}}@endif @endforeach" onkeypress="return solonumeros(event)">
+                                                                                                        <input type="text" name="amount" class="form-control" placeholder="10000" maxlength="10" value="@foreach($presentation->price as $price)@if($price->is_current_price==1){{$price->amount}}@endif @endforeach" onkeypress="return solonumeroscondecimales(event)">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->

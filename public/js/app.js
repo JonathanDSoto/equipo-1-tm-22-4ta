@@ -142,3 +142,33 @@ function soloLetrascorreo(e)
             return false;
         }
 }
+function solonumeroscondecimales(e) 
+{
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toLowerCase();
+        numeros = " 1234567890.";
+        especiales = ")(/&%$#°?¿áéíóú";
+        letras = "abcdefghijklmnñopqrstuvwxyz";
+    
+        tecla_especial = false
+        for(var i in especiales) 
+        {
+            if(key == especiales[i]) 
+            {
+                tecla_especial = true;
+                break;
+            }
+        }
+        for(var i in letras) 
+        {
+            if(key == letras[i]) 
+            {
+                tecla_especial = true;
+                break;
+            }
+        }
+        if(numeros.indexOf(tecla) == -1 && !tecla_especial)
+        {
+            return false;
+        }
+}
