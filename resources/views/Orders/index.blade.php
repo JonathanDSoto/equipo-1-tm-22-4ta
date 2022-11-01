@@ -115,7 +115,7 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <div>
                                                                             <label for="placeholderInput" class="form-label">Folio</label>
-                                                                            <input type="text" class="form-control" id="placeholderInput" name="folio" placeholder="A55023422">
+                                                                            <input type="text" class="form-control" id="placeholderInput" name="folio" maxlength="15" placeholder="A55023422" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
