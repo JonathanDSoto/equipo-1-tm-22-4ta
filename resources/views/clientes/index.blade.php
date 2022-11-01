@@ -70,7 +70,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" required>
+                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -78,7 +78,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" required>
+                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" maxlength="25" required>
                                                                         </div>
                                                                     </div>
 
@@ -87,7 +87,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Completo</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre completo" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre completo" maxlength="50" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -96,7 +96,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Número celular</label>
-                                                                            <input type="text" name="phone" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)">
+                                                                            <input type="text" name="phone" class="form-control" id="lastName" placeholder="Ingrese el numero celular" maxlength="10" onkeypress="return solonumeros(event)">
                                                                         </div>
                                                                     </div>
 

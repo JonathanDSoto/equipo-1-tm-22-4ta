@@ -119,7 +119,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" value="{{$client->name}}" required>
+                                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre" maxlength="50" onkeypress="return soloLetras(event)" value="{{$client->name}}" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -127,7 +127,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="emailInput" class="form-label">Correo</label>
-                                                                                                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" value="{{$client->email}}">
+                                                                                                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" maxlength="50" value="{{$client->email}}" onkeypress="return soloLetrascorreo(event)" required>
                                                                                                 </div>
                                                                                             </div>
 
@@ -136,7 +136,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)" value="{{$client->phone_number}}" required>
+                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" maxlength="10" onkeypress="return solonumeros(event)" value="{{$client->phone_number}}" required>
                                                                                                 </div>
                                                                                             </div>
 
@@ -177,7 +177,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="firstname" class="form-label">Nombre(s)</label>
-                                                                                                    <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre" onkeypress="return soloLetras(event)" required>
+                                                                                                    <input type="text" name="first_name" class="form-control" id="firstname" placeholder="Ingrese el nombre" maxlength="50" onkeypress="return soloLetras(event)" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -185,7 +185,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                    <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos" onkeypress="return soloLetras(event)" required>
+                                                                                                    <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Ingrese los apellidos" maxlength="50" onkeypress="return soloLetras(event)" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -193,7 +193,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Calle y No. #</label>
-                                                                                                    <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No." onkeypress="return soloLetrasnumerosygato(event)">
+                                                                                                    <input type="text" name="street_and_use_number" class="form-control" id="lastName" placeholder="Ingrese la calle y su No." maxlength="50" onkeypress="return soloLetrasnumerosygato(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -201,7 +201,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Código postal</label>
-                                                                                                    <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal" onkeypress="return solonumeros(event)">
+                                                                                                    <input type="text" name="postal_code" class="form-control" id="lastName" placeholder="Ingrese el código postal" maxlength="5" onkeypress="return solonumeros(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -209,7 +209,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Ciudad</label>
-                                                                                                    <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad" onkeypress="return soloLetras(event)">
+                                                                                                    <input type="text" name="city" class="form-control" id="lastName" placeholder="Ingrese la ciudad" maxlength="25" onkeypress="return soloLetras(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -217,7 +217,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Estado</label>
-                                                                                                    <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado" onkeypress="return soloLetras(event)">
+                                                                                                    <input type="text" name="province" class="form-control" id="lastName" placeholder="Ingrese el estado" maxlength="25" onkeypress="return soloLetras(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <!--end col-->
@@ -225,7 +225,7 @@
                                                                                             <div class="col-xxl-6">
                                                                                                 <div>
                                                                                                     <label for="lastName" class="form-label">Número celular</label>
-                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" onkeypress="return solonumeros(event)">
+                                                                                                    <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" maxlength="10" onkeypress="return solonumeros(event)">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <input type="hidden" name="is_billing_address" value="1">

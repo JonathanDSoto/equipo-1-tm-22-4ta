@@ -124,7 +124,7 @@ function soloLetrascorreo(e)
 {
         key = e.keyCode || e.which;
         tecla = String.fromCharCode(key).toLowerCase();
-        letras = " abcdefghijklmnñopqrstuvwxyz1234567890_.@";
+        letras = "abcdefghijklmnñopqrstuvwxyz1234567890_.@";
         especiales = ")(/&%$°?¿áéíóú";
     
         tecla_especial = false
