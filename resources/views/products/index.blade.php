@@ -65,14 +65,14 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Nombre del producto</label>
-                                                                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del producto" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del producto" maxlength="100" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" placeholder="Descripción" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="description" class="form-control" placeholder="Descripción" maxlength="200" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -86,7 +86,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Características</label>
-                                                                            <input type="text" name="features" class="form-control" placeholder="Características" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                            <input type="text" name="features" class="form-control" placeholder="Características" maxlength="250" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">

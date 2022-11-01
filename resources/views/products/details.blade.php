@@ -100,7 +100,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Nombre del producto</label>
-                                                                                    <input type="text" name="name" class="form-control" placeholder="Nombre del producto" value="{{$product->name}}" onkeypress="return soloLetras(event)" required>
+                                                                                    <input type="text" name="name" class="form-control" placeholder="Nombre del producto" maxlength="100" value="{{$product->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -108,7 +108,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" placeholder="Descripción" value="{{$product->description}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                    <input type="text" name="description" class="form-control" placeholder="Descripción" maxlength="200" value="{{$product->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -136,7 +136,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label class="form-label">Características</label>
-                                                                                    <input type="text" name="features" class="form-control" placeholder="Características" value="{{$product->features}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                    <input type="text" name="features" class="form-control" placeholder="Características" maxlength="250" value="{{$product->features}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!-- Base Example -->
@@ -224,7 +224,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Código</label>
-                                                                            <input type="text" name="code" class="form-control" placeholder="comi01" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                            <input type="text" name="code" class="form-control" placeholder="comi01" maxlength="50" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -232,7 +232,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                            <input type="text" name="description" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever" maxlength="200" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -240,7 +240,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Peso en gramos</label>
-                                                                            <input type="text" name="weight_in_grams" class="form-control" placeholder="5000" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" name="weight_in_grams" class="form-control" placeholder="5000" maxlength="10" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -253,28 +253,28 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Stock</label>
-                                                                            <input type="text" name="stock" class="form-control" placeholder="10" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" name="stock" class="form-control" placeholder="10" maxlength="10" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Stock mínimo</label>
-                                                                            <input type="text" name="stock_min" class="form-control" placeholder="1" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" name="stock_min" class="form-control" placeholder="1" maxlength="1" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Stock máximo</label>
-                                                                            <input type="text" name="stock_max" class="form-control" placeholder="10" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" name="stock_max" class="form-control" placeholder="10" maxlength="10" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label class="form-label">Precio</label>
-                                                                            <input type="text" name="amount" class="form-control" placeholder="1000" onkeypress="return solonumeros(event)" required>
+                                                                            <input type="text" name="amount" class="form-control" placeholder="1000" maxlength="10" onkeypress="return solonumeros(event)" required>
                                                                         </div>
                                                                     </div>
 
@@ -386,7 +386,7 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Código</label>
-                                                                                                        <input type="text" name="code" class="form-control" placeholder="comi01" value="{{$presentation->code}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                                        <input type="text" name="code" class="form-control" placeholder="comi01" maxlength="25" value="{{$presentation->code}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
@@ -394,7 +394,7 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Descripción</label>
-                                                                                                        <input type="text" name="description" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever" value="{{$presentation->description}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                                        <input type="text" name="description" class="form-control" placeholder="hermosa playera de color azul de la marca 21 forever" maxlength="250" value="{{$presentation->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
@@ -402,7 +402,7 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Peso en gramos</label>
-                                                                                                        <input type="text" name="weight_in_grams" class="form-control" placeholder="5000" value="{{$presentation->weight_in_grams}}" onkeypress="return solonumeros(event)" required>
+                                                                                                        <input type="text" name="weight_in_grams" class="form-control" placeholder="5000" maxlength="10" value="{{$presentation->weight_in_grams}}" onkeypress="return solonumeros(event)" required>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
@@ -413,21 +413,21 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Stock</label>
-                                                                                                        <input type="text" name="stock" class="form-control" placeholder="10" value="{{$presentation->stock}}" onkeypress="return solonumeros(event)" required>
+                                                                                                        <input type="text" name="stock" class="form-control" placeholder="10" maxlength="10" value="{{$presentation->stock}}" onkeypress="return solonumeros(event)" required>
                                                                                                     </div>
                                                                                                 </div>
 
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Stock mínimo</label>
-                                                                                                        <input type="text" name="stock_min" class="form-control" placeholder="1" value="{{$presentation->stock_min}}" onkeypress="return solonumeros(event)" required>
+                                                                                                        <input type="text" name="stock_min" class="form-control" placeholder="1" maxlength="1" value="{{$presentation->stock_min}}" onkeypress="return solonumeros(event)" required>
                                                                                                     </div>
                                                                                                 </div>
 
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Stock máximo</label>
-                                                                                                        <input type="text" name="stock_max" class="form-control" placeholder="10" value="{{$presentation->stock_max}}" onkeypress="return solonumeros(event)" required>
+                                                                                                        <input type="text" name="stock_max" class="form-control" placeholder="10" maxlength="10" value="{{$presentation->stock_max}}" onkeypress="return solonumeros(event)" required>
                                                                                                     </div>
                                                                                                 </div>
 
@@ -467,7 +467,7 @@
                                                                                                 <div class="col-xxl-6">
                                                                                                     <div>
                                                                                                         <label class="form-label">Precio nuevo</label>
-                                                                                                        <input type="text" name="amount" class="form-control" placeholder="10000" value="@foreach($presentation->price as $price)@if($price->is_current_price==1){{$price->amount}}@endif @endforeach" onkeypress="return solonumeros(event)">
+                                                                                                        <input type="text" name="amount" class="form-control" placeholder="10000" maxlength="10" value="@foreach($presentation->price as $price)@if($price->is_current_price==1){{$price->amount}}@endif @endforeach" onkeypress="return solonumeros(event)">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
