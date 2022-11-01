@@ -92,7 +92,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="passwordInput" class="form-label">Contraseña</label>
-                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" required>
+                                                                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="************" maxlength="25" required>
                                                                         </div>
                                                                     </div>
 
