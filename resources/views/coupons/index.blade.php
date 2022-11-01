@@ -66,7 +66,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Cupón</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="10% off" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="10% off" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
