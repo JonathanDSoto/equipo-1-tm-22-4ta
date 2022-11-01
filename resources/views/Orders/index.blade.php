@@ -123,7 +123,7 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <div>
                                                                             <label for="placeholderInput" class="form-label">Clientes</label>
-                                                                            <select class="form-select" name="client_id" id="client_id" onchange="cargarPueblos();">
+                                                                            <select class="form-select" name="client_id" id="client_id" onchange="cargarPueblos();" required>
 
                                                                                 <option value="">Seleccione un cliente...</option>
                                                                             </select>
@@ -133,8 +133,8 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <div>
                                                                             <label for="placeholderInput" class="form-label">Cupón</label>
-                                                                            <select class="form-select" id="inputGroupSelect01" name="coupon_id">
-                                                                                <option selected disabled value="null">Seleccione un cupon</option>
+                                                                            <select class="form-select" id="inputGroupSelect01" name="coupon_id" required>
+                                                                                <option selected value="null">Seleccione un cupon</option>
                                                                                 @foreach ($coupons as $coupon)
                                                                                     @if ($coupon->max_uses >= $coupon->count_uses)                                                                                    
                                                                                         <option value="{{$coupon->id}}">{{$coupon->name}}</option>
@@ -147,7 +147,7 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <div>
                                                                             <label for="placeholderInput" class="form-label">Direccion</label>
-                                                                            <select class="form-select" name="address_id" id="pueblo">
+                                                                            <select class="form-select" name="address_id" id="pueblo" required>
                                                                                 <option value="">Seleccione un Pueblo...</option>
                                                                             </select>
                                                                         </div>
@@ -158,7 +158,7 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <label for="exampleDataList" class="form-label">Método de pago</label>
                                                                         <div class="input-group">
-                                                                            <select class="form-select" id="inputGroupSelect01" name="payment_type_id">
+                                                                            <select class="form-select" id="inputGroupSelect01" name="payment_type_id" required>
                                                                                 <!-- <option selected>Nivel...</option> -->
                                                                                 <option value="1">Efectivo</option>
                                                                                 <option value="2">Tarjeta</option>
@@ -169,7 +169,7 @@
                                                                     <div class="col-xxl-3 col-md-6">
                                                                         <label for="exampleDataList" class="form-label">Estado de orden</label>
                                                                         <div class="input-group">
-                                                                            <select class="form-select" id="inputGroupSelect01" name="order_status_id">
+                                                                            <select class="form-select" id="inputGroupSelect01" name="order_status_id" required>
                                                                                 <!-- <option selected>Nivel...</option> -->
                                                                                 <option value="1">Pendiente de pago</option>
                                                                                 <option value="2">Pagada</option>
@@ -202,8 +202,8 @@
                                                                             @endforeach
                                                                         </div>
                                                                     </div>
-                                                                    <input type="text" id="nombres" name="nombres[]" class="list" hidden>
-                                                                    <input type="text" id="vals" name="cantidades[]" class="list" hidden>
+                                                                    <input type="text" id="nombres" name="nombres[]" class="list" hidden required>
+                                                                    <input type="text" id="vals" name="cantidades[]" class="list" hidden required>
                                                                     <div class="col-lg-12">
                                                                         <div class="hstack gap-2 justify-content-end">
                                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
