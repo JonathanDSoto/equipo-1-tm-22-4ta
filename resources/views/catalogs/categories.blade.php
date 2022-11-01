@@ -64,14 +64,14 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Categoría</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la categoría" maxlength="50" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" maxlength="250" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
@@ -138,14 +138,14 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre Categoría</label>
-                                                                                    <input type="text" name="name" class="form-control" id="nameEdit" placeholder="Ingrese el nombre de la categoría" value="{{$category->name}}" onkeypress="return soloLetras(event)" required>
+                                                                                    <input type="text" name="name" class="form-control" id="nameEdit" placeholder="Ingrese el nombre de la categoría" maxlength="50" value="{{$category->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la descripción" value="{{$category->description}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la descripción" maxlength="250" value="{{$category->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">

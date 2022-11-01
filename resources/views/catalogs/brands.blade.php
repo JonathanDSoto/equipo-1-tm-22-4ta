@@ -67,7 +67,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre de la marca</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" maxlength="50" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -76,7 +76,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" maxlength="250" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
@@ -146,7 +146,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre de la marca</label>
-                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" value="{{$brand->name}}" onkeypress="return soloLetras(event)" required>
+                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la marca" maxlength="50" value="{{$brand->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -155,7 +155,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$brand->description}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" maxlength="250" value="{{$brand->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">

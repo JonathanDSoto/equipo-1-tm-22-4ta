@@ -65,7 +65,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="firstName" class="form-label">Nombre Etiqueta</label>
-                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" onkeypress="return soloLetras(event)" required>
+                                                                            <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" maxlength="50" onkeypress="return soloLetras(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
@@ -74,7 +74,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="lastName" class="form-label">Descripción</label>
-                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                            <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" maxlength="250" onkeypress="return soloLetrasynumeros(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xxl-6">
@@ -144,7 +144,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="firstName" class="form-label">Nombre Etiqueta</label>
-                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" value="{{$tag->name}}" onkeypress="return soloLetras(event)" required>
+                                                                                    <input type="text" name="name" class="form-control" id="firstName" placeholder="Ingrese el nombre de la etiqueta" maxlength="50" value="{{$tag->name}}" onkeypress="return soloLetras(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <!--end col-->
@@ -153,7 +153,7 @@
                                                                             <div class="col-xxl-6">
                                                                                 <div>
                                                                                     <label for="lastName" class="form-label">Descripción</label>
-                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" value="{{$tag->description}}" onkeypress="return soloLetrasynumeros(event)" required>
+                                                                                    <input type="text" name="description" class="form-control" id="lastName" placeholder="Ingrese la decripción" maxlength="250" value="{{$tag->description}}" onkeypress="return soloLetrasynumeros(event)" required>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xxl-6">
