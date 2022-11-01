@@ -69,7 +69,7 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Correo Electrónico</label>
-                                            <input type="text" name="email" class="form-control" id="username" placeholder="Ingrese correo electrónico">
+                                            <input type="email" name="email" class="form-control" id="username" placeholder="Ingrese correo electrónico">
                                         </div>
 
                                         <div class="mb-3">
