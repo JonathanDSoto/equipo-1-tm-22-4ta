@@ -85,7 +85,7 @@
                                                                     <div class="col-xxl-6">
                                                                         <div>
                                                                             <label for="emailInput" class="form-label">Correo</label>
-                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" required>
+                                                                            <input type="email" name="email" class="form-control" id="emailInput" placeholder="Ingrese correo electrónico" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->

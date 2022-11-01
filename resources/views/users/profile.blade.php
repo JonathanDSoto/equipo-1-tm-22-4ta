@@ -122,14 +122,14 @@
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="firstName" class="form-label">Nombre(s)</label>
-                                                                                                <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre" value="{{$user->name}}" onkeypress="return soloLetras(event)">
+                                                                                                <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre" value="{{$user->name}}" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                                                             </div>
                                                                                         </div>
                                                                                         <!--end col-->
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="lastName" class="form-label">Apellidos</label>
-                                                                                                <input type="text" name="lastname" class="form-control"  placeholder="Ingrese los apellidos" value="{{$user->lastname}}" onkeypress="return soloLetras(event)">
+                                                                                                <input type="text" name="lastname" class="form-control"  placeholder="Ingrese los apellidos" value="{{$user->lastname}}" maxlength="25" onkeypress="return soloLetras(event)" required>
                                                                                             </div>
                                                                                         </div>
 
@@ -137,7 +137,7 @@
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="emailInput" class="form-label">Correo</label>
-                                                                                                <input type="email" name="email" class="form-control"  placeholder="Ingrese correo electrónico" value="{{$user->email}}">
+                                                                                                <input type="email" name="email" class="form-control"  placeholder="Ingrese correo electrónico" value="{{$user->email}}" maxlength="50" onkeypress="return soloLetrascorreo(event)" required>
                                                                                             </div>
                                                                                         </div>
                                                                                         <!--end col-->
@@ -153,7 +153,7 @@
                                                                                         <div class="col-xxl-6">
                                                                                             <div>
                                                                                                 <label for="lastName" class="form-label">Número celular</label>
-                                                                                                <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$user->phone_number}}" onkeypress="return solonumeros(event)">
+                                                                                                <input type="text" name="phone_number" class="form-control" id="lastName" placeholder="Ingrese el numero celular" value="{{$user->phone_number}}" maxlength="10" onkeypress="return solonumeros(event)">
                                                                                             </div>
                                                                                         </div>
 
